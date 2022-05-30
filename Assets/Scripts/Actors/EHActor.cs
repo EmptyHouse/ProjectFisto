@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,17 @@ public class EHActor : MonoBehaviour
     private Vector2 Position;
     private Vector2 Scale;
     private float ZRotation;
+
+    protected Animator Anim;
+    
+    #region monobehaviour methods
+
+    protected void Awake()
+    {
+        Anim = GetComponent<Animator>();
+    }
+
+    #endregion monobehaviour methods
     
     #region getter/setter methods
 
