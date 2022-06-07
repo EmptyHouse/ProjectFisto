@@ -12,4 +12,9 @@ public class EHCharacter : EHActor
         base.Awake();
         Physics = GetComponent<EHPhysics2D>();
     }
+
+    public virtual void SetUpControllerInput(EHPlayerController PlayerController)
+    {
+        
+    }
 }

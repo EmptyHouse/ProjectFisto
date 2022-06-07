@@ -3,6 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+
+public enum EButtonEventType
+{
+    Button_Release,
+    Button_Pressed,
+}
 
 public class EHPlayerController : MonoBehaviour
 {
@@ -45,6 +52,56 @@ public class EHPlayerController : MonoBehaviour
     }
 
     #endregion monobehaivour methods
+
+    public void BindEventToButtonInput(string ButtonId, UnityAction ButtonAction, EButtonEventType EventType)
+    {
+        FButtonInput ButtonInput = null;
+        foreach (FButtonInput ButtonData in ButtonInputs)
+        {
+            if (ButtonData.ButtonId == ButtonId)
+            {
+                ButtonInput = ButtonData;
+                break;
+            }
+        }
+
+        if (ButtonInput == null)
+        {
+            Debug.LogWarning("Invalid ButtonId: " + ButtonId);
+            return;
+        }
+        
+        switch (EventType)
+        {
+            case EButtonEventType.Button_Pressed:
+                ButtonInput.OnButtonPressedDel += ButtonAction;
+                return;
+            case EButtonEventType.Button_Release:
+                ButtonInput.OnButtonReleaseDel += ButtonAction;
+                return;
+        }
+    }
+
+    public void BindEventToAxisInput(string AxisId, UnityAction<float> AxisAction)
+    {
+        FAxisInput AxisInput = null;
+        foreach (FAxisInput AxisData in AxisInputs)
+        {
+            if (AxisData.AxisId == AxisId)
+            {
+                AxisInput = AxisData;
+                break;
+            }
+        }
+
+        if (AxisInput == null)
+        {
+            Debug.LogWarning("Axis Id Was Invalid: " + AxisId);
+            return;
+        }
+
+        AxisInput.OnAxisChangedDel += AxisAction;
+    }
 
     private void UpdateButtonEvents()
     {
