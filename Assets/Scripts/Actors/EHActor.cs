@@ -9,11 +9,11 @@ public class EHActor : MonoBehaviour
     private Vector2 Scale;
     private float ZRotation;
 
-    protected Animator Anim;
+    public Animator Anim { get; private set; }
     
     #region monobehaviour methods
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         Anim = GetComponent<Animator>();
     }

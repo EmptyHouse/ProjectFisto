@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EHCharacter : MonoBehaviour
+public class EHCharacter : EHActor
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public EHPhysics2D Physics { get; private set; }
+    
 
-    // Update is called once per frame
-    void Update()
+    protected override void Awake()
     {
-        
+        base.Awake();
+        Physics = GetComponent<EHPhysics2D>();
     }
 }

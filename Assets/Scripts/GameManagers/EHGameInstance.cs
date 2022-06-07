@@ -7,6 +7,9 @@ public struct FWorldSettings
 {
     public EHGameMode GameMode;
     public EHGameState GameState;
+    public EHPlayerController PlayerController;
+    public EHPlayerState PlayerState;
+    public EHCharacter PlayerCharacter;
 }
 
 public class EHGameInstance : MonoBehaviour
@@ -32,9 +35,12 @@ public class EHGameInstance : MonoBehaviour
 
     public EHGameMode GameMode { get; private set; }
     public EHGameState GameState { get; private set; }
+    public EHBaseGameHUD GameHUD { get; private set; }
+    public EHPlayerState PlayerState { get; private set; }
+    public EHCharacter PlayerCharacter { get; private set; }
+    public EHPlayerController PlayerController { get; private set; }
     
     #region monobehaviour methods
-
     protected virtual void Awake()
     {
         if (instance)
@@ -54,6 +60,9 @@ public class EHGameInstance : MonoBehaviour
     {
         if (GameMode) Destroy(GameMode.gameObject);
         if (GameState) Destroy(GameState.gameObject);
+        if (PlayerController) Destroy(PlayerController.gameObject);
+        if (PlayerState) Destroy(PlayerState.gameObject);
+        if (PlayerCharacter) Destroy(PlayerCharacter.gameObject);
 
         if (WorldSettings.GameMode)
         {
@@ -63,6 +72,21 @@ public class EHGameInstance : MonoBehaviour
         if (WorldSettings.GameState)
         {
             GameState = Instantiate(WorldSettings.GameState, Vector3.zero, Quaternion.identity);
+        }
+
+        if (WorldSettings.PlayerState)
+        {
+            PlayerState = Instantiate(WorldSettings.PlayerState, Vector3.zero, Quaternion.identity);
+        }
+
+        if (WorldSettings.PlayerCharacter)
+        {
+            PlayerCharacter = Instantiate(WorldSettings.PlayerCharacter);
+        }
+
+        if (WorldSettings.PlayerController)
+        {
+            PlayerController = Instantiate(WorldSettings.PlayerController, Vector3.zero, Quaternion.identity);
         }
     }
 }
