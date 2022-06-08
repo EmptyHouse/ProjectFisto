@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace EmptyHouseGames.Library
 {
+
     public struct FBox2D
     {
         public Vector2 Origin
@@ -117,7 +118,6 @@ namespace EmptyHouseGames.Library
             UnityEditor.Handles.DrawSolidRectangleWithOutline(UnityRect, FillColor, DebugColor);
             #endif
         }
-
         #endregion debug methods
     }
 }

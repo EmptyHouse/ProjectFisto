@@ -95,6 +95,9 @@ GameObject:
   - component: {fileID: 1532578649705496924}
   - component: {fileID: 1532578649705496925}
   - component: {fileID: 1532578649705496922}
+  - component: {fileID: 791239365}
+  - component: {fileID: 791239367}
+  - component: {fileID: 791239366}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -144,3 +147,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseGravity: 1
   UseTerminalVelocity: 1
+--- !u!114 &791239365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532578649705496927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717f1e9e7ca88bb4e83ea32c4a7d10f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GroundAcceleration: 50
+  AirAcceleration: 10
+  WalkSpeed: 5
+  RunSpeed: 15
+  MaxDoubleJump: 1
+--- !u!114 &791239367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532578649705496927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da49f96ac11b17445bb39982c74e9c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColliderType: 2
+--- !u!95 &791239366
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532578649705496927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
