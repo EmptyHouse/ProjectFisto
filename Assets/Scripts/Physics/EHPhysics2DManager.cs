@@ -74,7 +74,11 @@ public class EHPhysics2DManager
 
     public void UpdatePhysicsLoop(float DeltaTime)
     {
-        
+        foreach (EHPhysics2D Rigid in PhysicsSet)
+        {
+            //Rigid.UpdateVelocityFromGravity();
+            Rigid.UpdatePositionBasedOnVelocity();
+        }
     }
 
     private struct CollisionNode : System.IComparable

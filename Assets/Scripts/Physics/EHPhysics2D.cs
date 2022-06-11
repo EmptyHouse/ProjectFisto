@@ -21,12 +21,15 @@ public class EHPhysics2D : EHActorComponent
     
     [SerializeField]
     private bool UseGravity = true;
+    
     [SerializeField]
     private bool UseTerminalVelocity = true;
+
+    [SerializeField] 
+    private float GravityScale = 1f;
     
     
     #region monobehaviour methods
-
     protected virtual void OnEnable()
     {
         EHGameMode GameMode = GetGameMode<EHGameMode>();
@@ -48,15 +51,19 @@ public class EHPhysics2D : EHActorComponent
     
     #region update methods
 
-    private void UpdatePositionBasedOnVelocity()
+    public void UpdateVelocityFromGravity()
     {
-        
+        Velocity += Vector2.down * GravityConstant * Time.deltaTime * GravityScale;
+    }
+
+    public void UpdatePositionBasedOnVelocity()
+    {
+        SetActorPosition(GetActorPosition() + Velocity * Time.fixedDeltaTime);
     }
     #endregion update methods
     
     
     #region getter/setter methods
-
     public void SetVelocity(Vector2 Velocity)
     {
         this.Velocity = Velocity;
