@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EHActorComponent : MonoBehaviour
 {
-    public EHActor OwningActor { get; private set; }
+    public EHActor OwningActor { get; protected set; }
 
     #region monobehaviuor methods
 
@@ -28,6 +28,10 @@ public class EHActorComponent : MonoBehaviour
     public void SetActorPosition(Vector2 Position) => OwningActor.SetPosition(Position);
     public void SetActorScale(Vector2 Scale) => OwningActor.SetScale(Scale);
     public void SetActorRotation(float ZRotation) => OwningActor.SetRotation(ZRotation);
+
+    public EHGameInstance GetGameInstance() => OwningActor.GetGameInstance();
+
+    public EHGameMode GetGameMode<T>() where T : EHGameMode => OwningActor.GetGameMode<T>();
 
     #endregion getter/setter functions
 }

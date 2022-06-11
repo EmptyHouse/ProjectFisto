@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EHPhysics2D : MonoBehaviour
+public class EHPhysics2D : EHActorComponent
 {
     #region const variables
 
@@ -26,9 +27,22 @@ public class EHPhysics2D : MonoBehaviour
     
     #region monobehaviour methods
 
-    private void FixedUpdate()
+    protected virtual void OnEnable()
     {
-        
+        EHGameMode GameMode = GetGameMode<EHGameMode>();
+        if (GameMode)
+        {
+            GameMode.PhysicsManager.AddPhysicsComponent(this);
+        }
+    }
+
+    protected void OnDisable()
+    {
+        EHGameMode GameMode = GetGameMode<EHGameMode>();
+        if (GameMode)
+        {
+            GameMode.PhysicsManager.RemovePhysicsComponent(this);
+        }
     }
     #endregion monobehaviour methods
     

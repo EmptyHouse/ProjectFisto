@@ -35,12 +35,35 @@ public class EHBoxCollider2D : EHActorComponent
     
     #region monobehaviour methods
 
+    protected virtual void OnEnable()
+    {
+        EHGameMode GameMode = GetGameMode<EHGameMode>();
+        if (GameMode)
+        {
+            GameMode.PhysicsManager.AddCollisionComponent(this);
+        }
+    }
+
+    protected virtual void OnDisable()
+    {
+        EHGameMode GameMode = GetGameMode<EHGameMode>();
+        if (GameMode)
+        {
+            GameMode.PhysicsManager.RemoveCollisionComponent(this);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (Application.isPlaying & ColliderType == EColliderType.Kinematic)
         {
             FBox2D.DebugDrawRect(PreviousBox, Color.red);
             FBox2D.DebugDrawRect(PhysicsSweepBox, Color.yellow);
+        }
+        else if (!Application.isPlaying)
+        {
+            if (!OwningActor) OwningActor = GetComponent<EHActor>();
+            UpdateCurrentBoxGeometry();
         }
         FBox2D.DebugDrawRect(CurrentBox, GetDebugColor());
     }
@@ -76,7 +99,7 @@ public class EHBoxCollider2D : EHActorComponent
     public void UpdateCurrentBoxGeometry()
     {
         Vector2 RectSize = BoxSize * GetActorScale();
-        Vector2 RectPosition = (IsCharacterCollider ? (Vector2.right * RectSize.x / 2f) : (RectSize / 2f));
+        Vector2 RectPosition = GetActorPosition() + BoxPosition - (IsCharacterCollider ? (Vector2.right * RectSize.x / 2f) : (RectSize / 2f));
         CurrentBox.Size = RectSize;
         CurrentBox.Origin = RectPosition;
     }

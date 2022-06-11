@@ -32,7 +32,7 @@ public class EHPhysics2DManager
         }
         if (!PhysicsSet.Add(PhysicsComponent))
         {
-            Debug.LogWarning("Physics Component already added: " + PhysicsComponent.name);
+            //Debug.LogWarning("Physics Component already added: " + PhysicsComponent.name);
         }
     }
 
@@ -45,7 +45,7 @@ public class EHPhysics2DManager
         }
         if (!PhysicsSet.Remove(PhysicsComponent))
         {
-            Debug.LogWarning("Physics component was not found: " + PhysicsComponent.name);
+            //Debug.LogWarning("Physics component was not found: " + PhysicsComponent.name);
         }
     }
 
@@ -53,7 +53,7 @@ public class EHPhysics2DManager
     {
         if (!ColliderComponentDictionary.ContainsKey(Collider2D.GetColliderType()))
         {
-            Debug.LogWarning("Collider Type not found");
+            //Debug.LogWarning("Collider Type not found");
             return;
         }
 
@@ -64,7 +64,7 @@ public class EHPhysics2DManager
     {
         if (ColliderComponentDictionary.ContainsKey(Collider2D.GetColliderType()))
         {
-            Debug.LogWarning("");
+           // Debug.LogWarning("");
             return;
         }
 
