@@ -9,10 +9,15 @@ public enum EColliderType
     Static,
     Moveable,
     Kinematic,
+    Trigger,
 }
 
-public class EHBoxCollider2D : MonoBehaviour
+public class EHBoxCollider2D : EHActorComponent
 {
+    #region const variables
+    private readonly Vector2 BufferBounds = Vector2.one * 0.02f;
+    #endregion const variables
+    
     [SerializeField]
     private bool IsTrigger;
     [SerializeField]
@@ -41,9 +46,39 @@ public class EHBoxCollider2D : MonoBehaviour
     }
 
     #endregion monobehaviour methods
-    public void UpdateBoxCollider()
+
+    public EColliderType GetColliderType() => ColliderType;
+
+    public void UpdateKinematicBoxCollider()
     {
+        // Update our previous box
+        PreviousBox = CurrentBox;
+        PreviousBox.Origin += BufferBounds;
+        PreviousBox.Size -= (2 * BufferBounds);
         
+        UpdateCurrentBoxGeometry();
+        
+        // Update our Sweep box
+        Vector2 MinBounds = new Vector2(Mathf.Min(CurrentBox.MinBounds.x, PreviousBox.MinBounds.x),
+            Mathf.Min(CurrentBox.MinBounds.y, PreviousBox.MinBounds.y));
+        Vector2 MaxBounds = new Vector2(Mathf.Max(CurrentBox.MaxBounds.x, PreviousBox.MaxBounds.x),
+            Mathf.Max(CurrentBox.MaxBounds.y, PreviousBox.MaxBounds.y));
+        PhysicsSweepBox = new FBox2D(MinBounds, MaxBounds - MinBounds);
+    }
+    
+    public void UpdateMoveableBoxCollider()
+    {
+        PreviousBox = CurrentBox;
+        
+        UpdateCurrentBoxGeometry();
+    }
+    
+    public void UpdateCurrentBoxGeometry()
+    {
+        Vector2 RectSize = BoxSize * GetActorScale();
+        Vector2 RectPosition = (IsCharacterCollider ? (Vector2.right * RectSize.x / 2f) : (RectSize / 2f));
+        CurrentBox.Size = RectSize;
+        CurrentBox.Origin = RectPosition;
     }
     
     #region debug functions
@@ -61,6 +96,8 @@ public class EHBoxCollider2D : MonoBehaviour
                 return new Color(.258f, .96f, .761f);
             case EColliderType.Kinematic:
                 return new Color(.761f, .256f, .96f);
+            case EColliderType.Trigger:
+                return new Color(.914f, .961f, .256f); 
         }
         return Color.green;
     }

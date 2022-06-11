@@ -14,8 +14,8 @@ namespace EmptyHouseGames.Library
             set
             {
                 origin = value;
-                MinBounds = value;
-                MaxBounds = value + size;
+                minBounds = value;
+                maxBounds = value + size;
             }
         }
 
@@ -25,70 +25,73 @@ namespace EmptyHouseGames.Library
             set
             {
                 size = value;
-                MaxBounds = origin + value;
+                maxBounds = origin + value;
             }
         }
+
+        public Vector2 MinBounds => minBounds;
+        public Vector2 MaxBounds => maxBounds;
         
         private Vector2 origin;
         private Vector2 size;
 
-        private Vector2 MinBounds;
-        private Vector2 MaxBounds;
+        private Vector2 minBounds;
+        private Vector2 maxBounds;
 
-        FBox2D(Vector2 Origin, Vector2 Size)
+        public FBox2D(Vector2 Origin, Vector2 Size)
         {
             origin = Origin;
             size = Size;
-            MinBounds = Origin;
-            MaxBounds = Origin + Size;
+            minBounds = Origin;
+            maxBounds = Origin + Size;
         }
 
         public bool IsOverlappingBox2D(FBox2D OtherBox)
         {
             
-            if (MinBounds.x >= OtherBox.MaxBounds.x || OtherBox.MinBounds.x >= MaxBounds.x) return false;
-            if (MinBounds.y >= OtherBox.MaxBounds.y || OtherBox.MinBounds.y >= MaxBounds.y) return false;
+            if (minBounds.x >= OtherBox.maxBounds.x || OtherBox.minBounds.x >= maxBounds.x) return false;
+            if (minBounds.y >= OtherBox.maxBounds.y || OtherBox.minBounds.y >= maxBounds.y) return false;
             return true;
         }
 
         public float GetShortestDistance(FBox2D OtherBox)
         {
-            bool Left = OtherBox.MaxBounds.x < MinBounds.x;
-            bool Right = MaxBounds.x < OtherBox.MinBounds.x;
-            bool Bottom = OtherBox.MaxBounds.y < MinBounds.y;
-            bool Top = MaxBounds.y < OtherBox.MinBounds.y;
+            bool Left = OtherBox.maxBounds.x < minBounds.x;
+            bool Right = maxBounds.x < OtherBox.minBounds.x;
+            bool Bottom = OtherBox.maxBounds.y < minBounds.y;
+            bool Top = maxBounds.y < OtherBox.minBounds.y;
             
             if (Top && Left)
             {
-                return Vector2.Distance(new Vector2(MinBounds.x, MaxBounds.y), new Vector2(OtherBox.MaxBounds.x, OtherBox.MinBounds.y));
+                return Vector2.Distance(new Vector2(minBounds.x, maxBounds.y), new Vector2(OtherBox.maxBounds.x, OtherBox.minBounds.y));
             }
             else if (Left && Bottom)
             {
-                return Vector2.Distance(MinBounds, OtherBox.MaxBounds);
+                return Vector2.Distance(minBounds, OtherBox.maxBounds);
             }
             else if (Bottom && Right)
             {
-                return Vector2.Distance(new Vector2(MaxBounds.x, MinBounds.y), new Vector2(OtherBox.MinBounds.x, OtherBox.MaxBounds.y));
+                return Vector2.Distance(new Vector2(maxBounds.x, minBounds.y), new Vector2(OtherBox.minBounds.x, OtherBox.maxBounds.y));
             }
             else if (Right && Top)
             {
-                return Vector2.Distance(MaxBounds, OtherBox.MinBounds);
+                return Vector2.Distance(maxBounds, OtherBox.minBounds);
             }
             else if (Left)
             {
-                return OtherBox.MaxBounds.x - MinBounds.x;
+                return OtherBox.maxBounds.x - minBounds.x;
             }
             else if (Right)
             {
-                return MaxBounds.x - OtherBox.MinBounds.x;
+                return maxBounds.x - OtherBox.minBounds.x;
             }
             else if (Bottom)
             {
-                return MinBounds.y - OtherBox.MaxBounds.y;
+                return minBounds.y - OtherBox.maxBounds.y;
             }
             else if (Top)
             {
-                return OtherBox.MinBounds.y - MaxBounds.y;
+                return OtherBox.minBounds.y - maxBounds.y;
             }
             return 0;
         }
@@ -97,7 +100,7 @@ namespace EmptyHouseGames.Library
         public override string ToString()
         {
             return
-                string.Format($"Rect: {origin}\nSize: {size}\nMinBounds: {MinBounds}\nMaxBounds: {MaxBounds}");
+                string.Format($"Rect: {origin}\nSize: {size}\nMinBounds: {minBounds}\nMaxBounds: {maxBounds}");
         }
         
         #region debug methods

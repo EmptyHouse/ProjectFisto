@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EHGameMode : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public EHPhysics2DManager PhysicsManager { get; private set; }
+    public EHHitboxManager HitboxManager { get; private set; }
+    
+    #region monobehaviour methods
+
+    protected virtual void Awake()
     {
-        
+        PhysicsManager = new EHPhysics2DManager();
+        HitboxManager = new EHHitboxManager();
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void FixedUpdate()
     {
-        
+        PhysicsManager.UpdatePhysicsLoop(Time.fixedTime);
     }
+
+    #endregion 
 }
