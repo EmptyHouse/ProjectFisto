@@ -46,6 +46,9 @@ public class EHBoxCollider2D : EHActorComponent
 
     protected virtual void OnDisable()
     {
+        EHGameInstance GameInstance = GetGameInstance();
+        if (!GameInstance) return;
+        
         EHGameMode GameMode = GetGameMode<EHGameMode>();
         if (GameMode)
         {

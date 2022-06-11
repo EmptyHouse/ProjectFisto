@@ -49,7 +49,6 @@ public class EHGameInstance : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-
         instance = this;
         InitializeGameManagers(WorldSettings);
         DontDestroyOnLoad(this.gameObject);
@@ -87,6 +86,12 @@ public class EHGameInstance : MonoBehaviour
         if (WorldSettings.PlayerController)
         {
             PlayerController = Instantiate(WorldSettings.PlayerController, Vector3.zero, Quaternion.identity);
+        }
+
+        if (PlayerState)
+        {
+            PlayerState.PossessPlayerCharacter(PlayerCharacter);
+            PlayerState.PossessPlayerController(PlayerController);
         }
     }
 }

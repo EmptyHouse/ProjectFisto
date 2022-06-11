@@ -18,6 +18,7 @@ public class EHCameraFollow : EHActor
         base.Awake();
         CameraComponent = GetComponent<Camera>();
         FollowTarget = transform.parent.GetComponent<EHActor>();
+        
         if (FollowTarget == null)
         {
             Debug.LogWarning("Follow Target was not set...");

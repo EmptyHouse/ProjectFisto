@@ -66,31 +66,44 @@ public class EHMovementComponent : EHCharacterComponent
 
     #endregion monobehaviour methods
 
-    public void SetDirectionalInput(Vector2 Input)
+    public void SetHorizontalInput(float Input)
     {
-        CurrentInput = Input;
+        CurrentInput.x = Input;
+    }
+
+    public void SetVerticalInput(float Input)
+    {
+        CurrentInput.y = Input;
     }
 
     private void UpdateMovementFromInput()
     {
-        
+        UpdateVelocityFromInput();
     }
 
     private void UpdateVelocityFromInput()
     {
-        float GoalSpeed = 0;
-        float Acceleration = 0;
-        float CurrentSpeed = Physics.Velocity.x;
+        float GoalSpeed;
+        float Acceleration;
+        float NewSpeed = Physics.Velocity.x;
 
         switch (MovementStance)
         {
             case EMovementStance.Standing:
-
+                Acceleration = GroundAcceleration;
+                if (Mathf.Abs(CurrentInput.x) > JoystickRunThreshold) GoalSpeed = Mathf.Sign(CurrentInput.x) * RunSpeed;
+                else if (Mathf.Abs(CurrentInput.x) > JoystickWalkThreshold) GoalSpeed = Mathf.Sign(CurrentInput.x) * WalkSpeed;
+                else GoalSpeed = 0;
+                NewSpeed = Mathf.MoveTowards(NewSpeed, GoalSpeed, Time.deltaTime * Acceleration);
                 break;
             case EMovementStance.InAir:
 
                 break;
         }
+
+        print(NewSpeed);
+        Physics.SetVelocity(new Vector2(NewSpeed, Physics.Velocity.y));
+
     }
     
     #region jumping mechanics

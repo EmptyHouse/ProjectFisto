@@ -41,6 +41,9 @@ public class EHPhysics2D : EHActorComponent
 
     protected void OnDisable()
     {
+        EHGameInstance GameInstance = GetGameInstance();
+        if (!GameInstance) return;
+        
         EHGameMode GameMode = GetGameMode<EHGameMode>();
         if (GameMode)
         {
@@ -51,14 +54,14 @@ public class EHPhysics2D : EHActorComponent
     
     #region update methods
 
-    public void UpdateVelocityFromGravity()
+    public void UpdateVelocityFromGravity(float DeltaTime)
     {
-        Velocity += Vector2.down * GravityConstant * Time.deltaTime * GravityScale;
+        Velocity += Vector2.down * GravityConstant * DeltaTime * GravityScale;
     }
 
-    public void UpdatePositionBasedOnVelocity()
+    public void UpdatePositionBasedOnVelocity(float DeltaTime)
     {
-        SetActorPosition(GetActorPosition() + Velocity * Time.fixedDeltaTime);
+        SetActorPosition(GetActorPosition() + Velocity * DeltaTime);
     }
     #endregion update methods
     

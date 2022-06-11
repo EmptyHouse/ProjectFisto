@@ -16,9 +16,9 @@ public class EHGameMode : MonoBehaviour
         HitboxManager = new EHHitboxManager();
     }
 
-    public virtual void FixedUpdate()
+    public virtual void Update()
     {
-        PhysicsManager.UpdatePhysicsLoop(Time.fixedTime);
+        PhysicsManager.UpdatePhysicsLoop(Time.deltaTime);
     }
 
     #endregion 

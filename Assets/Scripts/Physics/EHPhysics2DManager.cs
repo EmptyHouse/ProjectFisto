@@ -77,7 +77,7 @@ public class EHPhysics2DManager
         foreach (EHPhysics2D Rigid in PhysicsSet)
         {
             //Rigid.UpdateVelocityFromGravity();
-            Rigid.UpdatePositionBasedOnVelocity();
+            Rigid.UpdatePositionBasedOnVelocity(DeltaTime);
         }
     }
 

@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class EHPlayerCharacter : EHCharacter
 {
+    private EHMovementComponent MovementComponent;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        MovementComponent = GetComponent<EHMovementComponent>();
+    }
 
     #region override methods
     public override void SetUpControllerInput(EHPlayerController Controller)
@@ -20,12 +26,12 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputMoveHorizontal(float Value)
     {
-        
+        MovementComponent.SetHorizontalInput(Value);
     }
 
     private void InputMoveVertical(float Value)
     {
-        
+        MovementComponent.SetVerticalInput(Value);
     }
 
     private void InputJump()
