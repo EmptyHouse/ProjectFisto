@@ -19,21 +19,27 @@ public class EHBoxCollider2D : EHActorComponent
     #endregion const variables
     
     [SerializeField]
-    private bool IsTrigger;
+    private bool IsTrigger = false;
     [SerializeField]
-    private EColliderType ColliderType;
+    private EColliderType ColliderType = EColliderType.Static;
     [SerializeField, Tooltip("Size of our box collider")]
-    private Vector2 BoxSize;
+    private Vector2 BoxSize = Vector2.one;
     [SerializeField, Tooltip("The offset position of our box collider")]
-    private Vector2 BoxPosition;
+    private Vector2 BoxPosition = Vector2.zero;
     [SerializeField, Tooltip("Determines if this is a character collider. Meaning that it is anchored at the feet rather than centered")]
-    private bool IsCharacterCollider;
+    private bool IsCharacterCollider = false;
     
     protected FBox2D CurrentBox;
     protected FBox2D PreviousBox;
     protected FBox2D PhysicsSweepBox;
     
     #region monobehaviour methods
+
+    protected override void Awake()
+    {
+        base.Awake();
+        UpdateCurrentBoxGeometry();
+    }
 
     protected virtual void OnEnable()
     {
@@ -46,6 +52,7 @@ public class EHBoxCollider2D : EHActorComponent
 
     protected virtual void OnDisable()
     {
+        
         EHGameInstance GameInstance = GetGameInstance();
         if (!GameInstance) return;
         

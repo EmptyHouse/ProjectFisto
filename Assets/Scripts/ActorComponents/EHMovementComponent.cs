@@ -101,7 +101,6 @@ public class EHMovementComponent : EHCharacterComponent
                 break;
         }
 
-        print(NewSpeed);
         Physics.SetVelocity(new Vector2(NewSpeed, Physics.Velocity.y));
 
     }

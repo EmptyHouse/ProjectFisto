@@ -79,6 +79,15 @@ public class EHPhysics2DManager
             //Rigid.UpdateVelocityFromGravity();
             Rigid.UpdatePositionBasedOnVelocity(DeltaTime);
         }
+
+        foreach (EHBoxCollider2D MoveableCollider in ColliderComponentDictionary[EColliderType.Moveable])
+        {
+            MoveableCollider.UpdateMoveableBoxCollider();
+        }
+        foreach (EHBoxCollider2D PhysicsCollider in ColliderComponentDictionary[EColliderType.Kinematic])
+        {
+            PhysicsCollider.UpdateKinematicBoxCollider();
+        }
     }
 
     private struct CollisionNode : System.IComparable
