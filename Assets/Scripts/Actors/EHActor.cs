@@ -36,6 +36,11 @@ public class EHActor : MonoBehaviour
     {
         this.transform.localScale = new Vector3(Scale.x, Scale.y, 1);
     }
+
+    public void TranslatePosition(Vector2 OffsetPosition)
+    {
+        this.transform.Translate(OffsetPosition);
+    }
     
     public EHGameInstance GetGameInstance() => EHGameInstance.Instance;
     public T GetGameMode<T>() where T : EHGameMode => (T)EHGameInstance.Instance.GameMode;

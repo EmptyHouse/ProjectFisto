@@ -33,8 +33,16 @@ public class EHMovementComponent : EHCharacterComponent
     private float WalkSpeed = 5;
     [SerializeField]
     private float RunSpeed = 15;
+    
+    [Header("Jumping Values")]
     [SerializeField]
     private int MaxDoubleJump = 1;
+    [SerializeField]
+    private float TimeToReachApex = 1;
+    [SerializeField]
+    private float JumpHeightApex = 1.5f;
+    [HideInInspector, SerializeField] 
+    private float JumpVelocity;
 
     private EMovementStance MovementStance = EMovementStance.Standing;
     private EHPhysics2D Physics;
@@ -52,6 +60,17 @@ public class EHMovementComponent : EHCharacterComponent
     {
         base.Awake();
         Physics = GetComponent<EHPhysics2D>();
+    }
+
+    private void OnValidate()
+    {
+        if (TimeToReachApex != 0)
+        {
+            if (Physics == null) Physics = GetComponent<EHPhysics2D>();
+            
+            Physics.GravityScale = (2 * JumpHeightApex) / (EHPhysics2D.GravityConstant * Mathf.Pow(TimeToReachApex, 2));
+            JumpVelocity = 2 * JumpHeightApex / TimeToReachApex;
+        }
     }
 
     private void Update()
@@ -112,12 +131,26 @@ public class EHMovementComponent : EHCharacterComponent
         switch (MovementStance)
         {
             case EMovementStance.Standing:
-
+                Jump();
                 return;
             case EMovementStance.InAir:
-
+                if (DoubleJumpsUsed >= MaxDoubleJump)
+                {
+                    return;
+                }
+                Jump();
                 return;
         }
+    }
+
+    public void StopJump()
+    {
+        
+    }
+
+    public void Jump()
+    {
+        Physics.SetVelocity(new Vector2(Physics.Velocity.x, JumpVelocity));
     }
     #endregion jumping mechanics
 
@@ -135,7 +168,6 @@ public class EHMovementComponent : EHCharacterComponent
 
                 break;
         }
-
         Animator CharacterAnim = OwningCharacter.Anim;
         CharacterAnim.SetInteger(AnimMovementStance, (int)MovementStance);
     }

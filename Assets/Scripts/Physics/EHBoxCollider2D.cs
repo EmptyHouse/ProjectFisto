@@ -39,6 +39,7 @@ public class EHBoxCollider2D : EHActorComponent
     {
         base.Awake();
         UpdateCurrentBoxGeometry();
+        PreviousBox = CurrentBox;
     }
 
     protected virtual void OnEnable()
@@ -113,6 +114,47 @@ public class EHBoxCollider2D : EHActorComponent
         CurrentBox.Size = RectSize;
         CurrentBox.Origin = RectPosition;
     }
+    
+    #region collision checks
+
+    public bool CheckPhysicsColliderOverlapping(EHBoxCollider2D OtherCollider)
+    {
+        return PhysicsSweepBox.IsOverlappingBox2D(OtherCollider.CurrentBox);
+    }
+
+    public bool CheckColliderOverlapping(EHBoxCollider2D OtherCollider)
+    {
+        return CurrentBox.IsOverlappingBox2D(OtherCollider.CurrentBox);
+    }
+    #endregion collision checks
+    
+    #region collision functions
+
+    public bool PushOutCollider(EHBoxCollider2D OtherCollider)
+    {
+        Vector2 RightUpOffset = CurrentBox.MaxBounds - OtherCollider.CurrentBox.MinBounds;
+        Vector2 LeftBottomOffset = CurrentBox.MinBounds - OtherCollider.CurrentBox.MaxBounds;
+
+        if (PreviousBox.MaxBounds.y < OtherCollider.PreviousBox.MinBounds.y && RightUpOffset.y > 0)
+        {
+            OtherCollider.TranslateActorPosition(Vector2.up * RightUpOffset.y);
+        }
+        else if (PreviousBox.MaxBounds.x < OtherCollider.PreviousBox.MinBounds.x && RightUpOffset.x > 0)
+        {
+            OtherCollider.TranslateActorPosition(Vector2.right * RightUpOffset.x);
+        }
+        else if (PreviousBox.MinBounds.x > OtherCollider.PreviousBox.MaxBounds.x && LeftBottomOffset.x < 0)
+        {
+            OtherCollider.TranslateActorPosition(Vector2.right * LeftBottomOffset.x);
+        }
+        else if (PreviousBox.MinBounds.y > OtherCollider.PreviousBox.MaxBounds.y && LeftBottomOffset.y < 0)
+        {
+            OtherCollider.TranslateActorPosition(Vector2.up * LeftBottomOffset.y);
+        }
+
+        return true;
+    }
+    #endregion collision functions
     
     #region debug functions
     public Color GetDebugColor()

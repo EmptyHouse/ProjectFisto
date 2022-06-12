@@ -26,7 +26,7 @@ public class EHPhysics2D : EHActorComponent
     private bool UseTerminalVelocity = true;
 
     [SerializeField] 
-    private float GravityScale = 1f;
+    public float GravityScale = 1f;
     
     
     #region monobehaviour methods
@@ -87,4 +87,5 @@ public class EHPhysics2D : EHActorComponent
         this.GravityVector = GravityVector;
     }
     #endregion getter/setter methods
+    
 }

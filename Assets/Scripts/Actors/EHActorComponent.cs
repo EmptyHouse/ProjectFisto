@@ -24,6 +24,7 @@ public class EHActorComponent : MonoBehaviour
     public Vector2 GetActorPosition() => OwningActor.GetPosition();
     public Vector2 GetActorScale() => OwningActor.GetScale();
     public float GetActorRotation() => OwningActor.GetRotation();
+    public void TranslateActorPosition(Vector2 OffsetPosition) => OwningActor.TranslatePosition(OffsetPosition);
 
     public void SetActorPosition(Vector2 Position) => OwningActor.SetPosition(Position);
     public void SetActorScale(Vector2 Scale) => OwningActor.SetScale(Scale);

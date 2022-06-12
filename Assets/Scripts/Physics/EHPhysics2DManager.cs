@@ -19,6 +19,8 @@ public class EHPhysics2DManager
         ColliderComponentDictionary.Add(EColliderType.Moveable, new HashSet<EHBoxCollider2D>());
         ColliderComponentDictionary.Add(EColliderType.Kinematic, new HashSet<EHBoxCollider2D>());
         ColliderComponentDictionary.Add(EColliderType.Trigger, new HashSet<EHBoxCollider2D>());
+        
+        foreach (EHBoxCollider2D collider in GameObject.FindObjectsOfType<EHBoxCollider2D>()) AddCollisionComponent(collider);
     }
     
     #region adding/removing physics components
@@ -76,7 +78,7 @@ public class EHPhysics2DManager
     {
         foreach (EHPhysics2D Rigid in PhysicsSet)
         {
-            //Rigid.UpdateVelocityFromGravity();
+            Rigid.UpdateVelocityFromGravity(DeltaTime);
             Rigid.UpdatePositionBasedOnVelocity(DeltaTime);
         }
 
@@ -87,6 +89,23 @@ public class EHPhysics2DManager
         foreach (EHBoxCollider2D PhysicsCollider in ColliderComponentDictionary[EColliderType.Kinematic])
         {
             PhysicsCollider.UpdateKinematicBoxCollider();
+        }
+        UpdateKinematicColliders();
+    }
+
+    private void UpdateKinematicColliders()
+    {
+        foreach (EHBoxCollider2D PhysicsCollider in ColliderComponentDictionary[EColliderType.Kinematic])
+        {
+            foreach (EHBoxCollider2D StaticCollider in ColliderComponentDictionary[EColliderType.Static])
+            {
+                if (!Physics2D.GetIgnoreLayerCollision(PhysicsCollider.gameObject.layer, StaticCollider.gameObject.layer) 
+                    && PhysicsCollider.CheckPhysicsColliderOverlapping(StaticCollider))
+                {
+                    StaticCollider.PushOutCollider(PhysicsCollider);
+                    PhysicsCollider.UpdateCurrentBoxGeometry();
+                }
+            }
         }
     }
 

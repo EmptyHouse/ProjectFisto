@@ -36,12 +36,12 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputJump()
     {
-        
+        MovementComponent.AttemptJump();
     }
 
     private void InputStopJump()
     {
-        
+        MovementComponent.StopJump();
     }
 
     private void InputAttack()

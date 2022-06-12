@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseGravity: 1
   UseTerminalVelocity: 1
-  GravityScale: 1
+  GravityScale: 2.4489796
 --- !u!114 &791239365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,11 +161,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717f1e9e7ca88bb4e83ea32c4a7d10f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GroundAcceleration: 50
+  GroundAcceleration: 120
   AirAcceleration: 100
-  WalkSpeed: 5
-  RunSpeed: 15
+  WalkSpeed: 12
+  RunSpeed: 20
   MaxDoubleJump: 1
+  TimeToReachApex: 0.5
+  JumpHeightApex: 3
+  JumpVelocity: 12
 --- !u!114 &791239367
 MonoBehaviour:
   m_ObjectHideFlags: 0
