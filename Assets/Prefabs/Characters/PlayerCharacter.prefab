@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseGravity: 1
   UseTerminalVelocity: 1
-  GravityScale: 2.4489796
+  GravityScale: 7.9719386
 --- !u!114 &791239365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,9 +167,9 @@ MonoBehaviour:
   WalkSpeed: 12
   RunSpeed: 20
   MaxDoubleJump: 1
-  TimeToReachApex: 0.5
-  JumpHeightApex: 3
-  JumpVelocity: 12
+  TimeToReachApex: 0.32
+  JumpHeightApex: 4
+  JumpVelocity: 25
 --- !u!114 &791239367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9203666906878027472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: -10}
+  m_LocalPosition: {x: 0, y: 5.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -280,7 +280,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 12
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

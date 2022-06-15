@@ -15,11 +15,14 @@ public class EHMovementComponent : EHCharacterComponent
 {
     #region const variables
     // Input minimum before our character moves
-    private const float JoystickDeadzone = .25f;
+    private const float JoystickDeadzone = .15f;
     // Input Minimum before we register a walking movement
     private const float JoystickWalkThreshold = JoystickDeadzone;
     // Input minimum before we register a run movement
     private const float JoystickRunThreshold = .65f;
+
+    private readonly int Anim_HorizontalInput = Animator.StringToHash("HInput");
+    private readonly int Anim_VerticalInput = Animator.StringToHash("VInput");
 
     private readonly int AnimMovementStance = Animator.StringToHash("MovementStance");
     #endregion const variables
@@ -88,11 +91,13 @@ public class EHMovementComponent : EHCharacterComponent
     public void SetHorizontalInput(float Input)
     {
         CurrentInput.x = Input;
+        OwningActor.Anim.SetFloat(Anim_HorizontalInput, Mathf.Abs(Input));
     }
 
     public void SetVerticalInput(float Input)
     {
         CurrentInput.y = Input;
+        OwningActor.Anim.SetFloat(Anim_VerticalInput, Mathf.Abs(Input));
     }
 
     private void UpdateMovementFromInput()
