@@ -168,7 +168,7 @@ public class EHMovementComponent : EHCharacterComponent
 
                 break;
         }
-        Animator CharacterAnim = OwningCharacter.Anim;
+        EHAnimatorComponent CharacterAnim = OwningCharacter.Anim;
         CharacterAnim.SetInteger(AnimMovementStance, (int)MovementStance);
     }
 

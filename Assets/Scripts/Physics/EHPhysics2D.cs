@@ -11,7 +11,11 @@ public class EHPhysics2D : EHActorComponent
 
     #endregion const variables
     
-    public Vector2 Velocity { get; private set; }
+    public Vector2 Velocity { 
+        get => velocity;
+        private set => velocity = value;
+    }
+    private Vector2 velocity = Vector2.zero;
     
     public Vector2 GravityVector { get; private set; } = Vector2.down;
     public Vector2 GravityRight => new Vector2(-GravityVector.y, GravityVector.x);
@@ -87,5 +91,11 @@ public class EHPhysics2D : EHActorComponent
         this.GravityVector = GravityVector;
     }
     #endregion getter/setter methods
-    
+
+    public void OnCollisionEvent(Vector2 CollisionDirection)
+    {
+        if (CollisionDirection.y != 0) velocity.y = 0;
+        if (CollisionDirection.x != 0) velocity.x = 0;
+
+    }
 }

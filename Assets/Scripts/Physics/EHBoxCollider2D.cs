@@ -32,6 +32,7 @@ public class EHBoxCollider2D : EHActorComponent
     protected FBox2D CurrentBox;
     protected FBox2D PreviousBox;
     protected FBox2D PhysicsSweepBox;
+    public EHPhysics2D PhysicsComponent { get; private set; }
     
     #region monobehaviour methods
 
@@ -40,6 +41,7 @@ public class EHBoxCollider2D : EHActorComponent
         base.Awake();
         UpdateCurrentBoxGeometry();
         PreviousBox = CurrentBox;
+        if (ColliderType == EColliderType.Kinematic) PhysicsComponent = GetComponent<EHPhysics2D>();
     }
 
     protected virtual void OnEnable()
@@ -130,28 +132,30 @@ public class EHBoxCollider2D : EHActorComponent
     
     #region collision functions
 
-    public bool PushOutCollider(EHBoxCollider2D OtherCollider)
+    public bool PushOutCollider(EHBoxCollider2D OtherCollider, out Vector2 PushDirection)
     {
         Vector2 RightUpOffset = CurrentBox.MaxBounds - OtherCollider.CurrentBox.MinBounds;
         Vector2 LeftBottomOffset = CurrentBox.MinBounds - OtherCollider.CurrentBox.MaxBounds;
-
+        PushDirection = Vector2.zero;
         if (PreviousBox.MaxBounds.y < OtherCollider.PreviousBox.MinBounds.y && RightUpOffset.y > 0)
         {
-            OtherCollider.TranslateActorPosition(Vector2.up * RightUpOffset.y);
+            PushDirection = Vector2.up * RightUpOffset.y;
         }
         else if (PreviousBox.MaxBounds.x < OtherCollider.PreviousBox.MinBounds.x && RightUpOffset.x > 0)
         {
-            OtherCollider.TranslateActorPosition(Vector2.right * RightUpOffset.x);
+            PushDirection = Vector2.right * RightUpOffset.x;
         }
         else if (PreviousBox.MinBounds.x > OtherCollider.PreviousBox.MaxBounds.x && LeftBottomOffset.x < 0)
         {
-            OtherCollider.TranslateActorPosition(Vector2.right * LeftBottomOffset.x);
+            PushDirection = Vector2.right * LeftBottomOffset.x;
         }
         else if (PreviousBox.MinBounds.y > OtherCollider.PreviousBox.MaxBounds.y && LeftBottomOffset.y < 0)
         {
-            OtherCollider.TranslateActorPosition(Vector2.up * LeftBottomOffset.y);
+            PushDirection = Vector2.up * LeftBottomOffset.y;
         }
-
+        else return false;
+        
+        OtherCollider.TranslateActorPosition(PushDirection);
         return true;
     }
     #endregion collision functions

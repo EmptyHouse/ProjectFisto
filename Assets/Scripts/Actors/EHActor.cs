@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class EHActor : MonoBehaviour
 {
-    public Animator Anim { get; private set; }
+    public EHAnimatorComponent Anim { get; private set; }
     
     #region monobehaviour methods
 
     protected virtual void Awake()
     {
-        Anim = GetComponent<Animator>();
+        Anim = GetComponent<EHAnimatorComponent>();
     }
 
     #endregion monobehaviour methods
