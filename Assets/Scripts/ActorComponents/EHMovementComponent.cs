@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public enum EMovementStance
 {
@@ -23,8 +24,10 @@ public class EHMovementComponent : EHCharacterComponent
 
     private readonly int Anim_HorizontalInput = Animator.StringToHash("HInput");
     private readonly int Anim_VerticalInput = Animator.StringToHash("VInput");
+    private readonly int Anim_VerticalVelocity = Animator.StringToHash("VVelocity");
 
-    private readonly int AnimMovementStance = Animator.StringToHash("MovementStance");
+    private readonly int Anim_MovementStance = Animator.StringToHash("MovementStance");
+    private readonly int Anim_StanceChange = Animator.StringToHash("StanceChange");
     #endregion const variables
     [SerializeField]
     private bool IsRight = true;
@@ -80,11 +83,16 @@ public class EHMovementComponent : EHCharacterComponent
 
     private void Update()
     {
-        UpdateMovementFromInput();
         if (MovementStance != EMovementStance.InAir && Mathf.Abs(Physics.Velocity.y) > 0)
         {
-            
+            SetMovementStance(EMovementStance.InAir);
         }
+        else if (MovementStance == EMovementStance.InAir && Physics.Velocity.y == 0)
+        {
+            SetMovementStance(EMovementStance.Standing);
+        }
+        UpdateMovementFromInput();
+        
         PreviousInput = CurrentInput;
     }
 
@@ -131,7 +139,7 @@ public class EHMovementComponent : EHCharacterComponent
                 NewSpeed = Mathf.MoveTowards(NewSpeed, GoalSpeed, Time.deltaTime * Acceleration);
                 break;
             case EMovementStance.InAir:
-
+                OwningActor.Anim.SetFloat(Anim_VerticalVelocity, Physics.Velocity.y);
                 break;
         }
 
@@ -189,13 +197,16 @@ public class EHMovementComponent : EHCharacterComponent
         {
             case EMovementStance.Standing:
                 DoubleJumpsUsed = 0;
+                if (Mathf.Abs(CurrentInput.x) > 0)
+                    SetIsRight(CurrentInput.x > 0);
                 break;
             case EMovementStance.InAir:
-
+                
                 break;
         }
         EHAnimatorComponent CharacterAnim = OwningCharacter.Anim;
-        CharacterAnim.SetInteger(AnimMovementStance, (int)MovementStance);
+        CharacterAnim.SetTrigger(Anim_StanceChange);
+        CharacterAnim.SetInteger(Anim_MovementStance, (int)MovementStance);
     }
 
     private void EndMovementStance(EMovementStance PreviousMovementStance)

@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EHAnimatorComponent : EHActorComponent
@@ -21,7 +20,7 @@ public class EHAnimatorComponent : EHActorComponent
         if (BufferTimeMap.Count == 0) return;
         List<int> RemoveBuffers = new List<int>();
         
-        foreach (var BufferValue in BufferTimeMap.Keys)
+        foreach (var BufferValue in BufferTimeMap.Keys.ToList())
         {
             BufferTimeMap[BufferValue] -= Time.deltaTime;
             if (BufferTimeMap[BufferValue] <= 0)
@@ -44,7 +43,7 @@ public class EHAnimatorComponent : EHActorComponent
 
     public void SetInteger(int ParameterHash, int Value)
     {
-        Anim.SetFloat(ParameterHash, Value);
+        Anim.SetInteger(ParameterHash, Value);
     }
 
     public void SetBool(int ParameterHash, bool Value)
