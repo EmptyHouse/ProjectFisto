@@ -111,7 +111,10 @@ public class EHBoxCollider2D : EHActorComponent
     
     public void UpdateCurrentBoxGeometry()
     {
-        Vector2 RectSize = BoxSize * GetActorScale();
+        Vector2 ActorScale = GetActorScale();
+        // Convert scale to a positive value
+        ActorScale.x = Mathf.Abs(ActorScale.x);
+        Vector2 RectSize = BoxSize * ActorScale;
         Vector2 RectPosition = GetActorPosition() + BoxPosition - (IsCharacterCollider ? (Vector2.right * RectSize.x / 2f) : (RectSize / 2f));
         CurrentBox.Size = RectSize;
         CurrentBox.Origin = RectPosition;

@@ -26,7 +26,8 @@ public class EHMovementComponent : EHCharacterComponent
 
     private readonly int AnimMovementStance = Animator.StringToHash("MovementStance");
     #endregion const variables
-
+    [SerializeField]
+    private bool IsRight = true;
     [SerializeField] 
     private float GroundAcceleration = 50f;
     [SerializeField] 
@@ -74,6 +75,7 @@ public class EHMovementComponent : EHCharacterComponent
             Physics.GravityScale = (2 * JumpHeightApex) / (EHPhysics2D.GravityConstant * Mathf.Pow(TimeToReachApex, 2));
             JumpVelocity = 2 * JumpHeightApex / TimeToReachApex;
         }
+        SetIsRight(IsRight, true);
     }
 
     private void Update()
@@ -90,12 +92,20 @@ public class EHMovementComponent : EHCharacterComponent
 
     public void SetHorizontalInput(float Input)
     {
+        if (Mathf.Abs(Input) < JoystickDeadzone) 
+            Input = 0;
+        
         CurrentInput.x = Input;
         OwningActor.Anim.SetFloat(Anim_HorizontalInput, Mathf.Abs(Input));
+        
+        if (Input != 0) SetIsRight(Input > 0);
     }
 
     public void SetVerticalInput(float Input)
     {
+        if (Mathf.Abs(Input) < JoystickDeadzone) 
+            Input = 0;
+        
         CurrentInput.y = Input;
         OwningActor.Anim.SetFloat(Anim_VerticalInput, Mathf.Abs(Input));
     }
@@ -158,6 +168,17 @@ public class EHMovementComponent : EHCharacterComponent
         Physics.SetVelocity(new Vector2(Physics.Velocity.x, JumpVelocity));
     }
     #endregion jumping mechanics
+
+    public void SetIsRight(bool IsRight, bool ForceDirection = false)
+    {
+        if (this.IsRight == IsRight) return;
+
+        if (!ForceDirection && MovementStance == EMovementStance.InAir) return;
+        this.IsRight = IsRight;
+        Vector2 ActorScale = GetActorScale();
+        ActorScale.x = (IsRight ? 1 : -1) * Mathf.Abs(ActorScale.x);
+        SetActorScale(ActorScale);
+    }
 
     private void SetMovementStance(EMovementStance MovementStance)
     {
