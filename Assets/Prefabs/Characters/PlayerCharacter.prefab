@@ -162,10 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717f1e9e7ca88bb4e83ea32c4a7d10f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsRight: 1
   GroundAcceleration: 120
-  AirAcceleration: 100
+  AirAcceleration: 50
   WalkSpeed: 12
   RunSpeed: 20
+  MaxAirSpeed: 20
   MaxDoubleJump: 1
   TimeToReachApex: 0.32
   JumpHeightApex: 4

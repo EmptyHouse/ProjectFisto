@@ -37,9 +37,11 @@ public class EHMovementComponent : EHCharacterComponent
     private float AirAcceleration = 10f;
     
     [SerializeField]
-    private float WalkSpeed = 5;
+    private float WalkSpeed = 5f;
     [SerializeField]
-    private float RunSpeed = 15;
+    private float RunSpeed = 15f;
+    [SerializeField] 
+    private float MaxAirSpeed = 15f;
     
     [Header("Jumping Values")]
     [SerializeField]
@@ -120,13 +122,8 @@ public class EHMovementComponent : EHCharacterComponent
 
     private void UpdateMovementFromInput()
     {
-        UpdateVelocityFromInput();
-    }
-
-    private void UpdateVelocityFromInput()
-    {
-        float GoalSpeed;
-        float Acceleration;
+        float GoalSpeed = 0;
+        float Acceleration = 0;
         float NewSpeed = Physics.Velocity.x;
 
         switch (MovementStance)
@@ -136,17 +133,20 @@ public class EHMovementComponent : EHCharacterComponent
                 if (Mathf.Abs(CurrentInput.x) > JoystickRunThreshold) GoalSpeed = Mathf.Sign(CurrentInput.x) * RunSpeed;
                 else if (Mathf.Abs(CurrentInput.x) > JoystickWalkThreshold) GoalSpeed = Mathf.Sign(CurrentInput.x) * WalkSpeed;
                 else GoalSpeed = 0;
-                NewSpeed = Mathf.MoveTowards(NewSpeed, GoalSpeed, Time.deltaTime * Acceleration);
                 break;
             case EMovementStance.InAir:
                 OwningActor.Anim.SetFloat(Anim_VerticalVelocity, Physics.Velocity.y);
+                Acceleration = AirAcceleration;
+                if (CurrentInput.x > 0f) GoalSpeed = MaxAirSpeed;
+                else if (CurrentInput.x < 0f) GoalSpeed = -MaxAirSpeed;
+                else GoalSpeed = NewSpeed;
                 break;
         }
-
+        
+        NewSpeed = Mathf.MoveTowards(NewSpeed, GoalSpeed, Time.deltaTime * Acceleration);
         Physics.SetVelocity(new Vector2(NewSpeed, Physics.Velocity.y));
-
     }
-    
+
     #region jumping mechanics
 
     public void AttemptJump()
@@ -175,6 +175,8 @@ public class EHMovementComponent : EHCharacterComponent
     public void Jump()
     {
         Physics.SetVelocity(new Vector2(Physics.Velocity.x, JumpVelocity));
+        if (CurrentInput.x != 0f) 
+            SetIsRight(CurrentInput.x > 0, true);
     }
     #endregion jumping mechanics
 
