@@ -161,6 +161,7 @@ public class EHMovementComponent : EHCharacterComponent
                 {
                     return;
                 }
+                ++DoubleJumpsUsed;
                 Jump();
                 return;
         }
