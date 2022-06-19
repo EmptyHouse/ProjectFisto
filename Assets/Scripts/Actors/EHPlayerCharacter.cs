@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class EHPlayerCharacter : EHCharacter
 {
-    private EHMovementComponent MovementComponent;
+    public EHMovementComponent MovementComponent { get; private set; }
+    public EHAttackComponent AttackComponent { get; private set; }
+    
 
     protected override void Awake()
     {
         base.Awake();
         MovementComponent = GetComponent<EHMovementComponent>();
+        AttackComponent = GetComponent<EHAttackComponent>();
     }
 
     #region override methods
@@ -17,6 +20,8 @@ public class EHPlayerCharacter : EHCharacter
     {
         Controller.BindEventToButtonInput("Jump", InputJump, EButtonEventType.Button_Pressed);
         Controller.BindEventToButtonInput("Jump", InputStopJump, EButtonEventType.Button_Release);
+        Controller.BindEventToButtonInput("Attack", InputAttack, EButtonEventType.Button_Pressed);
+
         Controller.BindEventToAxisInput("Horizontal", InputMoveHorizontal);
         Controller.BindEventToAxisInput("Vertical", InputMoveVertical);
     }
@@ -46,7 +51,7 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputAttack()
     {
-        
+        AttackComponent.AttemptAttack(0);
     }
 
     #endregion input functions

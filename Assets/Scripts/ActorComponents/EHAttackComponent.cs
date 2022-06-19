@@ -15,5 +15,23 @@ public struct FAttackData
 
 public class EHAttackComponent : EHActorComponent
 {
+    #region const values
+    private readonly int Anim_Attack1 = Animator.StringToHash("Attack");
+    #endregion const values
+
+    private EHAnimatorComponent Anim;
     
+    #region monobehaviour methods
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Anim = OwningActor.Anim;
+    }
+    #endregion monobehaviour methods
+
+    public void AttemptAttack(int AttackValue)
+    {
+        Anim.SetTrigger(Anim_Attack1);
+    }
 }

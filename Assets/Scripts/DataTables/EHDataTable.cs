@@ -10,9 +10,9 @@ public class EHTableRow
 public class EHDataTable<T> : ScriptableObject where T : EHTableRow
 {
     [SerializeField]
-    private T[] DataTableRows;
+    protected T[] DataTableRows;
 
-    private Dictionary<string, T> TableRowsMap = new Dictionary<string, T>();
+    private readonly Dictionary<string, T> TableRowsMap = new Dictionary<string, T>();
 
     public virtual void InitializeDataTable()
     {

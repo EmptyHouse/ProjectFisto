@@ -64,7 +64,6 @@ public class EHMovementComponent : EHCharacterComponent
     
 
     #region monobehaviour methods
-
     protected override void Awake()
     {
         base.Awake();
