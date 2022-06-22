@@ -32,7 +32,29 @@ public class EHHitbox2D : MonoBehaviour
     private EHDamageableComponent DamageComponent;
     private EHHitboxComponent HitboxComponent;
     private FBox2D CurrentBox;
-    
+
+    protected void Awake()
+    {
+        HitboxComponent = GetComponentInParent<EHHitboxComponent>();
+        HitboxComponent.AddActiveHitbox(this);
+    }
+
+    protected void OnEnable()
+    {
+        if (HitboxComponent)
+        {
+            HitboxComponent.AddActiveHitbox(this);
+        }
+    }
+
+    protected void OnDisable()
+    {
+        if (HitboxComponent)
+        {
+            HitboxComponent.RemoveActiveHitbox(this);
+        }
+    }
+
     protected void OnDrawGizmos()
     {
         if (!Application.isPlaying)
@@ -42,7 +64,7 @@ public class EHHitbox2D : MonoBehaviour
         FBox2D.DebugDrawRect(CurrentBox, GetDebugColor(), true);
     }
 
-    private void UpdateHitbox()
+    public void UpdateHitbox()
     {
         Vector2 TransformScale = transform.localScale;
         Vector2 TransformPosition = transform.position;
@@ -58,6 +80,8 @@ public class EHHitbox2D : MonoBehaviour
     {
         return OtherHitbox.CurrentBox.IsOverlappingBox2D(CurrentBox);
     }
+
+    public EHitboxType GetHitboxType() => HitboxType;
     
     #region debug methods
 
