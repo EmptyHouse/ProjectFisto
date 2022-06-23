@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EHCameraFollow : EHActor
+public class EHCameraFollow : MonoBehaviour
 {
     private Camera CameraComponent;
     private EHActor FollowTarget;
@@ -13,9 +13,8 @@ public class EHCameraFollow : EHActor
 
     #region mononbehaviour methods
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         CameraComponent = GetComponent<Camera>();
         FollowTarget = transform.parent.GetComponent<EHActor>();
         

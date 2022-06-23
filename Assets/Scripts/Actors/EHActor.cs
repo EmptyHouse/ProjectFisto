@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EHAnimatorComponent))]
 public class EHActor : MonoBehaviour
 {
     public EHAnimatorComponent Anim { get; private set; }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
 public struct FAttackData
 {
     // The actor component applying the hit data
@@ -20,7 +20,8 @@ public class EHAttackComponent : EHActorComponent
     #endregion const values
 
     private EHAnimatorComponent Anim;
-    
+    [SerializeField]
+    private FAttackData DefaultAttackData;
     #region monobehaviour methods
 
     protected override void Awake()
@@ -33,5 +34,10 @@ public class EHAttackComponent : EHActorComponent
     public void AttemptAttack(int AttackValue)
     {
         Anim.SetTrigger(Anim_Attack1);
+    }
+
+    public void AttackDamageComponent(EHDamageableComponent OtherDamageComponent)
+    {
+        OtherDamageComponent.TakeDamage(DefaultAttackData);
     }
 }

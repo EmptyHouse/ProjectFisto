@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class EHPlayerCharacter : EHCharacter
 {
-    public EHMovementComponent MovementComponent { get; private set; }
-    public EHAttackComponent AttackComponent { get; private set; }
-    
-
-    protected override void Awake()
-    {
-        base.Awake();
-        MovementComponent = GetComponent<EHMovementComponent>();
-        AttackComponent = GetComponent<EHAttackComponent>();
-    }
-
     #region override methods
     public override void SetUpControllerInput(EHPlayerController Controller)
     {

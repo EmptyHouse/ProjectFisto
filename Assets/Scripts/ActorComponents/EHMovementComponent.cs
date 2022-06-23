@@ -72,6 +72,7 @@ public class EHMovementComponent : EHCharacterComponent
 
     private void OnValidate()
     {
+        
         if (TimeToReachApex != 0)
         {
             if (Physics == null) Physics = GetComponent<EHPhysics2D>();
@@ -79,7 +80,12 @@ public class EHMovementComponent : EHCharacterComponent
             Physics.GravityScale = (2 * JumpHeightApex) / (EHPhysics2D.GravityConstant * Mathf.Pow(TimeToReachApex, 2));
             JumpVelocity = 2 * JumpHeightApex / TimeToReachApex;
         }
-        SetIsRight(IsRight, true);
+
+        if (!Application.isPlaying)
+        {
+            if (OwningActor == null) InitializeOwningActor();
+            SetIsRight(IsRight, true);
+        }
     }
 
     private void Update()
@@ -181,9 +187,7 @@ public class EHMovementComponent : EHCharacterComponent
 
     public void SetIsRight(bool IsRight, bool ForceDirection = false)
     {
-        if (this.IsRight == IsRight) return;
-
-        if (!ForceDirection && MovementStance == EMovementStance.InAir) return;
+        if (!ForceDirection && (this.IsRight == IsRight || MovementStance == EMovementStance.InAir)) return;
         this.IsRight = IsRight;
         Vector2 ActorScale = GetActorScale();
         ActorScale.x = (IsRight ? 1 : -1) * Mathf.Abs(ActorScale.x);

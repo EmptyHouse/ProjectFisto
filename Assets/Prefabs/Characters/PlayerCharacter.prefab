@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c717e2f3052c44688dd548b886d60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterId: 
 --- !u!114 &1532578649705496922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312a60657021a5441ab60f82040a67e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultAttackData:
+    Owner: {fileID: 0}
+    DamageApplied: 10
+    DamageForce: {x: 0, y: 0}
 --- !u!114 &6567806111333800667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  CurrentHealth: 0
 --- !u!114 &791239367
 MonoBehaviour:
   m_ObjectHideFlags: 0

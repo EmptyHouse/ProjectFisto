@@ -44,6 +44,18 @@ public class EHBoxCollider2D : EHActorComponent
         if (ColliderType == EColliderType.Kinematic) PhysicsComponent = GetComponent<EHPhysics2D>();
     }
 
+    protected void OnDestroy()
+    {
+        EHGameInstance GameInstance = GetGameInstance();
+        if (!GameInstance) return;
+        
+        EHGameMode GameMode = GetGameMode<EHGameMode>();
+        if (GameMode)
+        {
+            GameMode.PhysicsManager.RemoveCollisionComponent(this);
+        }
+    }
+
     protected virtual void OnEnable()
     {
         EHGameMode GameMode = GetGameMode<EHGameMode>();
@@ -91,7 +103,6 @@ public class EHBoxCollider2D : EHActorComponent
         PreviousBox = CurrentBox;
         PreviousBox.Origin += BufferBounds;
         PreviousBox.Size -= (2 * BufferBounds);
-        
         UpdateCurrentBoxGeometry();
         
         // Update our Sweep box
