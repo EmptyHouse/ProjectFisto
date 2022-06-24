@@ -1,9 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEngine.InputSystem.InputAction;
 
 public enum EButtonEventType
 {
@@ -11,123 +13,172 @@ public enum EButtonEventType
     Button_Pressed,
 }
 
+[System.Flags]
+public enum EButtonInput : byte
+{
+    Jump = 0x01,
+    Attack = 0x02,
+}
+
+public enum EAxisInput : byte
+{
+    Horizontal,
+    Vertical,
+    Size,
+}
+
 public class EHPlayerController : MonoBehaviour
 {
-    [System.Serializable]
-    private class FButtonInput
-    {
-        public string ButtonId;
-        public KeyCode PrimaryKey;
-        public KeyCode AlternateKey;
-        public UnityAction OnButtonPressedDel;
-        public UnityAction OnButtonReleaseDel;
-
-        public bool IsKeyHeld => Input.GetKey(PrimaryKey) || Input.GetKey(AlternateKey);
-        public bool IsKeyPressed => Input.GetKeyDown(PrimaryKey) || Input.GetKeyDown(AlternateKey);
-        public bool IsKeyReleased => Input.GetKeyUp(PrimaryKey) || Input.GetKeyUp(AlternateKey);
-    }
+    #region const variables
+    #endregion const variables
     
-    [System.Serializable]
-    private class FAxisInput
+    private FButtonInputs Inputs;
+    private Dictionary<EButtonInput, UnityAction> ButtonPressedActions = new Dictionary<EButtonInput, UnityAction>();
+    private Dictionary<EButtonInput, UnityAction> ButtonReleasedActions = new Dictionary<EButtonInput, UnityAction>();
+    private Dictionary<EAxisInput, UnityAction<float>> AxisActions = new Dictionary<EAxisInput, UnityAction<float>>();
+
+    private InputAction MoveAction;
+    
+    #region monobeahviour methosd
+
+    private void Awake()
     {
-        public string AxisId;
-        [HideInInspector]
-        public float CachedAxisValue;
-        
-        public float AxisValue => Input.GetAxisRaw(AxisId);
-
-        public UnityAction<float> OnAxisChangedDel;
+        InitializeButtons();
+        Inputs.PreviousAxisInput = new float[(int)EAxisInput.Size];
     }
-
-    [SerializeField]
-    private List<FButtonInput> ButtonInputs = new List<FButtonInput>();
-    [SerializeField]
-    private List<FAxisInput> AxisInputs = new List<FAxisInput>();
-    #region monobehaviour methods
 
     private void Update()
     {
-        UpdateButtonEvents();
-        UpdateAxisEvents();
-    }
+        Vector2 MoveAxis = MoveAction.ReadValue<Vector2>();
+        float[] InputArray = new float[(int)EAxisInput.Size];
+        InputArray[(int) EAxisInput.Horizontal] = MoveAxis.x;
+        InputArray[(int) EAxisInput.Vertical] = MoveAxis.y;
+        Inputs.CurrentAxisInput = InputArray;
 
-    #endregion monobehaivour methods
-
-    public void BindEventToButtonInput(string ButtonId, UnityAction ButtonAction, EButtonEventType EventType)
-    {
-        FButtonInput ButtonInput = null;
-        foreach (FButtonInput ButtonData in ButtonInputs)
+        for (int i = 0; i < 2; ++i)
         {
-            if (ButtonData.ButtonId == ButtonId)
+            EButtonInput ButtonInput = (EButtonInput) (1 << i);
+            if (Inputs.GetButtonDown(ButtonInput) && ButtonPressedActions.ContainsKey(ButtonInput))
             {
-                ButtonInput = ButtonData;
-                break;
+                ButtonPressedActions[ButtonInput]?.Invoke();
+            }
+
+            if (Inputs.GetButtonUp(ButtonInput) && ButtonReleasedActions.ContainsKey(ButtonInput))
+            {
+                ButtonReleasedActions[ButtonInput]?.Invoke();
             }
         }
+        Inputs.PreviousInput = Inputs.CurrentInput;
 
-        if (ButtonInput == null)
+        for (int i = 0; i < (int) EAxisInput.Size; ++i)
         {
-            Debug.LogWarning("Invalid ButtonId: " + ButtonId);
-            return;
+            EAxisInput AxisInput = (EAxisInput) i;
+            if (Inputs.GetAxisUpdated(AxisInput))
+            {
+                AxisActions[AxisInput]?.Invoke(Inputs.CurrentAxisInput[(int)AxisInput]);
+            }
         }
-        
+        Inputs.PreviousAxisInput = Inputs.CurrentAxisInput.ToArray();
+    }
+
+    #endregion monobehaviour methods
+
+    private void InitializeButtons()
+    {
+        PlayerInput InGamePlayerInput = GetComponent<PlayerInput>();
+        InputAction JumpAction = InGamePlayerInput.actions["Jump"];
+        JumpAction.started += OnJumpAction;
+        JumpAction.canceled += OnJumpAction;
+        InputAction AttackAction = InGamePlayerInput.actions["Attack1"];
+        AttackAction.started += OnAttackAction;
+        AttackAction.canceled += OnAttackAction;
+        MoveAction = InGamePlayerInput.actions["Move"];
+    }
+
+    public void BindEventToButtonInput(EButtonInput ButtonId, UnityAction ButtonAction, EButtonEventType EventType)
+    {
+        Dictionary<EButtonInput, UnityAction> ButtonActionMap;
         switch (EventType)
         {
             case EButtonEventType.Button_Pressed:
-                ButtonInput.OnButtonPressedDel += ButtonAction;
-                return;
-            case EButtonEventType.Button_Release:
-                ButtonInput.OnButtonReleaseDel += ButtonAction;
-                return;
-        }
-    }
-
-    public void BindEventToAxisInput(string AxisId, UnityAction<float> AxisAction)
-    {
-        FAxisInput AxisInput = null;
-        foreach (FAxisInput AxisData in AxisInputs)
-        {
-            if (AxisData.AxisId == AxisId)
-            {
-                AxisInput = AxisData;
+                ButtonActionMap = ButtonPressedActions;
                 break;
-            }
+            case EButtonEventType.Button_Release:
+                ButtonActionMap = ButtonReleasedActions;
+                break;
+            default: 
+                ButtonActionMap = null;
+                break;
         }
-
-        if (AxisInput == null)
+        
+        if (!ButtonActionMap.ContainsKey(ButtonId))
         {
-            Debug.LogWarning("Axis Id Was Invalid: " + AxisId);
-            return;
+            ButtonActionMap.Add(ButtonId, null);
         }
 
-        AxisInput.OnAxisChangedDel += AxisAction;
+        ButtonActionMap[ButtonId] += ButtonAction;
     }
 
-    private void UpdateButtonEvents()
+    public void BindEventToAxisInput(EAxisInput AxisId, UnityAction<float> AxisAction)
     {
-        foreach (FButtonInput ButtonInputData in ButtonInputs)
+        if (!AxisActions.ContainsKey(AxisId))
         {
-            if (ButtonInputData.IsKeyPressed)
-            {
-                ButtonInputData.OnButtonPressedDel?.Invoke();
-            }
-
-            if (ButtonInputData.IsKeyReleased)
-            {
-                ButtonInputData.OnButtonReleaseDel?.Invoke();
-            }
+            AxisActions.Add(AxisId, null);
         }
+
+        AxisActions[AxisId] += AxisAction;
     }
 
-    private void UpdateAxisEvents()
+    private void UpdateCurrentInput(EButtonInput ButtonInput, bool IsPressed)
     {
-        foreach (FAxisInput AxisInputData in AxisInputs)
+        if (IsPressed)
         {
-            if (AxisInputData.AxisValue != AxisInputData.CachedAxisValue)
-            {
-                AxisInputData.CachedAxisValue = AxisInputData.AxisValue;
-                AxisInputData.OnAxisChangedDel?.Invoke(AxisInputData.AxisValue);
-            }
+            Inputs.CurrentInput |= ButtonInput;
+        }
+        else
+        {
+            Inputs.CurrentInput &= (~ButtonInput);
+        }
+    }
+    #region button events
+    private void OnJumpAction(CallbackContext Context) =>
+        UpdateCurrentInput(EButtonInput.Jump, Context.ReadValueAsButton());
+
+    private void OnAttackAction(CallbackContext Context) =>
+        UpdateCurrentInput(EButtonInput.Attack, Context.ReadValueAsButton());
+    
+    #endregion button events
+
+    private struct FButtonInputs
+    {
+        public EButtonInput PreviousInput;
+        public EButtonInput CurrentInput;
+        public float[] PreviousAxisInput;
+        public float[] CurrentAxisInput;
+
+        public bool GetButtonDown(EButtonInput ButtonInput)
+        {
+            return (CurrentInput & ButtonInput) == ButtonInput && ((PreviousInput ^ CurrentInput) & ButtonInput) == ButtonInput;
+        }
+
+        public bool GetButtonUp(EButtonInput ButtonInput)
+        {
+            return (PreviousInput & ButtonInput) == ButtonInput && ((PreviousInput ^ CurrentInput) & ButtonInput) == ButtonInput;
+        }
+
+        public bool GetButtonHeld(EButtonInput ButtonInput)
+        {
+            return (CurrentInput & ButtonInput) != 0;
+        }
+
+        public float GetAxis(EAxisInput AxisInput)
+        {
+            return CurrentAxisInput[(int)AxisInput];
+        }
+
+        public bool GetAxisUpdated(EAxisInput AxisInput)
+        {
+            return PreviousAxisInput[(int) AxisInput] != CurrentAxisInput[(int) AxisInput];
         }
     }
 }

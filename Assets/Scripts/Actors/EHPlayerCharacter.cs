@@ -7,12 +7,12 @@ public class EHPlayerCharacter : EHCharacter
     #region override methods
     public override void SetUpControllerInput(EHPlayerController Controller)
     {
-        Controller.BindEventToButtonInput("Jump", InputJump, EButtonEventType.Button_Pressed);
-        Controller.BindEventToButtonInput("Jump", InputStopJump, EButtonEventType.Button_Release);
-        Controller.BindEventToButtonInput("Attack", InputAttack, EButtonEventType.Button_Pressed);
+        Controller.BindEventToButtonInput(EButtonInput.Jump, InputJump, EButtonEventType.Button_Pressed);
+        Controller.BindEventToButtonInput(EButtonInput.Jump, InputStopJump, EButtonEventType.Button_Release);
+        Controller.BindEventToButtonInput(EButtonInput.Attack, InputAttack, EButtonEventType.Button_Pressed);
 
-        Controller.BindEventToAxisInput("Horizontal", InputMoveHorizontal);
-        Controller.BindEventToAxisInput("Vertical", InputMoveVertical);
+        Controller.BindEventToAxisInput(EAxisInput.Horizontal, InputMoveHorizontal);
+        Controller.BindEventToAxisInput(EAxisInput.Vertical, InputMoveVertical);
     }
     #endregion
     
