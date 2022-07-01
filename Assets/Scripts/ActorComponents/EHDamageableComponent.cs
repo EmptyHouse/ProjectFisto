@@ -10,8 +10,8 @@ public class EHDamageableComponent : EHActorComponent
     public UnityAction OnCharacterTakeDamage;
     #endregion delegates
     
-    [SerializeField] private int MaxHealth;
-
+    [SerializeField] 
+    private int MaxHealth;
     private int CurrentHealth;
 
     protected override void Awake()

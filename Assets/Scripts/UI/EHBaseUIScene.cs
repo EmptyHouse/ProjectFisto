@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EHBaseUIScene : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool IsShown { get; private set; }
+    
+    public virtual void OnShow()
     {
-        
+        IsShown = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void OnHide()
     {
-        
+        IsShown = false;
     }
 }

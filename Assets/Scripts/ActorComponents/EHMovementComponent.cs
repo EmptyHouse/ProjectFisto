@@ -29,6 +29,7 @@ public class EHMovementComponent : EHCharacterComponent
     private readonly int Anim_MovementStance = Animator.StringToHash("MovementStance");
     private readonly int Anim_StanceChange = Animator.StringToHash("StanceChange");
     #endregion const variables
+    
     [SerializeField]
     private bool IsRight = true;
     [SerializeField] 
@@ -72,7 +73,6 @@ public class EHMovementComponent : EHCharacterComponent
 
     private void OnValidate()
     {
-        
         if (TimeToReachApex != 0)
         {
             if (Physics == null) Physics = GetComponent<EHPhysics2D>();
@@ -180,8 +180,10 @@ public class EHMovementComponent : EHCharacterComponent
     public void Jump()
     {
         Physics.SetVelocity(new Vector2(Physics.Velocity.x, JumpVelocity));
-        if (CurrentInput.x != 0f) 
+        if (CurrentInput.x != 0f)
+        {
             SetIsRight(CurrentInput.x > 0, true);
+        }
     }
     #endregion jumping mechanics
 
@@ -225,4 +227,13 @@ public class EHMovementComponent : EHCharacterComponent
                 return;
         }
     }
+    
+    #region player character functions
+    //NOTE: these functions will likely have to be moved to the 
+    public void OnUppercut()
+    {
+        Physics.SetVelocity(new Vector2(Physics.Velocity.x + Mathf.Sign(GetActorScale().x) * 5, JumpVelocity / 2f));
+        MovementStance = EMovementStance.InAir;
+    }
+    #endregion 
 }
