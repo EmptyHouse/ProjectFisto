@@ -29,7 +29,12 @@ public class EHMovementComponent : EHCharacterComponent
     private readonly int Anim_MovementStance = Animator.StringToHash("MovementStance");
     private readonly int Anim_StanceChange = Animator.StringToHash("StanceChange");
     #endregion const variables
-    
+    #region animation variables
+    [HideInInspector]
+    public bool AnimBlockMovement;
+    [HideInInspector]
+    public Vector2 AnimGoalVelocity;
+    #endregion animation variables
     [SerializeField]
     private bool IsRight = true;
     [SerializeField] 
@@ -130,23 +135,24 @@ public class EHMovementComponent : EHCharacterComponent
         float GoalSpeed = 0;
         float Acceleration = 0;
         float NewSpeed = Physics.Velocity.x;
-
+        float xInput = AnimBlockMovement ? AnimGoalVelocity.x : CurrentInput.x;
         switch (MovementStance)
         {
             case EMovementStance.Standing:
                 Acceleration = GroundAcceleration;
-                if (Mathf.Abs(CurrentInput.x) > JoystickRunThreshold) GoalSpeed = Mathf.Sign(CurrentInput.x) * RunSpeed;
-                else if (Mathf.Abs(CurrentInput.x) > JoystickWalkThreshold) GoalSpeed = Mathf.Sign(CurrentInput.x) * WalkSpeed;
+                if (Mathf.Abs(xInput) > JoystickRunThreshold) GoalSpeed = Mathf.Sign(xInput) * RunSpeed;
+                else if (Mathf.Abs(xInput) > JoystickWalkThreshold) GoalSpeed = Mathf.Sign(xInput) * WalkSpeed;
                 else GoalSpeed = 0;
                 break;
             case EMovementStance.InAir:
                 OwningActor.Anim.SetFloat(Anim_VerticalVelocity, Physics.Velocity.y);
                 Acceleration = AirAcceleration;
-                if (CurrentInput.x > 0f) GoalSpeed = MaxAirSpeed;
-                else if (CurrentInput.x < 0f) GoalSpeed = -MaxAirSpeed;
+                if (xInput > 0f) GoalSpeed = MaxAirSpeed;
+                else if (xInput < 0f) GoalSpeed = -MaxAirSpeed;
                 else GoalSpeed = NewSpeed;
                 break;
         }
+
         
         NewSpeed = Mathf.MoveTowards(NewSpeed, GoalSpeed, Time.deltaTime * Acceleration);
         Physics.SetVelocity(new Vector2(NewSpeed, Physics.Velocity.y));
@@ -232,7 +238,7 @@ public class EHMovementComponent : EHCharacterComponent
     //NOTE: these functions will likely have to be moved to the 
     public void OnUppercut()
     {
-        Physics.SetVelocity(new Vector2(Physics.Velocity.x + Mathf.Sign(GetActorScale().x) * 5, JumpVelocity / 2f));
+        Physics.SetVelocity(new Vector2(Mathf.Sign(GetActorScale().x) * 5, JumpVelocity / 2f));
         MovementStance = EMovementStance.InAir;
     }
     #endregion 
