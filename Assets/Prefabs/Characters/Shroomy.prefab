@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717f1e9e7ca88bb4e83ea32c4a7d10f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimBlockMovement: 0
+  AnimGoalVelocity: {x: 0, y: 0}
   IsRight: 0
   GroundAcceleration: 50
   AirAcceleration: 10
@@ -183,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657780bbc9e2faf4facba4da6aa10878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 15
 --- !u!114 &1970710503446443740
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -232,6 +232,17 @@
                 },
                 {
                     "name": "",
+                    "id": "62991b5b-b011-405f-a01c-b7b3e0a5527c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Attack2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e06abcc2-1bae-48d4-a21a-a3f5c61f8300",
                     "path": "<Keyboard>/k",
                     "interactions": "",

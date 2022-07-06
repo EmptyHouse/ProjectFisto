@@ -158,6 +158,7 @@ MonoBehaviour:
     PlayerController: {fileID: 8874688887493110865, guid: 4fd1b312a242c48409e933a7a2776134, type: 3}
     PlayerState: {fileID: 435511633204436144, guid: 10ee10f44bf1fa54cbec57d4cc34da3b, type: 3}
     PlayerCharacter: {fileID: 1532578649705496925, guid: 230998f0cec6a224ab50eb08aa087ada, type: 3}
+    GameHUD: {fileID: 0}
 --- !u!4 &1445427125
 Transform:
   m_ObjectHideFlags: 0

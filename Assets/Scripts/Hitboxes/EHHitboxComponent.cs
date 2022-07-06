@@ -13,6 +13,7 @@ public class EHHitboxComponent : EHCharacterComponent
     };
     private EHDamageableComponent CachedDamageComponent;
     private EHAttackComponent CachedAttackComponent;
+    private HashSet<EHDamageableComponent> IntersectedDamageableComponents = new HashSet<EHDamageableComponent>();
 
     protected override void Awake()
     {
@@ -45,9 +46,11 @@ public class EHHitboxComponent : EHCharacterComponent
         {
             foreach (EHHitbox2D OtherHurtbox in OtherHitboxComponent.HitboxDictionary[EHitboxType.Hurtbox])
             {
-                if (Hitbox.IsHitboxOverlapping(OtherHurtbox))
+                if (!IntersectedDamageableComponents.Contains(OtherHitboxComponent.CachedDamageComponent) && 
+                    Hitbox.IsHitboxOverlapping(OtherHurtbox))
                 {
                     CachedAttackComponent.AttackDamageComponent(OtherHitboxComponent.CachedDamageComponent);
+                    IntersectedDamageableComponents.Add(OtherHitboxComponent.CachedDamageComponent);
                     return;
                 }
             }
@@ -98,6 +101,13 @@ public class EHHitboxComponent : EHCharacterComponent
         }
 
         HitboxDictionary[HitboxType].Remove(Hitbox);
+        
+        if (HitboxDictionary.ContainsKey(EHitboxType.Hitbox) && 
+            HitboxDictionary[EHitboxType.Hitbox].Count <= 0)
+        {
+            // Reset all intersected damage components so we can hit them again
+            IntersectedDamageableComponents.Clear();
+        }
     }
 
     private void OnCharacterDied()

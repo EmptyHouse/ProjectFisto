@@ -10,6 +10,7 @@ public struct FWorldSettings
     public EHPlayerController PlayerController;
     public EHPlayerState PlayerState;
     public EHCharacter PlayerCharacter;
+    public EHBaseGameHUD GameHUD;
 }
 
 public class EHGameInstance : MonoBehaviour
@@ -45,21 +46,22 @@ public class EHGameInstance : MonoBehaviour
     {
         if (instance)
         {
-            instance.InitializeGameManagers(WorldSettings);
+            instance.InitializeGameManagers(ref WorldSettings);
             Destroy(this.gameObject);
             return;
         }
         instance = this;
-        InitializeGameManagers(WorldSettings);
+        InitializeGameManagers(ref WorldSettings);
         DontDestroyOnLoad(this.gameObject);
         Application.targetFrameRate = 60;
     }
     #endregion monobehaviour methods
 
-    private void InitializeGameManagers(FWorldSettings WorldSettings)
+    private void InitializeGameManagers(ref FWorldSettings WorldSettings)
     {
         if (GameMode) Destroy(GameMode.gameObject);
         if (GameState) Destroy(GameState.gameObject);
+        if (GameHUD) Destroy(GameHUD.gameObject);
         if (PlayerController) Destroy(PlayerController.gameObject);
         if (PlayerState) Destroy(PlayerState.gameObject);
         if (PlayerCharacter) Destroy(PlayerCharacter.gameObject);
@@ -93,6 +95,11 @@ public class EHGameInstance : MonoBehaviour
         {
             PlayerState.PossessPlayerCharacter(PlayerCharacter);
             PlayerState.PossessPlayerController(PlayerController);
+        }
+
+        if (WorldSettings.GameHUD)
+        {
+            GameHUD = Instantiate(WorldSettings.GameHUD);
         }
     }
 }

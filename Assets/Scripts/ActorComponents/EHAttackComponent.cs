@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct FAttackData
 {
+    [HideInInspector]
     // The actor component applying the hit data
     public EHAttackComponent Owner;
     // The raw damage applied to the damage component
