@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct FWorldSettings
@@ -11,6 +12,7 @@ public struct FWorldSettings
     public EHPlayerState PlayerState;
     public EHCharacter PlayerCharacter;
     public EHBaseGameHUD GameHUD;
+    public SceneField BackgroundWorld;
 }
 
 public class EHGameInstance : MonoBehaviour
@@ -101,5 +103,11 @@ public class EHGameInstance : MonoBehaviour
         {
             GameHUD = Instantiate(WorldSettings.GameHUD);
         }
+        LoadBackgroundScene(WorldSettings.BackgroundWorld);
+    }
+
+    public void LoadBackgroundScene(SceneField BackgroundWorld)
+    {
+        SceneManager.LoadScene(BackgroundWorld.SceneName, LoadSceneMode.Additive);
     }
 }

@@ -159,6 +159,9 @@ MonoBehaviour:
     PlayerState: {fileID: 435511633204436144, guid: 10ee10f44bf1fa54cbec57d4cc34da3b, type: 3}
     PlayerCharacter: {fileID: 1532578649705496925, guid: 230998f0cec6a224ab50eb08aa087ada, type: 3}
     GameHUD: {fileID: -2960348998314686692, guid: 074fb5c5efe3e6745916e68245eaa1a8, type: 3}
+    BackgroundWorld:
+      m_SceneAsset: {fileID: 102900000, guid: 22d42947229113146b75bef79b944dc5, type: 3}
+      m_SceneName: TestScene
 --- !u!4 &1445427125
 Transform:
   m_ObjectHideFlags: 0
