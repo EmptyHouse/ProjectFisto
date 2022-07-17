@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fisto_JumpUp
+  m_Name: Fisto_AirRiseToFall
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 5ed2516682b1c3b4b9e71065d68f5c54, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: 5ed2516682b1c3b4b9e71065d68f5c54, type: 3}
+      value: {fileID: 21300000, guid: 431a340b6124ff54e9b028718ec5dca6, type: 3}
     attribute: m_Sprite
     path: PlayerSprite
     classID: 212
@@ -42,14 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 5ed2516682b1c3b4b9e71065d68f5c54, type: 3}
-    - {fileID: 21300000, guid: 5ed2516682b1c3b4b9e71065d68f5c54, type: 3}
+    - {fileID: 21300000, guid: 431a340b6124ff54e9b028718ec5dca6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.1
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

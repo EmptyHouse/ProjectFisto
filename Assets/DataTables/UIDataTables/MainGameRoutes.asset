@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ecef51c9fd20f42900610077f027b8, type: 3}
   m_Name: MainGameRoutes
   m_EditorClassIdentifier: 
+  DataTableRows:
+  - RowId: MainHUD
+    IsInitialScene: 1
+    UIScene: {fileID: 0}
+    IsPopup: 0
+    Priority: 0
