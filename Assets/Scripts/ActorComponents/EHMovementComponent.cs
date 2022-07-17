@@ -137,25 +137,31 @@ public class EHMovementComponent : EHCharacterComponent
         float GoalSpeed = 0;
         float Acceleration = 0;
         float NewSpeed = Physics.Velocity.x;
-        float xInput = AnimBlockMovement ? AnimGoalVelocity.x : CurrentInput.x;
-        switch (MovementStance)
+        float xInput = CurrentInput.x;
+        
+            switch (MovementStance)
+            {
+                case EMovementStance.Standing:
+                    Acceleration = GroundAcceleration;
+                    if (Mathf.Abs(xInput) > JoystickRunThreshold) GoalSpeed = Mathf.Sign(xInput) * RunSpeed;
+                    else if (Mathf.Abs(xInput) > JoystickWalkThreshold) GoalSpeed = Mathf.Sign(xInput) * WalkSpeed;
+                    else GoalSpeed = 0;
+                    break;
+                case EMovementStance.InAir:
+                    OwningActor.Anim.SetFloat(Anim_VerticalVelocity, Physics.Velocity.y);
+                    Acceleration = AirAcceleration;
+                    if (xInput > 0f) GoalSpeed = MaxAirSpeed;
+                    else if (xInput < 0f) GoalSpeed = -MaxAirSpeed;
+                    else GoalSpeed = NewSpeed;
+                    break;
+            }
+        if (AnimBlockMovement)
         {
-            case EMovementStance.Standing:
-                Acceleration = GroundAcceleration;
-                if (Mathf.Abs(xInput) > JoystickRunThreshold) GoalSpeed = Mathf.Sign(xInput) * RunSpeed;
-                else if (Mathf.Abs(xInput) > JoystickWalkThreshold) GoalSpeed = Mathf.Sign(xInput) * WalkSpeed;
-                else GoalSpeed = 0;
-                break;
-            case EMovementStance.InAir:
-                OwningActor.Anim.SetFloat(Anim_VerticalVelocity, Physics.Velocity.y);
-                Acceleration = AirAcceleration;
-                if (xInput > 0f) GoalSpeed = MaxAirSpeed;
-                else if (xInput < 0f) GoalSpeed = -MaxAirSpeed;
-                else GoalSpeed = NewSpeed;
-                break;
+            GoalSpeed = AnimGoalVelocity.x * Mathf.Sign(GetActorScale().x);
         }
 
-        
+
+
         NewSpeed = Mathf.MoveTowards(NewSpeed, GoalSpeed, Time.deltaTime * Acceleration);
         Physics.SetVelocity(new Vector2(NewSpeed, Physics.Velocity.y));
     }
@@ -197,6 +203,7 @@ public class EHMovementComponent : EHCharacterComponent
 
     public void SetIsRight(bool IsRight, bool ForceDirection = false)
     {
+        if (AnimBlockMovement) return;
         if (!ForceDirection && (this.IsRight == IsRight || MovementStance == EMovementStance.InAir)) return;
         this.IsRight = IsRight;
         Vector2 ActorScale = GetActorScale();
@@ -237,11 +244,16 @@ public class EHMovementComponent : EHCharacterComponent
     }
     
     #region player character functions
-    //NOTE: these functions will likely have to be moved to the 
+    //NOTE: these functions will likely have to be moved to the....attack component possibly? 
     public void OnUppercut()
     {
-        Physics.SetVelocity(new Vector2(Mathf.Sign(GetActorScale().x) * 5, JumpVelocity * UpperCutJumpScale));
+        Physics.SetVelocity(new Vector2(Physics.Velocity.x, JumpVelocity * UpperCutJumpScale));
         MovementStance = EMovementStance.InAir;
+    }
+
+    public void OnChargeRelease()
+    {
+        Physics.SetVelocity(new Vector2(Mathf.Sign(GetActorScale().x) * AnimGoalVelocity.x, 0));
     }
     #endregion 
 }
