@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8874688887493110864}
   - component: {fileID: 8874688887493110865}
-  - component: {fileID: -2941316593183484295}
+  - component: {fileID: 1469263537902556046}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -45,22 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67a455d726d13244ae2247da8f3bf47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonInputs:
-  - ButtonId: Attack
-    PrimaryKey: 106
-    AlternateKey: 331
-  - ButtonId: Jump
-    PrimaryKey: 32
-    AlternateKey: 330
-  - ButtonId: Jump
-    PrimaryKey: 32
-    AlternateKey: 330
-  AxisInputs:
-  - AxisId: Horizontal
-    CachedAxisValue: 0
-  - AxisId: Vertical
-    CachedAxisValue: 0
---- !u!114 &-2941316593183484295
+--- !u!114 &1469263537902556046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,6 +72,6 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Character
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
