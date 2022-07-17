@@ -18,6 +18,8 @@ public class EHAttackComponent : EHActorComponent
 {
     #region const values
     private readonly int Anim_Attack1 = Animator.StringToHash("Attack");
+    private readonly int Anim_Attack2 = Animator.StringToHash("Attack2");
+    private readonly int Anim_ChargeAttack = Animator.StringToHash("ChargeAttack");
     #endregion const values
 
     private EHAnimatorComponent Anim;
@@ -40,5 +42,16 @@ public class EHAttackComponent : EHActorComponent
     public void AttackDamageComponent(EHDamageableComponent OtherDamageComponent)
     {
         OtherDamageComponent.TakeDamage(DefaultAttackData);
+    }
+
+    public void AttemptChargeAttack()
+    {
+        Anim.SetTrigger(Anim_Attack2);
+        Anim.SetBool(Anim_ChargeAttack, true);   
+    }
+
+    public void ReleaseChargeAttack()
+    {
+        Anim.SetBool(Anim_ChargeAttack, false);
     }
 }

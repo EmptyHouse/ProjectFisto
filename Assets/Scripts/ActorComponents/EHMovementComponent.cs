@@ -58,6 +58,8 @@ public class EHMovementComponent : EHCharacterComponent
     private float JumpHeightApex = 1.5f;
     [HideInInspector, SerializeField] 
     private float JumpVelocity;
+    [SerializeField] 
+    private float UpperCutJumpScale = 1.2f;
 
     private EMovementStance MovementStance = EMovementStance.Standing;
     private EHPhysics2D Physics;
@@ -238,7 +240,7 @@ public class EHMovementComponent : EHCharacterComponent
     //NOTE: these functions will likely have to be moved to the 
     public void OnUppercut()
     {
-        Physics.SetVelocity(new Vector2(Mathf.Sign(GetActorScale().x) * 5, JumpVelocity / 2f));
+        Physics.SetVelocity(new Vector2(Mathf.Sign(GetActorScale().x) * 5, JumpVelocity * UpperCutJumpScale));
         MovementStance = EMovementStance.InAir;
     }
     #endregion 

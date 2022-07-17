@@ -10,6 +10,8 @@ public class EHPlayerCharacter : EHCharacter
         Controller.BindEventToButtonInput(EButtonInput.Jump, InputJump, EButtonEventType.Button_Pressed);
         Controller.BindEventToButtonInput(EButtonInput.Jump, InputStopJump, EButtonEventType.Button_Release);
         Controller.BindEventToButtonInput(EButtonInput.Attack, InputAttack, EButtonEventType.Button_Pressed);
+        Controller.BindEventToButtonInput(EButtonInput.ChargeAttack, InputChargeAttack, EButtonEventType.Button_Pressed);
+        Controller.BindEventToButtonInput(EButtonInput.ChargeAttack, InputChargeAttackRelease, EButtonEventType.Button_Release);
 
         Controller.BindEventToAxisInput(EAxisInput.Horizontal, InputMoveHorizontal);
         Controller.BindEventToAxisInput(EAxisInput.Vertical, InputMoveVertical);
@@ -41,6 +43,16 @@ public class EHPlayerCharacter : EHCharacter
     private void InputAttack()
     {
         AttackComponent.AttemptAttack(0);
+    }
+
+    private void InputChargeAttack()
+    {
+        AttackComponent.AttemptChargeAttack();
+    }
+
+    private void InputChargeAttackRelease()
+    {
+        AttackComponent.ReleaseChargeAttack();
     }
 
     #endregion input functions
