@@ -119,7 +119,10 @@ public class EHPhysics2DManager
                 if (!Physics2D.GetIgnoreLayerCollision(PhysicsCollider.gameObject.layer, StaticCollider.gameObject.layer) 
                     && PhysicsCollider.CheckPhysicsColliderOverlapping(StaticCollider))
                 {
-                    StaticCollider.PushOutCollider(PhysicsCollider, out Vector2 PushDirection);
+                    if (StaticCollider.PushOutCollider(PhysicsCollider, out Vector2 PushDirection))
+                    {
+                        PhysicsCollider.TranslateActorPosition(PushDirection);
+                    }
                     if (PhysicsCollider.PhysicsComponent)
                     {
                         PhysicsCollider.PhysicsComponent.OnCollisionEvent(PushDirection);

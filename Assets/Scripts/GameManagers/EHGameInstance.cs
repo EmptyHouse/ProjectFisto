@@ -42,6 +42,7 @@ public class EHGameInstance : MonoBehaviour
     public EHPlayerState PlayerState { get; private set; }
     public EHCharacter PlayerCharacter { get; private set; }
     public EHPlayerController PlayerController { get; private set; }
+    private SceneField CurrentScene;
     
     #region monobehaviour methods
     protected virtual void Awake()
@@ -106,8 +107,20 @@ public class EHGameInstance : MonoBehaviour
         LoadBackgroundScene(WorldSettings.BackgroundWorld);
     }
 
-    public void LoadBackgroundScene(SceneField BackgroundWorld)
+    public void LoadBackgroundScene(SceneField BackgroundWorld, bool LoadAsync = false)
     {
-        SceneManager.LoadScene(BackgroundWorld.SceneName, LoadSceneMode.Additive);
+        if (CurrentScene != null)
+        {
+            SceneManager.UnloadSceneAsync(CurrentScene.SceneName);
+        }
+        CurrentScene = BackgroundWorld;
+        if (LoadAsync)
+        {
+            SceneManager.LoadSceneAsync(CurrentScene.SceneName, LoadSceneMode.Additive);
+        }
+        else
+        {
+            SceneManager.LoadScene(CurrentScene.SceneName, LoadSceneMode.Additive);
+        }
     }
 }

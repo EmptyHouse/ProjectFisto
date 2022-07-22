@@ -21,14 +21,14 @@ public class EHBoxCollider2D : EHActorComponent
     [SerializeField]
     private bool IsTrigger = false;
     [SerializeField]
-    private EColliderType ColliderType = EColliderType.Static;
+    protected EColliderType ColliderType = EColliderType.Static;
     [SerializeField, Tooltip("Size of our box collider")]
     private Vector2 BoxSize = Vector2.one;
     [SerializeField, Tooltip("The offset position of our box collider")]
     private Vector2 BoxPosition = Vector2.zero;
     [SerializeField, Tooltip("Determines if this is a character collider. Meaning that it is anchored at the feet rather than centered")]
     private bool IsCharacterCollider = false;
-    
+
     protected FBox2D CurrentBox;
     protected FBox2D PreviousBox;
     protected FBox2D PhysicsSweepBox;
@@ -78,7 +78,7 @@ public class EHBoxCollider2D : EHActorComponent
         }
     }
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         if (Application.isPlaying & ColliderType == EColliderType.Kinematic)
         {
@@ -96,7 +96,8 @@ public class EHBoxCollider2D : EHActorComponent
     #endregion monobehaviour methods
 
     public EColliderType GetColliderType() => ColliderType;
-
+    
+    #region update functions
     public void UpdateKinematicBoxCollider()
     {
         // Update our previous box
@@ -130,6 +131,7 @@ public class EHBoxCollider2D : EHActorComponent
         CurrentBox.Size = RectSize;
         CurrentBox.Origin = RectPosition;
     }
+    #endregion update functions
     
     #region collision checks
 
@@ -146,7 +148,7 @@ public class EHBoxCollider2D : EHActorComponent
     
     #region collision functions
 
-    public bool PushOutCollider(EHBoxCollider2D OtherCollider, out Vector2 PushDirection)
+    public virtual bool PushOutCollider(EHBoxCollider2D OtherCollider, out Vector2 PushDirection)
     {
         Vector2 RightUpOffset = CurrentBox.MaxBounds - OtherCollider.CurrentBox.MinBounds;
         Vector2 LeftBottomOffset = CurrentBox.MinBounds - OtherCollider.CurrentBox.MaxBounds;
@@ -169,13 +171,25 @@ public class EHBoxCollider2D : EHActorComponent
         }
         else return false;
         
-        OtherCollider.TranslateActorPosition(PushDirection);
         return true;
     }
     #endregion collision functions
     
+    #region getter functions
+
+    public FBox2D GetCurrentBoxBounds()
+    {
+        return CurrentBox;
+    }
+
+    public FBox2D GetPreviousBoxBounds()
+    {
+        return PreviousBox;
+    }
+    #endregion getter functions
+    
     #region debug functions
-    public Color GetDebugColor()
+    protected Color GetDebugColor()
     {
         if (IsTrigger)
         {

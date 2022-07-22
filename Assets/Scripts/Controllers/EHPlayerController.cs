@@ -19,6 +19,7 @@ public enum EButtonInput : byte
     Jump = 0x01,
     Attack = 0x02,
     ChargeAttack = 0x04,
+    Ability = 0x08,
 }
 
 public enum EAxisInput : byte
@@ -56,7 +57,7 @@ public class EHPlayerController : MonoBehaviour
         InputArray[(int) EAxisInput.Vertical] = MoveAxis.y;
         Inputs.CurrentAxisInput = InputArray;
 
-        for (int i = 0; i < 3; ++i)//Update this with the number of valid inputs we have
+        for (int i = 0; i < 4; ++i)//Update this with the number of valid inputs we have
         {
             EButtonInput ButtonInput = (EButtonInput) (1 << i);
             if (Inputs.GetButtonDown(ButtonInput) && ButtonPressedActions.ContainsKey(ButtonInput))
@@ -96,7 +97,9 @@ public class EHPlayerController : MonoBehaviour
         InputAction ChargeAttackAction = InGamePlayerInput.actions["ChargeAttack"];
         ChargeAttackAction.started += OnChargeAttackAction;
         ChargeAttackAction.canceled += OnChargeAttackAction;
-        
+        InputAction AbilityAction = InGamePlayerInput.actions["Ability"];
+        AbilityAction.started += OnAbilityAction;
+        AbilityAction.canceled += OnAbilityAction;
         MoveAction = InGamePlayerInput.actions["Move"];
     }
 
@@ -154,6 +157,9 @@ public class EHPlayerController : MonoBehaviour
 
     private void OnChargeAttackAction(CallbackContext Context) =>
         UpdateCurrentInput(EButtonInput.ChargeAttack, Context.ReadValueAsButton());
+
+    private void OnAbilityAction(CallbackContext Context) =>
+        UpdateCurrentInput(EButtonInput.Ability, Context.ReadValueAsButton());
     
     #endregion button events
 

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EHPlayerInventory : EHActorComponent
 {
+    // NOTE: Remove Serialize field later
+    [SerializeField]
     public List<EHInventoryItem> ActiveItems { get; private set; }
     private int CurrentActiveIndex = 0;
 
@@ -15,6 +17,10 @@ public class EHPlayerInventory : EHActorComponent
 
     public EHInventoryItem GetCurrentActiveItem()
     {
+        if (CurrentActiveIndex < 0 || CurrentActiveIndex >= ActiveItems.Count)
+        {
+            return null;
+        }
         return ActiveItems[CurrentActiveIndex];
     }
 
