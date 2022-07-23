@@ -121,7 +121,7 @@ public class EHBoxCollider2D : EHActorComponent
         UpdateCurrentBoxGeometry();
     }
     
-    public void UpdateCurrentBoxGeometry()
+    public virtual void UpdateCurrentBoxGeometry()
     {
         Vector2 ActorScale = GetActorScale();
         // Convert scale to a positive value

@@ -122,12 +122,12 @@ public class EHPhysics2DManager
                     if (StaticCollider.PushOutCollider(PhysicsCollider, out Vector2 PushDirection))
                     {
                         PhysicsCollider.TranslateActorPosition(PushDirection);
+                        if (PhysicsCollider.PhysicsComponent)
+                        {
+                            PhysicsCollider.PhysicsComponent.OnCollisionEvent(PushDirection);
+                        }
+                        PhysicsCollider.UpdateCurrentBoxGeometry();
                     }
-                    if (PhysicsCollider.PhysicsComponent)
-                    {
-                        PhysicsCollider.PhysicsComponent.OnCollisionEvent(PushDirection);
-                    }
-                    PhysicsCollider.UpdateCurrentBoxGeometry();
                 }
             }
         }
