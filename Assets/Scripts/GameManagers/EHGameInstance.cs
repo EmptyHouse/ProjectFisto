@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,20 +48,63 @@ public class EHGameInstance : MonoBehaviour
     #region monobehaviour methods
     protected virtual void Awake()
     {
+        if (Application.isEditor)
+        {
+            if (SceneManager.sceneCount > 1)
+            {
+                CurrentScene = WorldSettings.BackgroundWorld;
+            }
+        }
         if (instance)
         {
-            instance.InitializeGameManagers(ref WorldSettings);
+            instance.InitializeGameManagers();
             Destroy(this.gameObject);
             return;
         }
         instance = this;
-        InitializeGameManagers(ref WorldSettings);
-        DontDestroyOnLoad(this.gameObject);
+        InitializeGameManagers();
         Application.targetFrameRate = 60;
     }
     #endregion monobehaviour methods
 
-    private void InitializeGameManagers(ref FWorldSettings WorldSettings)
+    private void InitializeGameManagers()
+    {
+        LoadBackgroundScene(WorldSettings.BackgroundWorld);
+    }
+
+    public void LoadBackgroundScene(SceneField BackgroundWorld, bool LoadAsync = false)
+    {
+        StartCoroutine(LoadBackgroundSceneCoroutine(BackgroundWorld, LoadAsync));
+    }
+
+    private IEnumerator LoadBackgroundSceneCoroutine(SceneField BackgroundWorld, bool LoadAsync = false)
+    {
+        yield return null;
+        if (CurrentScene != null)
+        {
+            AsyncOperation UnloadSceneOperation = SceneManager.UnloadSceneAsync(CurrentScene.SceneName);
+            while (!UnloadSceneOperation.isDone)
+            {
+                yield return null;
+            }
+        }
+        CurrentScene = BackgroundWorld;
+        if (LoadAsync)
+        {
+            AsyncOperation LoadOperation = SceneManager.LoadSceneAsync(CurrentScene.SceneName, LoadSceneMode.Additive);
+            while (!LoadOperation.isDone)
+            {
+                yield return null;
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene(CurrentScene.SceneName, LoadSceneMode.Additive);
+        }
+        InitializeMainSceneObjects();
+    }
+
+    private void InitializeMainSceneObjects()
     {
         if (GameMode) Destroy(GameMode.gameObject);
         if (GameState) Destroy(GameState.gameObject);
@@ -104,23 +148,12 @@ public class EHGameInstance : MonoBehaviour
         {
             GameHUD = Instantiate(WorldSettings.GameHUD);
         }
-        LoadBackgroundScene(WorldSettings.BackgroundWorld);
     }
+    #region debug functions
 
-    public void LoadBackgroundScene(SceneField BackgroundWorld, bool LoadAsync = false)
+    public void DebugResetGame()
     {
-        if (CurrentScene != null)
-        {
-            SceneManager.UnloadSceneAsync(CurrentScene.SceneName);
-        }
-        CurrentScene = BackgroundWorld;
-        if (LoadAsync)
-        {
-            SceneManager.LoadSceneAsync(CurrentScene.SceneName, LoadSceneMode.Additive);
-        }
-        else
-        {
-            SceneManager.LoadScene(CurrentScene.SceneName, LoadSceneMode.Additive);
-        }
+        SceneManager.LoadScene("MainScene");
     }
+    #endregion debug functions
 }
