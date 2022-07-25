@@ -23,7 +23,7 @@ public class EHAnimatorComponent : EHActorComponent
         
         foreach (var BufferValue in BufferTimeMap.Keys.ToList())
         {
-            BufferTimeMap[BufferValue] -= Time.deltaTime;
+            BufferTimeMap[BufferValue] -= EHTime.DeltaTime;
             if (BufferTimeMap[BufferValue] <= 0)
             {
                 RemoveBuffers.Add(BufferValue);

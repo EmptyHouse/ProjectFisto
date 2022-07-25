@@ -41,6 +41,6 @@ public class EHCameraFollow : MonoBehaviour
     {
         Vector3 TargetPosition = FollowTarget.GetPosition();
         Vector3 GoalPosition = CameraOffset + TargetPosition;
-        transform.position = Vector3.Lerp(transform.position, GoalPosition, Time.deltaTime * CameraSpeed);
+        transform.position = Vector3.Lerp(transform.position, GoalPosition, EHTime.DeltaTime * CameraSpeed);
     }
 }

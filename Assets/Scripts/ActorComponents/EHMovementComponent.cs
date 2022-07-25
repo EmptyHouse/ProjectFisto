@@ -162,7 +162,7 @@ public class EHMovementComponent : EHCharacterComponent
 
 
 
-        NewSpeed = Mathf.MoveTowards(NewSpeed, GoalSpeed, Time.deltaTime * Acceleration);
+        NewSpeed = Mathf.MoveTowards(NewSpeed, GoalSpeed, EHTime.DeltaTime * Acceleration);
         Physics.SetVelocity(new Vector2(NewSpeed, Physics.Velocity.y));
     }
 

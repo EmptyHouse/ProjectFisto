@@ -18,7 +18,7 @@ public class EHGameMode : MonoBehaviour
 
     public virtual void Update()
     {
-        PhysicsManager.UpdatePhysicsLoop(Time.deltaTime);
+        PhysicsManager.UpdatePhysicsLoop(EHTime.DeltaTime);
     }
 
     #endregion 
