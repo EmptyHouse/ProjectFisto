@@ -203,8 +203,7 @@ public class EHMovementComponent : EHCharacterComponent
 
     public void SetIsRight(bool IsRight, bool ForceDirection = false)
     {
-        if (AnimBlockMovement) return;
-        if (!ForceDirection && (this.IsRight == IsRight)) return;
+        if (!ForceDirection && (this.IsRight == IsRight || AnimBlockMovement)) return;
         this.IsRight = IsRight;
         Vector2 ActorScale = GetActorScale();
         ActorScale.x = (IsRight ? 1 : -1) * Mathf.Abs(ActorScale.x);
@@ -221,7 +220,7 @@ public class EHMovementComponent : EHCharacterComponent
             case EMovementStance.Standing:
                 DoubleJumpsUsed = 0;
                 if (Mathf.Abs(CurrentInput.x) > 0)
-                    SetIsRight(CurrentInput.x > 0);
+                    SetIsRight(CurrentInput.x > 0, true);
                 break;
             case EMovementStance.InAir:
                 
