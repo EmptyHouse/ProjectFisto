@@ -63,6 +63,8 @@ public class EHGameInstance : MonoBehaviour
         }
         instance = this;
         InitializeGameManagers();
+        
+        //NOTE: may want to remove this in the future
         Application.targetFrameRate = 60;
     }
     #endregion monobehaviour methods

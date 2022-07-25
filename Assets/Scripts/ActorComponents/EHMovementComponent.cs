@@ -204,7 +204,7 @@ public class EHMovementComponent : EHCharacterComponent
     public void SetIsRight(bool IsRight, bool ForceDirection = false)
     {
         if (AnimBlockMovement) return;
-        if (!ForceDirection && (this.IsRight == IsRight || MovementStance == EMovementStance.InAir)) return;
+        if (!ForceDirection && (this.IsRight == IsRight)) return;
         this.IsRight = IsRight;
         Vector2 ActorScale = GetActorScale();
         ActorScale.x = (IsRight ? 1 : -1) * Mathf.Abs(ActorScale.x);
