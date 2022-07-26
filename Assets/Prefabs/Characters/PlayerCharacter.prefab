@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717f1e9e7ca88bb4e83ea32c4a7d10f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimBlockMovement: 0
+  AnimGoalVelocity: {x: 0, y: 0}
   IsRight: 1
   GroundAcceleration: 120
   AirAcceleration: 50
@@ -177,6 +179,7 @@ MonoBehaviour:
   TimeToReachApex: 0.32
   JumpHeightApex: 4
   JumpVelocity: 25
+  UpperCutJumpScale: 1.2
 --- !u!114 &-6490939941704322546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +196,7 @@ MonoBehaviour:
     Owner: {fileID: 0}
     DamageApplied: 10
     DamageForce: {x: 0, y: 0}
+  ChargeReleaseSpeed: 30
 --- !u!114 &6567806111333800667
 MonoBehaviour:
   m_ObjectHideFlags: 0

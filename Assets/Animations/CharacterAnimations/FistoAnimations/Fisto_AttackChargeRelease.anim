@@ -205,7 +205,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.016666668
-    functionName: OnChargeRelease
+    functionName: OnChargeAttackReleased
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

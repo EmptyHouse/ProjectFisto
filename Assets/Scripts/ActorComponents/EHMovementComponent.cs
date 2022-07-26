@@ -249,10 +249,5 @@ public class EHMovementComponent : EHCharacterComponent
         Physics.SetVelocity(new Vector2(Physics.Velocity.x, JumpVelocity * UpperCutJumpScale));
         MovementStance = EMovementStance.InAir;
     }
-
-    public void OnChargeRelease()
-    {
-        Physics.SetVelocity(new Vector2(Mathf.Sign(GetActorScale().x) * AnimGoalVelocity.x, 0));
-    }
     #endregion 
 }

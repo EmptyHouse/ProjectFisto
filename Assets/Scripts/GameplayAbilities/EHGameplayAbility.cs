@@ -1,24 +1,15 @@
 using UnityEngine;
 
-public class EHGameplayAbility : MonoBehaviour
+public class EHGameplayAbility
 {
     public EHActor AbilityOwner;
-    
-    #region monobehaviour methods
 
-    protected void Awake()
+    public virtual void BeginAbility(EHActor AbilityOwner)
     {
         
     }
 
-    #endregion monobehaviour methods
-    
-    public virtual void BeginAbility()
-    {
-        
-    }
-
-    protected virtual void OnAbilityStarted()
+    protected virtual void TickAbility()
     {
         
     }

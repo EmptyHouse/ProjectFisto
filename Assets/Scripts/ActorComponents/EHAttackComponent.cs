@@ -23,14 +23,16 @@ public class EHAttackComponent : EHActorComponent
     #endregion const values
 
     private EHAnimatorComponent Anim;
-    [SerializeField]
+    [SerializeField] 
     private FAttackData DefaultAttackData;
+    private EHPhysics2D PhysicsComponent;
     #region monobehaviour methods
 
     protected override void Awake()
     {
         base.Awake();
         Anim = OwningActor.Anim;
+        PhysicsComponent = GetComponent<EHPhysics2D>();
     }
     #endregion monobehaviour methods
 
@@ -53,5 +55,33 @@ public class EHAttackComponent : EHActorComponent
     public void ReleaseChargeAttack()
     {
         Anim.SetBool(Anim_ChargeAttack, false);
+    }
+
+    private float ChargeTime = 0;
+    
+    public void OnBeginChargeAttack()
+    {
+        StartCoroutine(BeginChargeAttack());
+    }
+    
+    private IEnumerator BeginChargeAttack()
+    {
+        ChargeTime = 0;
+        while (ChargeTime < MaxChargeTime)
+        {
+            yield return null;
+            ChargeTime += EHTime.DeltaTime;
+        }
+
+        ChargeTime = Mathf.Min(MaxChargeTime, ChargeTime);
+        ReleaseChargeAttack();
+    }
+
+    [SerializeField] private float ChargeReleaseSpeed = 5;
+    private const float MaxChargeTime = 1.5f;
+    public void OnChargeAttackReleased()
+    {
+        Vector2 ActorScale = GetActorScale();
+        PhysicsComponent.SetVelocity(new Vector2(Mathf.Sign(ActorScale.x) * ChargeReleaseSpeed * ChargeTime / MaxChargeTime, 0));
     }
 }

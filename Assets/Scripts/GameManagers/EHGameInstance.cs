@@ -90,6 +90,7 @@ public class EHGameInstance : MonoBehaviour
                 yield return null;
             }
         }
+        InitializeMainSceneObjects();
         CurrentScene = BackgroundWorld;
         if (LoadAsync)
         {
@@ -103,7 +104,6 @@ public class EHGameInstance : MonoBehaviour
         {
             SceneManager.LoadScene(CurrentScene.SceneName, LoadSceneMode.Additive);
         }
-        InitializeMainSceneObjects();
     }
 
     private void InitializeMainSceneObjects()
