@@ -2,7 +2,7 @@
 
 public static class EHTime
 {
-    private const float TimePerFrame = 1f / 60f;
+    public const float TimePerFrame = 1f / 60f;
     public static float TimeScale
     {
         get => timeScale;

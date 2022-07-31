@@ -42,17 +42,17 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputAttack()
     {
-        AttackComponent.AttemptAttack(0);
+        //AttackComponent.AttemptAttack(0);
     }
 
     private void InputChargeAttack()
     {
-        AttackComponent.AttemptChargeAttack();
+        //AttackComponent.AttemptChargeAttack();
     }
 
     private void InputChargeAttackRelease()
     {
-        AttackComponent.ReleaseChargeAttack();
+        //AttackComponent.ReleaseChargeAttack();
     }
 
     #endregion input functions

@@ -78,4 +78,9 @@ public class EHAnimatorComponent : EHActorComponent
     public int GetInteger(int ParameterHash) => Anim.GetInteger(ParameterHash);
 
     #endregion set anim trigger
+
+    public void StartAnimationClip(int AnimationClipIndex)
+    {
+        Anim.Play(AnimationClipIndex);
+    }
 }
