@@ -6,6 +6,7 @@ public class EHCharacterData : EHTableRow
 {
     public string CharacterName;
     public EHCharacter CharacterPrefab;
+
 }
 
 public class EHCharacterTable : EHDataTable<EHCharacterData>

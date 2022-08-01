@@ -83,4 +83,9 @@ public class EHAnimatorComponent : EHActorComponent
     {
         Anim.Play(AnimationClipIndex);
     }
+
+    public void ResetAnimatorState()
+    {
+        Anim.Play(0);
+    }
 }

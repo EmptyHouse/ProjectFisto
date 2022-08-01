@@ -42,12 +42,12 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputAttack()
     {
-        //AttackComponent.AttemptAttack(0);
+        AttackComponent.AttemptAttack(EAttackType.SimpleAttack);
     }
 
     private void InputChargeAttack()
     {
-        //AttackComponent.AttemptChargeAttack();
+        AttackComponent.AttemptAttack(EAttackType.ChargeAttack);
     }
 
     private void InputChargeAttackRelease()

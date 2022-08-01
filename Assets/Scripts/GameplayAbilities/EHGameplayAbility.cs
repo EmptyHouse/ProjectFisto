@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EHGameplayAbility : MonoBehaviour
+[CreateAssetMenu(fileName = "BasicAbility", menuName = "GameplayAbilities/BasicAbility", order = 1)]
+public class EHGameplayAbility : ScriptableObject
 {
     [System.Serializable]
     protected struct FAbilityEvent
@@ -16,27 +17,15 @@ public class EHGameplayAbility : MonoBehaviour
     
     [SerializeField]
     protected AnimationClip AbilityClip;
+
+    private int AbilityClipHash;
     [SerializeField]
     private FAbilityEvent[] AbilityEvents;
-    [SerializeField]
-    private bool IsLooping = false;
     private int CurrentFramesActive;
     [SerializeField, HideInInspector]
     private int TotalFramesActive;
 
     #region monobehaviour methods
-    private void OnValidate()
-    {
-        if (Application.isEditor && AbilityClip != null)
-        {
-            TotalFramesActive = Mathf.RoundToInt(AbilityClip.length / EHTime.TimePerFrame);
-        }
-    }
-
-    private void Update()
-    {
-        TickAbility();
-    }
 
     #endregion monobehaviour methods
     
@@ -51,23 +40,20 @@ public class EHGameplayAbility : MonoBehaviour
 
         if (CurrentFramesActive >= TotalFramesActive)
         {
-            if (!IsLooping)
-            {
-                OnAbilityEnd();
-            }
-            else
-            {
-                CurrentFramesActive = 0;
-            }
+            CurrentFramesActive = 0;
+            TotalFramesActive = Mathf.RoundToInt(AbilityClip.length / EHTime.TimePerFrame);
         }
+
+        AbilityClipHash = Animator.StringToHash(AbilityClip.name);
     }
     
     public virtual void BeginAbility()
     {
         CurrentFramesActive = 0;
+        OwnerAnimator.StartAnimationClip(AbilityClipHash);
     }
 
-    protected virtual void TickAbility()
+    public virtual void TickAbility()
     {
         ++CurrentFramesActive;
         foreach (FAbilityEvent AbilityEvent in AbilityEvents)
@@ -79,8 +65,13 @@ public class EHGameplayAbility : MonoBehaviour
         }
     }
 
-    protected virtual void OnAbilityEnd()
+    public virtual void OnAbilityEnd()
     {
-        
+        OwnerAnimator.ResetAnimatorState();
+    }
+
+    public virtual bool IsAbilityEnded()
+    {
+        return CurrentFramesActive >= TotalFramesActive;
     }
 }
