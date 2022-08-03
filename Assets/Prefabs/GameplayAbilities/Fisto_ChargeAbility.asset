@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50420db59a5692548b3afe2463d4910c, type: 3}
-  m_Name: UppercutAbility
+  m_Script: {fileID: 11500000, guid: 0a51ddba5f8180944926ed32e8ca27c0, type: 3}
+  m_Name: Fisto_ChargeAbility
   m_EditorClassIdentifier: 
-  AbilityClip: {fileID: 7400000, guid: 9d3a6a7211bdd434a9f7dc900e3d044e, type: 2}
+  AbilityClip: {fileID: 7400000, guid: e38e5a0a23ec4ec409be31ececfa15e4, type: 2}
   AbilityEvents: []
   TotalFramesActive: 0
+  MaxChargeTime: 1.5
+  ChargingClip: {fileID: 7400000, guid: a6b61e8d946ac8249a343f8d1b1e3d4a, type: 2}

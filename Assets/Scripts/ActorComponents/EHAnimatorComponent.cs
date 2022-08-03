@@ -6,6 +6,7 @@ using UnityEngine;
 public class EHAnimatorComponent : EHActorComponent
 {
     private const float TriggerBufferTime = 8f / 60f;
+    private readonly int AnimResetHash = Animator.StringToHash("Reset");
     private Animator Anim;
     private Dictionary<int, float> BufferTimeMap = new Dictionary<int, float>();
     #region monobehaviour methods
@@ -86,6 +87,6 @@ public class EHAnimatorComponent : EHActorComponent
 
     public void ResetAnimatorState()
     {
-        Anim.Play(0);
+        Anim.SetTrigger(AnimResetHash);
     }
 }

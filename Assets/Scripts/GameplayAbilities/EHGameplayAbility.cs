@@ -18,10 +18,10 @@ public class EHGameplayAbility : ScriptableObject
     [SerializeField]
     protected AnimationClip AbilityClip;
 
-    private int AbilityClipHash;
+    protected int AbilityClipHash;
     [SerializeField]
     private FAbilityEvent[] AbilityEvents;
-    private int CurrentFramesActive;
+    protected int CurrentFramesActive;
     [SerializeField, HideInInspector]
     private int TotalFramesActive;
 
@@ -73,5 +73,11 @@ public class EHGameplayAbility : ScriptableObject
     public virtual bool IsAbilityEnded()
     {
         return CurrentFramesActive >= TotalFramesActive;
+    }
+    
+    // Input
+    public virtual void ActivateAbility(bool IsActive)
+    {
+        
     }
 }

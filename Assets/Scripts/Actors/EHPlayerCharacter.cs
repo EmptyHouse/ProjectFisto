@@ -52,7 +52,7 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputChargeAttackRelease()
     {
-        //AttackComponent.ReleaseChargeAttack();
+        AttackComponent.ReleaseAttack(EAttackType.ChargeAttack);
     }
 
     #endregion input functions

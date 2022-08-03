@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.TextCore.Text;
 
 public enum EMovementStance
@@ -64,6 +65,7 @@ public class EHMovementComponent : EHCharacterComponent
     // Input values
     private Vector2 CurrentInput;
     private Vector2 PreviousInput;
+    private UnityAction<EMovementStance> OnStanceChangeEvent;
     
     
 
@@ -219,6 +221,7 @@ public class EHMovementComponent : EHCharacterComponent
         EHAnimatorComponent CharacterAnim = OwningCharacter.Anim;
         CharacterAnim.SetTrigger(Anim_StanceChange);
         CharacterAnim.SetInteger(Anim_MovementStance, (int)MovementStance);
+        OnStanceChangeEvent?.Invoke(MovementStance);
     }
 
     private void EndMovementStance(EMovementStance PreviousMovementStance)

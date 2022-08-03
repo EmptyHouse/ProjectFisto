@@ -66,6 +66,14 @@ public class EHAttackComponent : EHActorComponent
         }
     }
 
+    public void ReleaseAttack(EAttackType AttackType)
+    {
+        if (ActiveAbility != null)
+        {
+            ActiveAbility.ActivateAbility(false);
+        }
+    }
+
     public void AttackDamageComponent(EHDamageableComponent OtherDamageComponent)
     {
         OtherDamageComponent.TakeDamage(DefaultAttackData);
