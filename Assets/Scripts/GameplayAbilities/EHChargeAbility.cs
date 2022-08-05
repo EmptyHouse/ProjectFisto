@@ -28,6 +28,10 @@ public class EHChargeAbility : EHGameplayAbility
         CurrentChargeTime = 0;
         OwnerAnimator.StartAnimationClip(ChargingAnimationHash);
         IsCharging = true;
+        if (OwnerMovementComponent != null)
+        {
+            OwnerMovementComponent.IgnorePlayerInput = true;
+        }
     }
 
     public override void TickAbility()
@@ -65,5 +69,8 @@ public class EHChargeAbility : EHGameplayAbility
         OwnerAnimator.StartAnimationClip(AbilityClipHash);
     }
     
-    
+    public float GetChargePercent()
+    {
+        return Mathf.Clamp(CurrentChargeTime / MaxChargeTime, 0f, 1f);
+    }
 }

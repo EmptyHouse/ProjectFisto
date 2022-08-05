@@ -33,7 +33,7 @@ public class EHPlayerState : MonoBehaviour
 
     private void SetupPlayerControllerActions(EHPlayerController PlayerController)
     {
-        PlayerController.BindEventToButtonInput(EButtonInput.Ability, InputInventoryAction, EButtonEventType.Button_Pressed);
+        PlayerController.BindEventToButtonInput(EButtonInput.Crystal, InputInventoryAction, EButtonEventType.Button_Pressed);
     }
     
     #region inventory functions

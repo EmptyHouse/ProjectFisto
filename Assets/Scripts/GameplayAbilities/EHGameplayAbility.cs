@@ -14,6 +14,7 @@ public class EHGameplayAbility : ScriptableObject
     }
     public EHActor AbilityOwner { get; private set; }
     protected EHAnimatorComponent OwnerAnimator;
+    protected EHMovementComponent OwnerMovementComponent;
     
     [SerializeField]
     protected AnimationClip AbilityClip;
@@ -36,6 +37,7 @@ public class EHGameplayAbility : ScriptableObject
         {
             this.AbilityOwner = AbilityOwner;
             OwnerAnimator = AbilityOwner.GetComponent<EHAnimatorComponent>();
+            OwnerMovementComponent = AbilityOwner.GetComponent<EHMovementComponent>();
         }
 
         if (CurrentFramesActive >= TotalFramesActive)
@@ -51,6 +53,10 @@ public class EHGameplayAbility : ScriptableObject
     {
         CurrentFramesActive = 0;
         OwnerAnimator.StartAnimationClip(AbilityClipHash);
+        if (OwnerMovementComponent != null)
+        {
+            OwnerMovementComponent.IgnorePlayerInput = true;
+        }
     }
 
     public virtual void TickAbility()
@@ -68,6 +74,10 @@ public class EHGameplayAbility : ScriptableObject
     public virtual void OnAbilityEnd()
     {
         OwnerAnimator.ResetAnimatorState();
+        if (OwnerMovementComponent != null)
+        {
+            OwnerMovementComponent.IgnorePlayerInput = false;
+        }
     }
 
     public virtual bool IsAbilityEnded()

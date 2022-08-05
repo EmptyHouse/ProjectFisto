@@ -12,6 +12,7 @@ public class EHPlayerCharacter : EHCharacter
         Controller.BindEventToButtonInput(EButtonInput.Attack, InputAttack, EButtonEventType.Button_Pressed);
         Controller.BindEventToButtonInput(EButtonInput.ChargeAttack, InputChargeAttack, EButtonEventType.Button_Pressed);
         Controller.BindEventToButtonInput(EButtonInput.ChargeAttack, InputChargeAttackRelease, EButtonEventType.Button_Release);
+        Controller.BindEventToButtonInput(EButtonInput.Crystal, InputCrystalAttack, EButtonEventType.Button_Pressed);
 
         Controller.BindEventToAxisInput(EAxisInput.Horizontal, InputMoveHorizontal);
         Controller.BindEventToAxisInput(EAxisInput.Vertical, InputMoveVertical);
@@ -55,5 +56,9 @@ public class EHPlayerCharacter : EHCharacter
         AttackComponent.ReleaseAttack(EAttackType.ChargeAttack);
     }
 
+    private void InputCrystalAttack()
+    {
+        AttackComponent.AttemptAttack(EAttackType.CrystalAttack);
+    }
     #endregion input functions
 }

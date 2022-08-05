@@ -31,6 +31,7 @@ public class EHMovementComponent : EHCharacterComponent
     private readonly int Anim_StanceChange = Animator.StringToHash("StanceChange");
     
     #endregion const variables
+    public bool IgnorePlayerInput { get; set; } = false;
     
     [SerializeField]
     private bool IsRight = true;
@@ -135,7 +136,7 @@ public class EHMovementComponent : EHCharacterComponent
         float GoalSpeed = 0;
         float Acceleration = 0;
         float NewSpeed = Physics.Velocity.x;
-        float xInput = CurrentInput.x;
+        float xInput = IgnorePlayerInput ? 0 :CurrentInput.x;
         
         switch (MovementStance)
         {

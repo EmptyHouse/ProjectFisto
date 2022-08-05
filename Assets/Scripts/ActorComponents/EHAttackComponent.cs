@@ -23,13 +23,19 @@ public enum EAttackType
     CrystalAttack,
 }
 
-public class EHAttackComponent : EHActorComponent
+public class EHAttackComponent : EHCharacterComponent
 {
     private EHAnimatorComponent Anim;
     [SerializeField] 
     private FAttackData DefaultAttackData;
     [SerializeField]
     private List<EHGameplayAbility> EquippedAbilities = new List<EHGameplayAbility>();
+    [SerializeField]
+    private float ChargeReleaseSpeed = 10f;
+
+    [SerializeField]
+    private float CrystalKnockSpeed = 10f;
+    
 
     private EHGameplayAbility ActiveAbility;
     
@@ -78,4 +84,23 @@ public class EHAttackComponent : EHActorComponent
     {
         OtherDamageComponent.TakeDamage(DefaultAttackData);
     }
+    
+    #region animation events
+    public void OnBeginChargeAttack()
+    {
+        if (ActiveAbility == null) return;
+        EHChargeAbility ChargeAbility = (EHChargeAbility) ActiveAbility;
+        float ChargePercent = ChargeAbility.GetChargePercent();
+        
+        Vector2 ActorScale = GetActorScale();
+        EHPhysics2D PhysicsComponent = OwningCharacter.Physics;
+        PhysicsComponent.SetVelocity(new Vector2(Mathf.Sign(ActorScale.x) * ChargeReleaseSpeed * ChargePercent, 0));
+    }
+
+    public void OnCrystalAttack()
+    {
+        if (ActiveAbility == null) return;
+        OwningCharacter.Physics.SetVelocity(new Vector2(-Mathf.Sign(GetActorScale().x) * CrystalKnockSpeed, 0));
+    }
+    #endregion animation events
 }

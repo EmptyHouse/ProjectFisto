@@ -19,7 +19,7 @@ public enum EButtonInput : byte
     Jump = 0x01,
     Attack = 0x02,
     ChargeAttack = 0x04,
-    Ability = 0x08,
+    Crystal = 0x08,
 }
 
 public enum EAxisInput : byte
@@ -159,7 +159,7 @@ public class EHPlayerController : MonoBehaviour
         UpdateCurrentInput(EButtonInput.ChargeAttack, Context.ReadValueAsButton());
 
     private void OnAbilityAction(CallbackContext Context) =>
-        UpdateCurrentInput(EButtonInput.Ability, Context.ReadValueAsButton());
+        UpdateCurrentInput(EButtonInput.Crystal, Context.ReadValueAsButton());
     
     #endregion button events
 
