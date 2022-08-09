@@ -30,7 +30,7 @@ public class EHChargeAbility : EHGameplayAbility
         IsCharging = true;
         if (OwnerMovementComponent != null)
         {
-            OwnerMovementComponent.IgnorePlayerInput = true;
+            OwnerMovementComponent.SetIgnorePlayerInput(true);
         }
     }
 

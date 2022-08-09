@@ -31,7 +31,7 @@ public class EHMovementComponent : EHCharacterComponent
     private readonly int Anim_StanceChange = Animator.StringToHash("StanceChange");
     
     #endregion const variables
-    public bool IgnorePlayerInput { get; set; } = false;
+    public bool IgnorePlayerInput { get; private set; } = false;
     
     [SerializeField]
     private bool IsRight = true;
@@ -66,7 +66,7 @@ public class EHMovementComponent : EHCharacterComponent
     // Input values
     private Vector2 CurrentInput;
     private Vector2 PreviousInput;
-    private UnityAction<EMovementStance> OnStanceChangeEvent;
+    public UnityAction<EMovementStance> OnStanceChangeEvent;
     
     
 
@@ -87,11 +87,11 @@ public class EHMovementComponent : EHCharacterComponent
             JumpVelocity = 2 * JumpHeightApex / TimeToReachApex;
         }
 
-        if (!Application.isPlaying)
-        {
-            if (OwningActor == null) InitializeOwningActor();
-            SetIsRight(IsRight, true);
-        }
+        if (Application.isPlaying) return;
+        
+        if (OwningActor == null) InitializeOwningActor();
+        
+        SetIsRight(IsRight, true);
     }
 
     private void Update()
@@ -163,6 +163,8 @@ public class EHMovementComponent : EHCharacterComponent
 
     public void AttemptJump()
     {
+        if (IgnorePlayerInput) return;
+        
         switch (MovementStance)
         {
             case EMovementStance.Standing:
@@ -194,9 +196,12 @@ public class EHMovementComponent : EHCharacterComponent
     }
     #endregion jumping mechanics
 
-    public void SetIsRight(bool IsRight, bool ForceDirection = false)
+    private void SetIsRight(bool IsRight, bool ForceDirection = false)
     {
+        if (IgnorePlayerInput) return;
+        
         if (!ForceDirection && (this.IsRight == IsRight)) return;
+        
         this.IsRight = IsRight;
         Vector2 ActorScale = GetActorScale();
         ActorScale.x = (IsRight ? 1 : -1) * Mathf.Abs(ActorScale.x);
@@ -234,6 +239,13 @@ public class EHMovementComponent : EHCharacterComponent
             case EMovementStance.InAir:
                 return;
         }
+    }
+    
+    public void SetIgnorePlayerInput(bool IgnorePlayerInput)
+    {
+        this.IgnorePlayerInput = IgnorePlayerInput;
+        if (IgnorePlayerInput) return;
+        SetHorizontalInput(CurrentInput.x);
     }
     
     #region player character functions

@@ -19,12 +19,20 @@ public class EHGameplayAbility : ScriptableObject
     [SerializeField]
     protected AnimationClip AbilityClip;
 
+    [SerializeField] 
+    protected bool BlockPlayerInput;
+    
+    [SerializeField]
+    protected bool CancelOnStanceChange;
+
     protected int AbilityClipHash;
     [SerializeField]
     private FAbilityEvent[] AbilityEvents;
     protected int CurrentFramesActive;
     [SerializeField, HideInInspector]
     private int TotalFramesActive;
+
+    private bool ShouldEarlyCancelAbility;
 
     #region monobehaviour methods
 
@@ -53,9 +61,11 @@ public class EHGameplayAbility : ScriptableObject
     {
         CurrentFramesActive = 0;
         OwnerAnimator.StartAnimationClip(AbilityClipHash);
+        ShouldEarlyCancelAbility = false;
         if (OwnerMovementComponent != null)
         {
-            OwnerMovementComponent.IgnorePlayerInput = true;
+            OwnerMovementComponent.SetIgnorePlayerInput(true);
+            OwnerMovementComponent.OnStanceChangeEvent += OnStanceChange;
         }
     }
 
@@ -76,18 +86,31 @@ public class EHGameplayAbility : ScriptableObject
         OwnerAnimator.ResetAnimatorState();
         if (OwnerMovementComponent != null)
         {
-            OwnerMovementComponent.IgnorePlayerInput = false;
+            OwnerMovementComponent.SetIgnorePlayerInput(false);
+            OwnerMovementComponent.OnStanceChangeEvent -= OnStanceChange;
         }
     }
 
     public virtual bool IsAbilityEnded()
     {
-        return CurrentFramesActive >= TotalFramesActive;
+        return CurrentFramesActive >= TotalFramesActive || ShouldEarlyCancelAbility;
     }
     
-    // Input
+    /// <summary>
+    /// User Input to activate an ability
+    /// NOTE: May want to change the name of this function
+    /// </summary>
+    /// <param name="IsActive"></param>
     public virtual void ActivateAbility(bool IsActive)
     {
         
+    }
+
+    protected virtual void OnStanceChange(EMovementStance MovementStance)
+    {
+        if (CancelOnStanceChange)
+        {
+            ShouldEarlyCancelAbility = true;
+        }
     }
 }
