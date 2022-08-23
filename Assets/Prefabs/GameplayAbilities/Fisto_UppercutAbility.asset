@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Fisto_UppercutAbility
   m_EditorClassIdentifier: 
   AbilityClip: {fileID: 7400000, guid: 9d3a6a7211bdd434a9f7dc900e3d044e, type: 2}
+  BlockPlayerInput: 0
+  CancelOnStanceChange: 1
   AbilityEvents: []
-  TotalFramesActive: 0
+  TotalFramesActive: 70
+  ExitTime: 1
+  HasExitTime: 0

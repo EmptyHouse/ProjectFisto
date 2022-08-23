@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Fisto_ChargeAbility
   m_EditorClassIdentifier: 
   AbilityClip: {fileID: 7400000, guid: e38e5a0a23ec4ec409be31ececfa15e4, type: 2}
+  BlockPlayerInput: 0
+  CancelOnStanceChange: 0
   AbilityEvents: []
-  TotalFramesActive: 0
-  MaxChargeTime: 1.5
+  TotalFramesActive: 10
+  ExitTime: 1
+  HasExitTime: 0
+  MaxChargeTime: 0.55
   ChargingClip: {fileID: 7400000, guid: a6b61e8d946ac8249a343f8d1b1e3d4a, type: 2}
