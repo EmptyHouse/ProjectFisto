@@ -76,6 +76,18 @@ public class EHPhysics2D : EHActorComponent
         this.Velocity = Velocity;
     }
 
+    public void ClampHorizontalVelocity(float MaxVelocity)
+    {
+        if (Velocity.x > MaxVelocity)
+        {
+            Velocity = new Vector2(MaxVelocity, Velocity.y);
+        }
+        else if (Velocity.x < -MaxVelocity)
+        {
+            Velocity = new Vector2(-MaxVelocity, Velocity.y);
+        }
+    }
+
     public void SetUseGravity(bool UseGravity)
     {
         this.UseGravity = UseGravity;

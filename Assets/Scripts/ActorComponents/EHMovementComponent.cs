@@ -59,7 +59,7 @@ public class EHMovementComponent : EHCharacterComponent
     [SerializeField] 
     private float UpperCutJumpScale = 1.2f;
 
-    private EMovementStance MovementStance = EMovementStance.Standing;
+    public EMovementStance MovementStance { get; private set; } = EMovementStance.Standing;
     private EHPhysics2D Physics;
     private int DoubleJumpsUsed;
     
@@ -111,6 +111,19 @@ public class EHMovementComponent : EHCharacterComponent
 
     #endregion monobehaviour methods
 
+    public float GetMaxSpeedFromMovementStance(EMovementStance MovementStance)
+    {
+        switch (MovementStance)
+        {
+            case EMovementStance.Standing:
+                return RunSpeed;
+            case EMovementStance.InAir:
+                return MaxAirSpeed;
+        }
+
+        return RunSpeed;
+    }
+    
     public void SetHorizontalInput(float Input)
     {
         if (Mathf.Abs(Input) < JoystickDeadzone) 

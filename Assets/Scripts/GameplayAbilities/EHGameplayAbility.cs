@@ -12,9 +12,11 @@ public class EHGameplayAbility : ScriptableObject
         [Tooltip("Event that will be performed at frame")]
         public UnityEvent AbilityEvent;
     }
+    
     public EHActor AbilityOwner { get; private set; }
     protected EHAnimatorComponent OwnerAnimator;
     protected EHMovementComponent OwnerMovementComponent;
+    protected EHPhysics2D OwnerPhysicsComponent;
     
     [SerializeField]
     protected AnimationClip AbilityClip;
@@ -33,6 +35,11 @@ public class EHGameplayAbility : ScriptableObject
     private int TotalFramesActive;
 
     private bool ShouldEarlyCancelAbility;
+    
+    [SerializeField]
+    private float ExitTime = 1;
+    [SerializeField]
+    private bool HasExitTime = false;
 
     #region monobehaviour methods
 
@@ -46,6 +53,7 @@ public class EHGameplayAbility : ScriptableObject
             this.AbilityOwner = AbilityOwner;
             OwnerAnimator = AbilityOwner.GetComponent<EHAnimatorComponent>();
             OwnerMovementComponent = AbilityOwner.GetComponent<EHMovementComponent>();
+            OwnerPhysicsComponent = AbilityOwner.GetComponent<EHPhysics2D>();
         }
 
         if (CurrentFramesActive >= TotalFramesActive)
@@ -88,6 +96,15 @@ public class EHGameplayAbility : ScriptableObject
         {
             OwnerMovementComponent.SetIgnorePlayerInput(false);
             OwnerMovementComponent.OnStanceChangeEvent -= OnStanceChange;
+            
+            // Return speed to max speed after ability has ended
+            if (OwnerPhysicsComponent)
+            {
+                
+                float MaxSpeed =
+                    OwnerMovementComponent.GetMaxSpeedFromMovementStance(OwnerMovementComponent.MovementStance);
+                OwnerPhysicsComponent.ClampHorizontalVelocity(MaxSpeed);
+            }
         }
     }
 
@@ -112,5 +129,13 @@ public class EHGameplayAbility : ScriptableObject
         {
             ShouldEarlyCancelAbility = true;
         }
+    }
+    
+    // Can the new cancel
+    public bool CanCancelAbility(EHGameplayAbility NewAbility)
+    {
+        if (!HasExitTime) return false;
+        
+        return ((float) CurrentFramesActive / (float) TotalFramesActive) >= ExitTime;
     }
 }

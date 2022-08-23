@@ -135,9 +135,9 @@ public class EHBoxCollider2D : EHActorComponent
     
     #region collision checks
 
-    public bool CheckPhysicsColliderOverlapping(EHBoxCollider2D OtherCollider)
+    public virtual bool CheckPhysicsColliderOverlapping(EHBoxCollider2D PhysicsCollider)
     {
-        return PhysicsSweepBox.IsOverlappingBox2D(OtherCollider.CurrentBox);
+        return CurrentBox.IsOverlappingBox2D(PhysicsCollider.PhysicsSweepBox); 
     }
 
     public bool CheckColliderOverlapping(EHBoxCollider2D OtherCollider)
@@ -185,6 +185,11 @@ public class EHBoxCollider2D : EHActorComponent
     public FBox2D GetPreviousBoxBounds()
     {
         return PreviousBox;
+    }
+
+    public FBox2D GetPhysicsSweepBounds()
+    {
+        return PhysicsSweepBox;
     }
     #endregion getter functions
     

@@ -117,7 +117,7 @@ public class EHPhysics2DManager
             foreach (EHBoxCollider2D StaticCollider in ColliderComponentDictionary[EColliderType.Static])
             {
                 if (!Physics2D.GetIgnoreLayerCollision(PhysicsCollider.gameObject.layer, StaticCollider.gameObject.layer) 
-                    && PhysicsCollider.CheckPhysicsColliderOverlapping(StaticCollider))
+                    && StaticCollider.CheckPhysicsColliderOverlapping(PhysicsCollider))
                 {
                     if (StaticCollider.PushOutCollider(PhysicsCollider, out Vector2 PushDirection))
                     {

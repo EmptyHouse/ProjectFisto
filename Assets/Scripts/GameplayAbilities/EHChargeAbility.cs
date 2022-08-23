@@ -10,10 +10,12 @@ public class EHChargeAbility : EHGameplayAbility
     private float MaxChargeTime;
     [SerializeField, Tooltip("The animation that will loop while our character is charging")]
     private AnimationClip ChargingClip;
+    
 
     private int ChargingAnimationHash;
     private float CurrentChargeTime;
     private bool IsCharging;
+    
 
     #region override functions
     public override void InitializeAbility(EHActor AbilityOwner)

@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 924964481}
   - component: {fileID: 924964482}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Hurtbox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseGravity: 1
   UseTerminalVelocity: 1
-  GravityScale: 0.30612245
+  GravityScale: 2.9894772
 --- !u!114 &1970710503446443738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,18 +161,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717f1e9e7ca88bb4e83ea32c4a7d10f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimBlockMovement: 0
-  AnimGoalVelocity: {x: 0, y: 0}
   IsRight: 0
   GroundAcceleration: 50
   AirAcceleration: 10
   WalkSpeed: 5
-  RunSpeed: 15
+  RunSpeed: 5
   MaxAirSpeed: 15
-  MaxDoubleJump: 1
-  TimeToReachApex: 1
+  MaxDoubleJump: 0
+  TimeToReachApex: 0.32
   JumpHeightApex: 1.5
-  JumpVelocity: 3
+  JumpVelocity: 9.375
+  UpperCutJumpScale: 1.2
 --- !u!114 &1970710503446443739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +201,9 @@ MonoBehaviour:
     Owner: {fileID: 0}
     DamageApplied: 0
     DamageForce: {x: 0, y: 0}
+  EquippedAbilities: []
+  ChargeReleaseSpeed: 10
+  CrystalKnockSpeed: 10
 --- !u!114 &1970710503446443741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +255,7 @@ Animator:
   m_GameObject: {fileID: 1970710503446443810}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb103552023736e478bfabd0d614bd5e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
