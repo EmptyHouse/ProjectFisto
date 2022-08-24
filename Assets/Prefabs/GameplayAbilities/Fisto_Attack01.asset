@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50420db59a5692548b3afe2463d4910c, type: 3}
+  m_Name: Fisto_Attack01
+  m_EditorClassIdentifier: 
+  AbilityClip: {fileID: 7400000, guid: bf32be14794a6604887d6f7aeac11e5f, type: 2}
+  BlockPlayerInput: 0
+  CancelOnStanceChange: 1
+  AbilityEvents: []
+  TotalFramesActive: 70
+  ExitTime: 1
+  HasExitTime: 0

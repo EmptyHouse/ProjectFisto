@@ -195,9 +195,7 @@ MonoBehaviour:
     DamageApplied: 10
     DamageForce: {x: 0, y: 0}
   EquippedAbilities:
-  - {fileID: 11400000, guid: 55d82db83ec8bc6408e48f800b573909, type: 2}
-  - {fileID: 11400000, guid: 4ec61b72ce4f39244aa7f68d672700bb, type: 2}
-  - {fileID: 11400000, guid: b9518c8dae067414f93b787a27663178, type: 2}
+  - {fileID: 11400000, guid: 3b6c4961ed7c6bb44ba308898e1b3657, type: 2}
   ChargeReleaseSpeed: 125
   CrystalKnockSpeed: 30
 --- !u!114 &6567806111333800667
