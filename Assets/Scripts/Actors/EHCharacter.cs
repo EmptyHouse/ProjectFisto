@@ -12,7 +12,6 @@ public class EHCharacter : EHActor
     public EHMovementComponent MovementComponent { get; private set; }
     public EHDamageableComponent DamageableComponent { get; private set; }
     public EHAttackComponent AttackComponent { get; private set; }
-    public EHBoxCollider2D ColliderComponent { get; private set; }
     public EHHitboxComponent HitboxComponent { get; private set; }
     
 
@@ -23,7 +22,6 @@ public class EHCharacter : EHActor
         MovementComponent = GetComponent<EHMovementComponent>();
         DamageableComponent = GetComponent<EHDamageableComponent>();
         AttackComponent = GetComponent<EHAttackComponent>();
-        ColliderComponent = GetComponent<EHBoxCollider2D>();
         HitboxComponent = GetComponent<EHHitboxComponent>();
     }
 

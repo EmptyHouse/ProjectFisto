@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class EHSpawnPoint : MonoBehaviour
 {
-    public bool IsPlayerSpawn;
-    public string CharacterId;
     public bool IsFacingLeft;
 
+    
+    #region monobehaviour methods
     private void OnDrawGizmos()
     {
+        EHDebug.DebugDrawFlag(transform.position, IsFacingLeft);
     }
+    #endregion monobehaivour methods
 }

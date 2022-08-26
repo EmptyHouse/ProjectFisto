@@ -7,12 +7,15 @@ using UnityEngine;
 public class EHActor : MonoBehaviour
 {
     public EHAnimatorComponent Anim { get; private set; }
+    public EHBoxCollider2D ColliderComponent { get; private set; }
     
     #region monobehaviour methods
 
     protected virtual void Awake()
     {
         Anim = GetComponent<EHAnimatorComponent>();
+        ColliderComponent = GetComponent<EHBoxCollider2D>();
+
     }
 
     #endregion monobehaviour methods
@@ -26,6 +29,14 @@ public class EHActor : MonoBehaviour
     public void SetPosition(Vector2 Position)
     {
         transform.position = Position;
+    }
+    
+    // Call this function so that we do not sweep collisions  when moving the character
+    // NOTE: Keep in mind that this may cause the character to fall through collisions if improperly placed
+    public void SetPositionNoSweep(Vector2 Position)
+    {
+        transform.position = Position;
+        ColliderComponent.UpdateMoveableBoxCollider();
     }
 
     public void SetRotation(float Rotation)

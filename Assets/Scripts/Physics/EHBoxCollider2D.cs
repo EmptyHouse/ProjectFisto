@@ -117,7 +117,6 @@ public class EHBoxCollider2D : EHActorComponent
     public void UpdateMoveableBoxCollider()
     {
         PreviousBox = CurrentBox;
-        
         UpdateCurrentBoxGeometry();
     }
     

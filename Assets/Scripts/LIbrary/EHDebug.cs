@@ -25,11 +25,11 @@ public static class EHDebug
         
     }
 
-    public static void DebugDrawFlag(Vector2 OriginPosition, bool IsFacingLeft = false)
+    public static void DebugDrawFlag(Vector2 OriginPosition, Color FlagColor, bool IsFacingLeft = false)
     {
 #if UNITY_EDITOR
         Vector3 VecOriginPoint = OriginPosition;
-        UnityEditor.Handles.color = Color.cyan;
+        UnityEditor.Handles.color = FlagColor;
         float SpawnPointHeight = .5f;
         UnityEditor.Handles.DrawSolidDisc(OriginPosition, Vector3.forward, .10f);
         Vector3 TopPoint = VecOriginPoint + Vector3.up * SpawnPointHeight;
@@ -38,6 +38,11 @@ public static class EHDebug
         UnityEditor.Handles.DrawLine(VecOriginPoint, TopPoint);
         UnityEditor.Handles.DrawPolyLine(new Vector3[] { TopPoint, MidPoint, RightPoint, TopPoint });
 #endif
+    }
+
+    public static void DebugDrawFlag(Vector2 OriginPosition, bool IsFacingLeft = false)
+    {
+        DebugDrawFlag(OriginPosition, Color.red, IsFacingLeft);
     }
 
     public static void DrawPoint(Vector2 Point, bool FillCircle = false, float Radius = 1)

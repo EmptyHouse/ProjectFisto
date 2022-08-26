@@ -104,6 +104,14 @@ public class EHGameInstance : MonoBehaviour
         {
             SceneManager.LoadScene(CurrentScene.SceneName, LoadSceneMode.Additive);
         }
+
+        yield return null;
+        // Set Player at specific spawn position. This will need to be updated in the future to account for saves
+        EHSpawnPoint SpawnPoint = GameObject.FindObjectOfType<EHSpawnPoint>();
+        if (SpawnPoint != null && PlayerCharacter)
+        {
+            PlayerCharacter.SetPositionNoSweep(SpawnPoint.transform.position);
+        }
     }
 
     private void InitializeMainSceneObjects()
@@ -132,7 +140,7 @@ public class EHGameInstance : MonoBehaviour
 
         if (WorldSettings.PlayerCharacter)
         {
-            PlayerCharacter = Instantiate(WorldSettings.PlayerCharacter);
+            PlayerCharacter = Instantiate(WorldSettings.PlayerCharacter, Vector2.zero, Quaternion.identity);
         }
 
         if (WorldSettings.PlayerController)
