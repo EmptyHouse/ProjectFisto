@@ -74,10 +74,10 @@ public class EHAttackComponent : EHCharacterComponent
 
     public void ReleaseAttack(EAttackType AttackType)
     {
-        if (ActiveAbility != null)
-        {
-            ActiveAbility.ActivateAbility(false);
-        }
+        // if (ActiveAbility != null)
+        // {
+        //     ActiveAbility.ActivateAbility();
+        // }
     }
 
     public void AttackDamageComponent(EHDamageableComponent OtherDamageComponent)
@@ -88,13 +88,13 @@ public class EHAttackComponent : EHCharacterComponent
     #region animation events
     public void OnBeginChargeAttack()
     {
-        if (ActiveAbility == null) return;
-        EHChargeAbility ChargeAbility = (EHChargeAbility) ActiveAbility;
-        float ChargePercent = ChargeAbility.GetChargePercent();
-        
-        Vector2 ActorScale = GetActorScale();
-        EHPhysics2D PhysicsComponent = OwningCharacter.Physics;
-        PhysicsComponent.SetVelocity(new Vector2(Mathf.Sign(ActorScale.x) * ChargeReleaseSpeed * ChargePercent, 0));
+        // if (ActiveAbility == null) return;
+        // EHChargeAbility ChargeAbility = (EHChargeAbility) ActiveAbility;
+        // float ChargePercent = ChargeAbility.GetChargePercent();
+        //
+        // Vector2 ActorScale = GetActorScale();
+        // EHPhysics2D PhysicsComponent = OwningCharacter.Physics;
+        // PhysicsComponent.SetVelocity(new Vector2(Mathf.Sign(ActorScale.x) * ChargeReleaseSpeed * ChargePercent, 0));
     }
 
     public void OnCrystalAttack()

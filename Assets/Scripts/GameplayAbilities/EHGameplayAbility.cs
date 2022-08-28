@@ -1,16 +1,14 @@
 using UnityEngine;
-using UnityEngine.Events;
+
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "BasicAbility", menuName = "GameplayAbilities/BasicAbility", order = 1)]
 public class EHGameplayAbility : ScriptableObject
 {
-    [System.Serializable]
-    protected struct FAbilityEvent
+    protected struct FAbilityClipData
     {
-        [Tooltip("The frame that this event will be triggered")]
-        public int EventFrame;
-        [Tooltip("Event that will be performed at frame")]
-        public UnityEvent AbilityEvent;
+        public int AnimationHash;
+        public int AnimationFrames;
     }
     
     public EHActor AbilityOwner { get; private set; }
@@ -19,19 +17,18 @@ public class EHGameplayAbility : ScriptableObject
     protected EHPhysics2D OwnerPhysicsComponent;
     
     [SerializeField]
-    protected AnimationClip AbilityClip;
+    protected List<AnimationClip> AbilityClips;
+
+    protected List<FAbilityClipData> AbilityClipDataList = new List<FAbilityClipData>();
 
     [SerializeField] 
-    protected bool BlockPlayerInput;
+    protected bool BlockPlayerInput = true;
     
     [SerializeField]
-    protected bool CancelOnStanceChange;
+    protected bool CancelOnStanceChange = false;
 
-    protected int AbilityClipHash;
-    [SerializeField]
-    private FAbilityEvent[] AbilityEvents;
     protected int CurrentFramesActive;
-    [SerializeField, HideInInspector]
+    protected int CurrentAbilityIndex;
     private int TotalFramesActive;
 
     private bool ShouldEarlyCancelAbility;
@@ -41,10 +38,6 @@ public class EHGameplayAbility : ScriptableObject
     [SerializeField]
     private bool HasExitTime = false;
 
-    #region monobehaviour methods
-
-    #endregion monobehaviour methods
-    
 
     public virtual void InitializeAbility(EHActor AbilityOwner)
     {
@@ -56,19 +49,27 @@ public class EHGameplayAbility : ScriptableObject
             OwnerPhysicsComponent = AbilityOwner.GetComponent<EHPhysics2D>();
         }
 
-        if (CurrentFramesActive >= TotalFramesActive)
+        CurrentFramesActive = 0;
+        TotalFramesActive = 0;
+        foreach (AnimationClip AbilityClip in AbilityClips)
         {
-            CurrentFramesActive = 0;
-            TotalFramesActive = Mathf.RoundToInt(AbilityClip.length / EHTime.TimePerFrame);
+            FAbilityClipData AbilityClipData = new FAbilityClipData
+            {
+                AnimationFrames = Mathf.RoundToInt(AbilityClip.length / EHTime.TimePerFrame),
+                AnimationHash = Animator.StringToHash(AbilityClip.name)
+            };
+            AbilityClipDataList.Add(AbilityClipData);
+            TotalFramesActive += AbilityClipData.AnimationFrames;
         }
-
-        AbilityClipHash = Animator.StringToHash(AbilityClip.name);
     }
     
     public virtual void BeginAbility()
     {
         CurrentFramesActive = 0;
-        OwnerAnimator.StartAnimationClip(AbilityClipHash);
+        CurrentAbilityIndex = 0;
+
+        FAbilityClipData ClipData = AbilityClipDataList[CurrentAbilityIndex];
+        OwnerAnimator.StartAnimationClip(ClipData.AnimationHash);
         ShouldEarlyCancelAbility = false;
         if (OwnerMovementComponent != null)
         {
@@ -80,13 +81,6 @@ public class EHGameplayAbility : ScriptableObject
     public virtual void TickAbility()
     {
         ++CurrentFramesActive;
-        foreach (FAbilityEvent AbilityEvent in AbilityEvents)
-        {
-            if (AbilityEvent.EventFrame == CurrentFramesActive)
-            {
-                AbilityEvent.AbilityEvent.Invoke();
-            }
-        }
     }
 
     public virtual void OnAbilityEnd()
@@ -118,7 +112,7 @@ public class EHGameplayAbility : ScriptableObject
     /// NOTE: May want to change the name of this function
     /// </summary>
     /// <param name="IsActive"></param>
-    public virtual void ActivateAbility(bool IsActive)
+    public virtual void ActivateAbility()
     {
         
     }
