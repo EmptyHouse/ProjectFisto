@@ -260,13 +260,9 @@ public class EHMovementComponent : EHCharacterComponent
         if (IgnorePlayerInput) return;
         SetHorizontalInput(CurrentInput.x);
     }
-    
-    #region player character functions
-    //NOTE: these functions will likely have to be moved to the....attack component possibly? 
-    public void OnUppercut()
+
+    public bool IsInAir()
     {
-        Physics.SetVelocity(new Vector2(Physics.Velocity.x, JumpVelocity * UpperCutJumpScale));
-        MovementStance = EMovementStance.InAir;
+        return MovementStance == EMovementStance.InAir;
     }
-    #endregion 
 }

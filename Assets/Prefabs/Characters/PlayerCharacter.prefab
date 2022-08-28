@@ -196,8 +196,9 @@ MonoBehaviour:
     DamageForce: {x: 0, y: 0}
   EquippedAbilities:
   - {fileID: 11400000, guid: 3b6c4961ed7c6bb44ba308898e1b3657, type: 2}
+  EquippedAbilitiesAir:
+  - {fileID: 11400000, guid: 62e3030eb29d4b349a0b140b9bd340ab, type: 2}
   ChargeReleaseSpeed: 125
-  CrystalKnockSpeed: 30
 --- !u!114 &6567806111333800667
 MonoBehaviour:
   m_ObjectHideFlags: 0

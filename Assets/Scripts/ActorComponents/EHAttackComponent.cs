@@ -19,8 +19,7 @@ public struct FAttackData
 public enum EAttackType
 {
     SimpleAttack,
-    ChargeAttack,
-    CrystalAttack,
+    DashAttack,
 }
 
 public class EHAttackComponent : EHCharacterComponent
@@ -30,12 +29,11 @@ public class EHAttackComponent : EHCharacterComponent
     private FAttackData DefaultAttackData;
     [SerializeField]
     private List<EHGameplayAbility> EquippedAbilities = new List<EHGameplayAbility>();
+    [SerializeField] 
+    private List<EHGameplayAbility> EquippedAbilitiesAir = new List<EHGameplayAbility>();
     [SerializeField]
     private float ChargeReleaseSpeed = 10f;
 
-    [SerializeField]
-    private float CrystalKnockSpeed = 10f;
-    
 
     private EHGameplayAbility ActiveAbility;
     
@@ -45,6 +43,11 @@ public class EHAttackComponent : EHCharacterComponent
         base.Awake();
         Anim = OwningActor.Anim;
         foreach (EHGameplayAbility Ability in EquippedAbilities)
+        {
+            Ability.InitializeAbility(OwningActor);
+        }
+
+        foreach (EHGameplayAbility Ability in EquippedAbilitiesAir)
         {
             Ability.InitializeAbility(OwningActor);
         }
@@ -65,10 +68,18 @@ public class EHAttackComponent : EHCharacterComponent
     public void AttemptAttack(EAttackType AttackType)
     {
         int AbilityIndex = (int) AttackType;
+        EHMovementComponent MovementComponent = OwningCharacter.MovementComponent;
         if (EquippedAbilities.Count > AbilityIndex && ActiveAbility == null)
         {
-            ActiveAbility = EquippedAbilities[AbilityIndex];
-            ActiveAbility.BeginAbility();
+            if (MovementComponent != null)
+            {
+                ActiveAbility = MovementComponent.IsInAir() ? EquippedAbilitiesAir[AbilityIndex] : EquippedAbilities[AbilityIndex];
+            }
+
+            if (ActiveAbility != null)
+            {
+                ActiveAbility.BeginAbility();
+            }
         }
     }
 
@@ -86,6 +97,7 @@ public class EHAttackComponent : EHCharacterComponent
     }
     
     #region animation events
+
     public void OnBeginChargeAttack()
     {
         // if (ActiveAbility == null) return;
@@ -97,10 +109,5 @@ public class EHAttackComponent : EHCharacterComponent
         // PhysicsComponent.SetVelocity(new Vector2(Mathf.Sign(ActorScale.x) * ChargeReleaseSpeed * ChargePercent, 0));
     }
 
-    public void OnCrystalAttack()
-    {
-        if (ActiveAbility == null) return;
-        OwningCharacter.Physics.SetVelocity(new Vector2(-Mathf.Sign(GetActorScale().x) * CrystalKnockSpeed, 0));
-    }
     #endregion animation events
 }
