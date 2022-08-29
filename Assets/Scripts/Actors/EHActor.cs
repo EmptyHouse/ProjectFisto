@@ -51,7 +51,17 @@ public class EHActor : MonoBehaviour
 
     public void TranslatePosition(Vector2 OffsetPosition)
     {
-        this.transform.Translate(OffsetPosition);
+        transform.Translate(OffsetPosition);
+    }
+
+    public void TranslateForward(float XOffset)
+    {
+        transform.Translate(Mathf.Sign(transform.localScale.x) * XOffset, 0, 0);
+    }
+
+    public void TranslateVertical(float YOffset)
+    {
+        transform.Translate(0, YOffset, 0);
     }
     
     public EHGameInstance GetGameInstance() => EHGameInstance.Instance;
