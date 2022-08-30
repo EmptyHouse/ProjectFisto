@@ -10,6 +10,7 @@ public class EHPlayerCharacter : EHCharacter
         Controller.BindEventToButtonInput(EButtonInput.Jump, InputJump, EButtonEventType.Button_Pressed);
         Controller.BindEventToButtonInput(EButtonInput.Jump, InputStopJump, EButtonEventType.Button_Release);
         Controller.BindEventToButtonInput(EButtonInput.Attack, InputAttack, EButtonEventType.Button_Pressed);
+        Controller.BindEventToButtonInput(EButtonInput.Dash, InputDash, EButtonEventType.Button_Pressed);
 
         Controller.BindEventToAxisInput(EAxisInput.Horizontal, InputMoveHorizontal);
         Controller.BindEventToAxisInput(EAxisInput.Vertical, InputMoveVertical);
@@ -43,10 +44,11 @@ public class EHPlayerCharacter : EHCharacter
         AttackComponent.AttemptAttack(EAttackType.SimpleAttack);
     }
 
-    // private void InputChargeAttack()
-    // {
-    //     AttackComponent.AttemptAttack(EAttackType.ChargeAttack);
-    // }
+    private void InputDash()
+    {
+        AttackComponent.AttemptAttack(EAttackType.Dash);
+    }
+    
     //
     // private void InputChargeAttackRelease()
     // {

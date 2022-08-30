@@ -19,7 +19,7 @@ public struct FAttackData
 public enum EAttackType
 {
     SimpleAttack,
-    DashAttack,
+    Dash,
 }
 
 public class EHAttackComponent : EHCharacterComponent

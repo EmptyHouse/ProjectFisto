@@ -18,7 +18,7 @@ public enum EButtonInput : byte
 {
     Jump = 0x01,
     Attack = 0x02,
-    ChargeAttack = 0x04,
+    Dash = 0x04,
     Crystal = 0x08,
 }
 
@@ -156,7 +156,7 @@ public class EHPlayerController : MonoBehaviour
         UpdateCurrentInput(EButtonInput.Attack, Context.ReadValueAsButton());
 
     private void OnChargeAttackAction(CallbackContext Context) =>
-        UpdateCurrentInput(EButtonInput.ChargeAttack, Context.ReadValueAsButton());
+        UpdateCurrentInput(EButtonInput.Dash, Context.ReadValueAsButton());
 
     private void OnAbilityAction(CallbackContext Context) =>
         UpdateCurrentInput(EButtonInput.Crystal, Context.ReadValueAsButton());
