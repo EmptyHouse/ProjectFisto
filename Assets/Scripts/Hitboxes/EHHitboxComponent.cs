@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EHHitboxComponent : EHCharacterComponent
+public class EHHitboxComponent : EHActorComponent
 {
     private Dictionary<EHitboxType, HashSet<EHHitbox2D>> HitboxDictionary = new Dictionary<EHitboxType, HashSet<EHHitbox2D>>()
     {
@@ -21,7 +21,6 @@ public class EHHitboxComponent : EHCharacterComponent
         EHGameInstance.Instance.GameMode.PhysicsManager.AddHitboxComponent(this);
         CachedAttackComponent = GetComponent<EHAttackComponent>();
         CachedDamageComponent = GetComponent<EHDamageableComponent>();
-        CachedDamageComponent.OnCharacterDiedDel += OnCharacterDied;
     }
 
     protected void OnEnable()
@@ -108,17 +107,5 @@ public class EHHitboxComponent : EHCharacterComponent
             // Reset all intersected damage components so we can hit them again
             IntersectedDamageableComponents.Clear();
         }
-    }
-
-    private void OnCharacterDied()
-    {
-        this.enabled = false;
-        // foreach (KeyValuePair<EHitboxType, HashSet<EHHitbox2D>> HitboxKeyValue in HitboxDictionary)
-        // {
-        //     foreach (EHHitbox2D Hitbox in HitboxKeyValue.Value.ToArray())
-        //     {
-        //         Hitbox.gameObject.SetActive(false);
-        //     }
-        // }
     }
 }

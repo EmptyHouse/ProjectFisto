@@ -33,7 +33,7 @@ public class EHAngledCollider2D : EHBoxCollider2D
     {
         if (!Application.isPlaying)
         {
-            if (!OwningActor) OwningActor = GetComponent<EHActor>();
+            if (!AssociatedActor) AssociatedActor = GetComponent<EHActor>();
             UpdateCurrentBoxGeometry();
         }
 

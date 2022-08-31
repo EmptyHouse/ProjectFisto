@@ -89,7 +89,7 @@ public class EHMovementComponent : EHCharacterComponent
 
         if (Application.isPlaying) return;
         
-        if (OwningActor == null) InitializeOwningActor();
+        if (AssociatedActor == null) InitializeOwningActor();
         
         SetIsRight(IsRight, true);
     }
@@ -130,7 +130,7 @@ public class EHMovementComponent : EHCharacterComponent
             Input = 0;
         
         CurrentInput.x = Input;
-        OwningActor.Anim.SetFloat(Anim_HorizontalInput, Mathf.Abs(Input));
+        AssociatedActor.Anim.SetFloat(Anim_HorizontalInput, Mathf.Abs(Input));
         
         if (Input != 0) SetIsRight(Input > 0);
     }
@@ -141,7 +141,7 @@ public class EHMovementComponent : EHCharacterComponent
             Input = 0;
         
         CurrentInput.y = Input;
-        OwningActor.Anim.SetFloat(Anim_VerticalInput, Mathf.Abs(Input));
+        AssociatedActor.Anim.SetFloat(Anim_VerticalInput, Mathf.Abs(Input));
     }
 
     private void UpdateMovementFromInput()
@@ -160,7 +160,7 @@ public class EHMovementComponent : EHCharacterComponent
                 else GoalSpeed = 0;
                 break;
             case EMovementStance.InAir:
-                OwningActor.Anim.SetFloat(Anim_VerticalVelocity, Physics.Velocity.y);
+                AssociatedActor.Anim.SetFloat(Anim_VerticalVelocity, Physics.Velocity.y);
                 Acceleration = AirAcceleration;
                 if (xInput > 0f) GoalSpeed = MaxAirSpeed;
                 else if (xInput < 0f) GoalSpeed = -MaxAirSpeed;

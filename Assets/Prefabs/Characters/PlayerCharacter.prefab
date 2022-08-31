@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -74028051, guid: 789891fc49ceb4240a2bf252d45182d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e41df4f7664d7d4e9d4372761da0b6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,10 +195,10 @@ MonoBehaviour:
     DamageApplied: 10
     DamageForce: {x: 0, y: 0}
   EquippedAbilities:
-  - {fileID: 11400000, guid: 3b6c4961ed7c6bb44ba308898e1b3657, type: 2}
+  - {fileID: 11400000, guid: 20010e8f52ccc0241808e5a6b15cd81d, type: 2}
   - {fileID: 11400000, guid: 9877519a46a1f7743bd4b7015bf3b047, type: 2}
   EquippedAbilitiesAir:
-  - {fileID: 11400000, guid: 62e3030eb29d4b349a0b140b9bd340ab, type: 2}
+  - {fileID: 11400000, guid: 20010e8f52ccc0241808e5a6b15cd81d, type: 2}
   - {fileID: 11400000, guid: 9877519a46a1f7743bd4b7015bf3b047, type: 2}
   ChargeReleaseSpeed: 125
 --- !u!114 &6567806111333800667

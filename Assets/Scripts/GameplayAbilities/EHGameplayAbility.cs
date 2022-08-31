@@ -2,6 +2,12 @@ using UnityEngine;
 
 using System.Collections.Generic;
 
+public struct FAbilityClipData
+{
+    public int AnimationHash;
+    public int AnimationFrames;
+}
+
 [CreateAssetMenu(fileName = "BasicAbility", menuName = "GameplayAbilities/BasicAbility", order = 1)]
 public class EHGameplayAbility : ScriptableObject
 {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EHActorComponent : MonoBehaviour
 {
-    public EHActor OwningActor { get; protected set; }
+    public EHActor AssociatedActor { get; protected set; }
 
     #region monobehaviuor methods
 
@@ -16,23 +16,24 @@ public class EHActorComponent : MonoBehaviour
 
     protected virtual void InitializeOwningActor()
     {
-        OwningActor = GetComponent<EHActor>();
+        AssociatedActor = GetComponent<EHActor>();
     }
     
     #region getter/setter functions
 
-    public Vector2 GetActorPosition() => OwningActor.GetPosition();
-    public Vector2 GetActorScale() => OwningActor.GetScale();
-    public float GetActorRotation() => OwningActor.GetRotation();
-    public void TranslateActorPosition(Vector2 OffsetPosition) => OwningActor.TranslatePosition(OffsetPosition);
+    public Vector2 GetActorPosition() => AssociatedActor.GetPosition();
+    public Vector2 GetActorScale() => AssociatedActor.GetScale();
+    public float GetActorRotation() => AssociatedActor.GetRotation();
+    public EHActor GetOwningActor() => AssociatedActor.Owner;
+    public void TranslateActorPosition(Vector2 OffsetPosition) => AssociatedActor.TranslatePosition(OffsetPosition);
 
-    public void SetActorPosition(Vector2 Position) => OwningActor.SetPosition(Position);
-    public void SetActorScale(Vector2 Scale) => OwningActor.SetScale(Scale);
-    public void SetActorRotation(float ZRotation) => OwningActor.SetRotation(ZRotation);
+    public void SetActorPosition(Vector2 Position) => AssociatedActor.SetPosition(Position);
+    public void SetActorScale(Vector2 Scale) => AssociatedActor.SetScale(Scale);
+    public void SetActorRotation(float ZRotation) => AssociatedActor.SetRotation(ZRotation);
 
-    public EHGameInstance GetGameInstance() => OwningActor.GetGameInstance();
+    public EHGameInstance GetGameInstance() => AssociatedActor.GetGameInstance();
 
-    public EHGameMode GetGameMode<T>() where T : EHGameMode => OwningActor.GetGameMode<T>();
+    public EHGameMode GetGameMode<T>() where T : EHGameMode => AssociatedActor.GetGameMode<T>();
 
     #endregion getter/setter functions
 }

@@ -8,6 +8,6 @@ public class EHCharacterComponent : EHActorComponent
     protected override void InitializeOwningActor()
     {
         base.InitializeOwningActor();
-        OwningCharacter = (EHCharacter) OwningActor;
+        OwningCharacter = (EHCharacter) AssociatedActor;
     }
 }

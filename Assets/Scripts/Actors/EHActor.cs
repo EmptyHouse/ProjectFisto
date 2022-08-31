@@ -9,6 +9,8 @@ public class EHActor : MonoBehaviour
     public EHAnimatorComponent Anim { get; private set; }
     public EHBoxCollider2D ColliderComponent { get; private set; }
     
+    public EHActor Owner { get; private set; }
+    
     #region monobehaviour methods
 
     protected virtual void Awake()
@@ -63,11 +65,30 @@ public class EHActor : MonoBehaviour
     {
         transform.Translate(0, YOffset, 0);
     }
+
+    public void SetActorActive(bool IsActive)
+    {
+        gameObject.SetActive(IsActive);
+    }
     
     public EHGameInstance GetGameInstance() => EHGameInstance.Instance;
+
+    public void SetOwner(EHActor Owner)
+    {
+        this.Owner = Owner;
+    }
+    
     public T GetGameMode<T>() where T : EHGameMode => (T)EHGameInstance.Instance.GameMode;
 
     public T GetGameState<T>() where T : EHGameState => (T) EHGameInstance.Instance.GameState;
+
+    // We may want to make it so that the actor is given an owner when spawned from an actor
+    public T SpawnActor<T>(T ActorToSpawn, Vector2 Position, float Rotation = 0) where T : EHActor
+    {
+        T NewActor = Instantiate(ActorToSpawn, Position, Quaternion.Euler(0, 0, Rotation));
+        NewActor.SetOwner(this);
+        return NewActor;
+    }
 
     #endregion getter/setter methods
 }

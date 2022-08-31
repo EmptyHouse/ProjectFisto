@@ -22,7 +22,7 @@ public enum EAttackType
     Dash,
 }
 
-public class EHAttackComponent : EHCharacterComponent
+public class EHAttackComponent : EHActorComponent
 {
     private EHAnimatorComponent Anim;
     [SerializeField] 
@@ -36,20 +36,24 @@ public class EHAttackComponent : EHCharacterComponent
 
 
     private EHGameplayAbility ActiveAbility;
+    private EHMovementComponent OwnerMovementComponent;
     
     #region monobehaviour methods
     protected override void Awake()
     {
         base.Awake();
-        Anim = OwningActor.Anim;
-        foreach (EHGameplayAbility Ability in EquippedAbilities)
+        Anim = AssociatedActor.Anim;
+        OwnerMovementComponent = AssociatedActor.GetComponent<EHMovementComponent>();
+        for (int i = 0; i < EquippedAbilities.Count; ++i)
         {
-            Ability.InitializeAbility(OwningActor);
+            EquippedAbilities[i] = Instantiate(EquippedAbilities[i]);
+            EquippedAbilities[i].InitializeAbility(AssociatedActor);
         }
 
-        foreach (EHGameplayAbility Ability in EquippedAbilitiesAir)
+        for (int i = 0; i < EquippedAbilitiesAir.Count; ++i)
         {
-            Ability.InitializeAbility(OwningActor);
+            EquippedAbilitiesAir[i] = Instantiate(EquippedAbilities[i]);
+            EquippedAbilitiesAir[i].InitializeAbility(AssociatedActor);
         }
     }
 
@@ -68,12 +72,11 @@ public class EHAttackComponent : EHCharacterComponent
     public void AttemptAttack(EAttackType AttackType)
     {
         int AbilityIndex = (int) AttackType;
-        EHMovementComponent MovementComponent = OwningCharacter.MovementComponent;
-        if (EquippedAbilities.Count > AbilityIndex && ActiveAbility == null)
+        if (OwnerMovementComponent != null && EquippedAbilities.Count > AbilityIndex && ActiveAbility == null)
         {
-            if (MovementComponent != null)
+            if (OwnerMovementComponent != null)
             {
-                ActiveAbility = MovementComponent.IsInAir() ? EquippedAbilitiesAir[AbilityIndex] : EquippedAbilities[AbilityIndex];
+                ActiveAbility = OwnerMovementComponent.IsInAir() ? EquippedAbilitiesAir[AbilityIndex] : EquippedAbilities[AbilityIndex];
             }
 
             if (ActiveAbility != null)
@@ -93,21 +96,11 @@ public class EHAttackComponent : EHCharacterComponent
 
     public void AttackDamageComponent(EHDamageableComponent OtherDamageComponent)
     {
+        EHActor OtherAssociatedActor = OtherDamageComponent.AssociatedActor;
+        if (OtherAssociatedActor == GetOwningActor())
+        {
+            return;//do not apply damage to owner
+        }
         OtherDamageComponent.TakeDamage(DefaultAttackData);
     }
-    
-    #region animation events
-
-    public void OnBeginChargeAttack()
-    {
-        // if (ActiveAbility == null) return;
-        // EHChargeAbility ChargeAbility = (EHChargeAbility) ActiveAbility;
-        // float ChargePercent = ChargeAbility.GetChargePercent();
-        //
-        // Vector2 ActorScale = GetActorScale();
-        // EHPhysics2D PhysicsComponent = OwningCharacter.Physics;
-        // PhysicsComponent.SetVelocity(new Vector2(Mathf.Sign(ActorScale.x) * ChargeReleaseSpeed * ChargePercent, 0));
-    }
-
-    #endregion animation events
 }

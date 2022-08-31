@@ -87,7 +87,7 @@ public class EHBoxCollider2D : EHActorComponent
         }
         else if (!Application.isPlaying)
         {
-            if (!OwningActor) OwningActor = GetComponent<EHActor>();
+            if (!AssociatedActor) AssociatedActor = GetComponent<EHActor>();
             UpdateCurrentBoxGeometry();
         }
         FBox2D.DebugDrawRect(CurrentBox, GetDebugColor());
