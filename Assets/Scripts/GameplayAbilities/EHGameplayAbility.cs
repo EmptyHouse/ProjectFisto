@@ -29,6 +29,9 @@ public class EHGameplayAbility : ScriptableObject
 
     [SerializeField] 
     protected bool BlockPlayerInput = true;
+
+    [SerializeField]
+    protected bool IgnoreGravity = false;
     
     [SerializeField]
     protected bool CancelOnStanceChange = false;
@@ -36,6 +39,7 @@ public class EHGameplayAbility : ScriptableObject
     protected int CurrentFramesActive;
     protected int CurrentAbilityIndex;
     private int TotalFramesActive;
+    private float CachedPhysicsScale;
 
     private bool ShouldEarlyCancelAbility;
     
@@ -82,6 +86,12 @@ public class EHGameplayAbility : ScriptableObject
             OwnerMovementComponent.SetIgnorePlayerInput(true);
             OwnerMovementComponent.OnStanceChangeEvent += OnStanceChange;
         }
+
+        if (IgnoreGravity)
+        {
+            OwnerPhysicsComponent.SetUseGravity(false);
+            OwnerPhysicsComponent.SetVelocity(Vector2.zero);
+        }
     }
 
     public virtual void TickAbility()
@@ -105,6 +115,11 @@ public class EHGameplayAbility : ScriptableObject
                     OwnerMovementComponent.GetMaxSpeedFromMovementStance(OwnerMovementComponent.MovementStance);
                 OwnerPhysicsComponent.ClampHorizontalVelocity(MaxSpeed);
             }
+        }
+
+        if (IgnoreGravity)
+        {
+            OwnerPhysicsComponent.SetUseGravity(true);
         }
     }
 

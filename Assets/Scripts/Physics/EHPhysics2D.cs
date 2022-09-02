@@ -60,6 +60,8 @@ public class EHPhysics2D : EHActorComponent
 
     public void UpdateVelocityFromGravity(float DeltaTime)
     {
+        if (!UseGravity) return;
+        
         Velocity += Vector2.down * GravityConstant * DeltaTime * GravityScale;
     }
 

@@ -60,6 +60,7 @@ public class EHMovementComponent : EHCharacterComponent
     private float UpperCutJumpScale = 1.2f;
 
     public EMovementStance MovementStance { get; private set; } = EMovementStance.Standing;
+    private EHBoxCollider2D ColliderComponent;
     private EHPhysics2D Physics;
     private int DoubleJumpsUsed;
     
@@ -75,6 +76,19 @@ public class EHMovementComponent : EHCharacterComponent
     {
         base.Awake();
         Physics = GetComponent<EHPhysics2D>();
+        ColliderComponent = GetComponent<EHBoxCollider2D>();
+        ColliderComponent.OnStartCollision += OnCollisionBegin;
+    }
+
+    private void OnCollisionBegin(FCollisionData CollisionData)
+    {
+        if (CollisionData.Direction.y > 0)
+        {
+            if (IsInAir())
+            {
+                SetMovementStance(EMovementStance.Standing);
+            }
+        }
     }
 
     private void OnValidate()
@@ -99,10 +113,6 @@ public class EHMovementComponent : EHCharacterComponent
         if (MovementStance != EMovementStance.InAir && Mathf.Abs(Physics.Velocity.y) > 0)
         {
             SetMovementStance(EMovementStance.InAir);
-        }
-        else if (MovementStance == EMovementStance.InAir && Physics.Velocity.y == 0)
-        {
-            SetMovementStance(EMovementStance.Standing);
         }
         UpdateMovementFromInput();
         

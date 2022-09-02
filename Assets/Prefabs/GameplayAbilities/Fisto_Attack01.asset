@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Fisto_Attack01
   m_EditorClassIdentifier: 
   AbilityClips:
-  - {fileID: 7400000, guid: bf32be14794a6604887d6f7aeac11e5f, type: 2}
+  - {fileID: 7400000, guid: 44496c42eec62704fae2fe6959da7f26, type: 2}
   BlockPlayerInput: 1
+  IgnoreGravity: 1
   CancelOnStanceChange: 1
   ExitTime: 1
   HasExitTime: 0

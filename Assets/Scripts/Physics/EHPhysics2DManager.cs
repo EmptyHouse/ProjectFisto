@@ -127,7 +127,12 @@ public class EHPhysics2DManager
                             PhysicsCollider.PhysicsComponent.OnCollisionEvent(PushDirection);
                         }
                         PhysicsCollider.UpdateCurrentBoxGeometry();
+                        PhysicsCollider.AddOverlappingCollision(StaticCollider, PushDirection);
                     }
+                }
+                else
+                {
+                    PhysicsCollider.RemoveOverlappingCollision(StaticCollider);
                 }
             }
         }
