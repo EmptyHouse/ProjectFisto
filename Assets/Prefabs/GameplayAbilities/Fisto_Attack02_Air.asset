@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50420db59a5692548b3afe2463d4910c, type: 3}
-  m_Name: Fisto_Attack01_Air
+  m_Name: Fisto_Attack02_Air
   m_EditorClassIdentifier: 
-  AbilityClip: {fileID: 7400000, guid: 44496c42eec62704fae2fe6959da7f26, type: 2}
+  AbilityClip: {fileID: 7400000, guid: 5a0088a2225e4b243b494cf04cffce3a, type: 2}
   ComboAbilityList:
   - AttackType: 0
-    Ability: {fileID: 11400000, guid: c11a6d1521f715c4fac7fe62314882a4, type: 2}
-  TransitionalClip: {fileID: 7400000, guid: d288731c0e710f64fb38a6114c9b2064, type: 2}
+    Ability: {fileID: 11400000, guid: 320c60b37a439504aa517958b1ed5068, type: 2}
+  TransitionalClip: {fileID: 7400000, guid: a0f68e845392957469300d47ca716993, type: 2}
   BlockPlayerInput: 1
   IgnoreGravity: 0
   CancelOnStanceChange: 1

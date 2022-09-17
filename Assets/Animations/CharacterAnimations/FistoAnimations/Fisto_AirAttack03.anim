@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SummonAttack
+  m_Name: Fisto_AirAttack03
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,27 +20,9 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 1}
-        inSlope: {x: Infinity, y: Infinity, z: Infinity}
-        outSlope: {x: Infinity, y: Infinity, z: Infinity}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 0.16666667
-        value: {x: 0.83, y: 1.71, z: 3.925}
-        inSlope: {x: Infinity, y: Infinity, z: Infinity}
-        outSlope: {x: 0, y: 0, z: Infinity}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 0.25
-        value: {x: 0.83, y: 1.71, z: 1.7662499}
-        inSlope: {x: 0, y: 0, z: Infinity}
-        outSlope: {x: 0, y: 0, z: Infinity}
+        value: {x: 2.25, y: 0.4, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -48,33 +30,33 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SummonContainer/HitboxContainer/Hitbox01
+    path: SpiritContainer
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        inSlope: {x: Infinity, y: Infinity, z: Infinity}
+        outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.083333336
-        value: {x: 1.4, y: 0, z: 0}
-        inSlope: {x: 12, y: 0, z: 0}
-        outSlope: {x: 12, y: 0, z: 0}
+        time: 0.38333333
+        value: {x: 0.927, y: 1.279, z: 0}
+        inSlope: {x: Infinity, y: Infinity, z: Infinity}
+        outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.16666667
-        value: {x: 2, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        time: 0.45
+        value: {x: 2.285, y: 1.279, z: 0}
+        inSlope: {x: Infinity, y: Infinity, z: Infinity}
+        outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -82,52 +64,62 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SummonContainer
+    path: SpiritContainer/Hitbox01
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 1, y: 1, z: 0}
+        value: {x: 1, y: 1, z: 1}
         inSlope: {x: Infinity, y: Infinity, z: Infinity}
         outSlope: {x: Infinity, y: Infinity, z: Infinity}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0}
-      - serializedVersion: 3
-        time: 0.16666667
-        value: {x: 5.0990624, y: 1.7771876, z: 1}
-        inSlope: {x: Infinity, y: Infinity, z: Infinity}
-        outSlope: {x: Infinity, y: Infinity, z: Infinity}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0}
-      - serializedVersion: 3
-        time: 0.25
-        value: {x: 1.8375, y: 1, z: 1}
-        inSlope: {x: Infinity, y: Infinity, z: Infinity}
-        outSlope: {x: 0, y: 0, z: Infinity}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.26666668
-        value: {x: 1.8375, y: 1, z: 0}
-        inSlope: {x: 0, y: 0, z: Infinity}
-        outSlope: {x: 0, y: 0, z: Infinity}
+        time: 0.38333333
+        value: {x: 5.785278, y: 2.7125, z: 1}
+        inSlope: {x: Infinity, y: Infinity, z: Infinity}
+        outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.45
+        value: {x: 2.603375, y: 2.7125, z: 1}
+        inSlope: {x: Infinity, y: Infinity, z: Infinity}
+        outSlope: {x: Infinity, y: Infinity, z: Infinity}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SummonContainer/HitboxContainer/Hitbox01
+    path: SpiritContainer/Hitbox01
   m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: SpiritContainer
+    classID: 1
+    script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -141,7 +133,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
+        time: 0.38333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -150,16 +142,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.26666668
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.59999996
+        time: 0.46666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -171,27 +154,40 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: SummonContainer/HitboxContainer/Hitbox01
+    path: SpiritContainer/Hitbox01
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1781973605, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - time: 0.083333336
-      value: {fileID: 1258337855, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - time: 0.16666667
-      value: {fileID: -672001124, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - time: 0.25
-      value: {fileID: 1447789659, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - time: 0.33333334
-      value: {fileID: 140869191, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - time: 0.41666666
-      value: {fileID: -710536055, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - time: 0.5833333
-      value: {fileID: -710536055, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+      value: {fileID: 603352447, guid: 4ee3f77abebd3b84abbb3886306c1aec, type: 3}
     attribute: m_Sprite
-    path: SummonContainer/Sprite
+    path: PlayerSprite
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: -705073561, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.05
+      value: {fileID: -164997808, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.1
+      value: {fileID: 947300336, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.15
+      value: {fileID: 1082939658, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.2
+      value: {fileID: 1998183305, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.38333333
+      value: {fileID: 2123640402, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.43333334
+      value: {fileID: 285327428, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.48333332
+      value: {fileID: 928190875, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.53333336
+      value: {fileID: -553199562, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - time: 0.75
+      value: {fileID: -553199562, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    attribute: m_Sprite
+    path: SpiritContainer/SpiritSprite
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -202,54 +198,72 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4107805792
+      path: 1168060845
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1988209513
-      attribute: 1
-      script: {fileID: 0}
-      typeID: 4
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 4107805792
+      path: 1168060845
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4107805792
+      path: 2486044285
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2295149433
+      path: 1168060845
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 533382794
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2275776351
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2486044285
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: -1781973605, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - {fileID: 1258337855, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - {fileID: -672001124, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - {fileID: 1447789659, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - {fileID: 140869191, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - {fileID: -710536055, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
-    - {fileID: -710536055, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: 603352447, guid: 4ee3f77abebd3b84abbb3886306c1aec, type: 3}
+    - {fileID: -705073561, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: -164997808, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: 947300336, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: 1082939658, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: 1998183305, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: 2123640402, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: 285327428, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: 928190875, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: -553199562, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
+    - {fileID: -553199562, guid: 0a702c0eade6cb148a4edb3acd71f88f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59999996
+    m_StopTime: 0.76666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -270,229 +284,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 0.83
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.x
-    path: SummonContainer/HitboxContainer/Hitbox01
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 1.71
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.y
-    path: SummonContainer/HitboxContainer/Hitbox01
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 3.925
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.25
-        value: 1.7662499
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.z
-    path: SummonContainer/HitboxContainer/Hitbox01
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 5.0990624
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.25
-        value: 1.8375
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.x
-    path: SummonContainer/HitboxContainer/Hitbox01
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 1.7771876
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.25
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.y
-    path: SummonContainer/HitboxContainer/Hitbox01
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.26666668
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.z
-    path: SummonContainer/HitboxContainer/Hitbox01
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.083333336
-        value: 1.4
-        inSlope: 12
-        outSlope: 12
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 2
+        value: 2.25
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -503,7 +295,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: SummonContainer
+    path: SpiritContainer
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -511,25 +303,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.083333336
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 0
+        value: 0.4
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -540,7 +314,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: SummonContainer
+    path: SpiritContainer
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -548,24 +322,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.083333336
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
         value: 0
         inSlope: 0
         outSlope: 0
@@ -577,8 +333,27 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: SummonContainer
+    path: SpiritContainer
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: SpiritContainer
+    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -593,7 +368,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
+        time: 0.38333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -602,16 +377,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.26666668
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.59999996
+        time: 0.46666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -623,8 +389,230 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: SummonContainer/HitboxContainer/Hitbox01
+    path: SpiritContainer/Hitbox01
     classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38333333
+        value: 0.927
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.45
+        value: 2.285
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: SpiritContainer/Hitbox01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38333333
+        value: 1.279
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.45
+        value: 1.279
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: SpiritContainer/Hitbox01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38333333
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.45
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: SpiritContainer/Hitbox01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38333333
+        value: 5.785278
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.45
+        value: 2.603375
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.x
+    path: SpiritContainer/Hitbox01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38333333
+        value: 2.7125
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.45
+        value: 2.7125
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.y
+    path: SpiritContainer/Hitbox01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38333333
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.45
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.z
+    path: SpiritContainer/Hitbox01
+    classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0

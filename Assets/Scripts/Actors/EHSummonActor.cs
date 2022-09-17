@@ -6,42 +6,26 @@ using UnityEngine;
 
 public class EHSummonActor : EHActor
 {
+    [System.Serializable]
+    private struct FSummonAttackData
+    {
+        public AnimationClip AttackAnimationClip;
+        public FAttackData AttackData;
+    }
+    
     [SerializeField]
     private AnimationClip AnimClip;
-    private FAbilityClipData AbilityClip;
     private int TotalTimePassed;
     private float TimeToRefreshAbility = 0;
 
-    public void InitializeSummon()
+    public void InitializeSummon(EHActor AbilityOwner)
     {
-        if (AnimClip != null)
-        {
-            AbilityClip = new FAbilityClipData()
-            {
-                AnimationFrames = Mathf.RoundToInt(AnimClip.length / EHTime.TimePerFrame),
-                AnimationHash = Animator.StringToHash(AnimClip.name)
-            };
-        }
+       SetOwner(AbilityOwner);
     }
 
-    protected void Update()
+    public void StartSummonAbility()
     {
-        ++TotalTimePassed;
-        if (TotalTimePassed > AbilityClip.AnimationFrames)
-        {
-            OnSummonAbilityEnd();
-        }
-    }
-
-    public void StartSummonAbility(EHActor AbilityOwner)
-    {
-        SetActorActive(true);
-        TotalTimePassed = 0;
-        Anim.StartAnimationClip(AbilityClip.AnimationHash);
-        Vector2 OwnerScale = AbilityOwner.GetScale();
-        Vector2 OriginalScale = GetScale();
-        SetScale(new Vector2(Mathf.Sign(OwnerScale.x) * Mathf.Abs(OriginalScale.x), OriginalScale.y));
-        SetPosition(AbilityOwner.GetPosition());
+        
     }
 
     public void OnSummonAbilityEnd()
@@ -49,8 +33,14 @@ public class EHSummonActor : EHActor
         SetActorActive(false);
     }
 
-    public bool IsAttackReady()
+    private IEnumerator FadeOutSummonActor()
     {
-        return false;
+        float TimeToFade = 0.35f;
+        float TimePassed = 0;
+        
+        while (TimePassed < TimeToFade)
+        {
+            yield return null;
+        }
     }
 }
