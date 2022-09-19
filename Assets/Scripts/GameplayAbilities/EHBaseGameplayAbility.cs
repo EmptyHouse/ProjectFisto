@@ -16,8 +16,10 @@ public class EHBaseGameplayAbility : ScriptableObject
     #endregion structs
 
     public EHActor AbilityOwner { get; private set; }
+    public EHPhysics2D OwnerPhysicsComponent { get; private set; }
+    public EHMovementComponent OwnerMovementComponent { get; private set; }
     
-    
+    [SerializeField]
     private AnimationClip AbilityAnimation;
     private float TimePassed;
     
@@ -29,6 +31,9 @@ public class EHBaseGameplayAbility : ScriptableObject
     public virtual void InitializeAbility(EHActor AbilityOwner)
     {
         this.AbilityOwner = AbilityOwner;
+        OwnerPhysicsComponent = AbilityOwner.GetComponent<EHPhysics2D>();
+        OwnerMovementComponent = AbilityOwner.GetComponent<EHMovementComponent>();
+        
         AbilityData.AbilityDuration += AbilityAnimation.length;
         AbilityData.AbilityAnimationHash = Animator.StringToHash(AbilityAnimation.name);
     }
@@ -38,7 +43,7 @@ public class EHBaseGameplayAbility : ScriptableObject
         return TimePassed > AbilityData.AbilityDuration;
     }
 
-    public virtual void UpdateAbility(float DeltaSeconds)
+    public virtual void TickAbility(float DeltaSeconds)
     {
         TimePassed += DeltaSeconds;
     }
@@ -46,17 +51,17 @@ public class EHBaseGameplayAbility : ScriptableObject
     public virtual void BeginAbility()
     {
         TimePassed = 0;
-        if (AbilityOwner != null)
+        if (AbilityOwner.Anim != null)
         {
-            if (AbilityOwner.Anim != null)
-            {
-                AbilityOwner.Anim.StartAnimationClip(AbilityData.AbilityAnimationHash);
-            }
+            AbilityOwner.Anim.StartAnimationClip(AbilityData.AbilityAnimationHash);
         }
     }
 
     public virtual void OnAbilityEnd()
     {
-        
+        if (AbilityOwner.Anim != null)
+        {
+            AbilityOwner.Anim.ResetAnimatorState();
+        }
     }
 }

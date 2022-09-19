@@ -13,6 +13,7 @@ public class EHCharacter : EHActor
     public EHDamageableComponent DamageableComponent { get; private set; }
     public EHAttackComponent AttackComponent { get; private set; }
     public EHHitboxComponent HitboxComponent { get; private set; }
+    public EHAbilityComponent AbilityComponent { get; private set; }
     
 
     protected override void Awake()
@@ -23,6 +24,7 @@ public class EHCharacter : EHActor
         DamageableComponent = GetComponent<EHDamageableComponent>();
         AttackComponent = GetComponent<EHAttackComponent>();
         HitboxComponent = GetComponent<EHHitboxComponent>();
+        AbilityComponent = GetComponent<EHAbilityComponent>();
     }
 
     public virtual void SetUpControllerInput(EHPlayerController PlayerController)

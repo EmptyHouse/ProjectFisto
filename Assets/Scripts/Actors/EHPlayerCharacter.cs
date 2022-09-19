@@ -46,6 +46,7 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputDash()
     {
+        AbilityComponent?.StartAbility();
         // AttackComponent.AttemptAttack(EAttackType.Dash);
     }
     

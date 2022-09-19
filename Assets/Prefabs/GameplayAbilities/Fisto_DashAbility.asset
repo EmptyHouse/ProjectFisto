@@ -12,13 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a5931217b17a24896ca127bc59cc92, type: 3}
   m_Name: Fisto_DashAbility
   m_EditorClassIdentifier: 
-  AbilityClip: {fileID: 7400000, guid: 957860262cf727a4d9f6e30eee866ff8, type: 2}
-  ComboAbilityList: []
-  TransitionalClip: {fileID: 0}
-  BlockPlayerInput: 1
-  IgnoreGravity: 0
-  CancelOnStanceChange: 0
-  ExitTime: 1
-  HasExitTime: 0
+  AbilityAnimation: {fileID: 7400000, guid: 957860262cf727a4d9f6e30eee866ff8, type: 2}
+  HitData:
+    DamageApplied: 0
+    DamageForce: {x: 0, y: 0}
   DashSpeed: 50
   DashDuration: 0.25
