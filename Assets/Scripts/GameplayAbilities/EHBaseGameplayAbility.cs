@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
+[CreateAssetMenu(fileName = "BaseAbility", menuName = "GameplayAbilities/BaseAbility", order = 0)]
 public class EHBaseGameplayAbility : ScriptableObject
 {
     #region structs
@@ -21,12 +19,18 @@ public class EHBaseGameplayAbility : ScriptableObject
     
     [SerializeField]
     private AnimationClip AbilityAnimation;
-    private float TimePassed;
+    
+    [SerializeField]
+    private bool EndOnStanceChange;
+    
+    protected float TimePassed;
     
     [SerializeField]
     private FAttackData HitData;
 
-    private FAbilityData AbilityData;
+    protected bool ShouldEarlyOut;
+
+    protected FAbilityData AbilityData;
 
     public virtual void InitializeAbility(EHActor AbilityOwner)
     {
@@ -36,11 +40,25 @@ public class EHBaseGameplayAbility : ScriptableObject
         
         AbilityData.AbilityDuration += AbilityAnimation.length;
         AbilityData.AbilityAnimationHash = Animator.StringToHash(AbilityAnimation.name);
+        if (EndOnStanceChange && OwnerMovementComponent)
+        {
+            OwnerMovementComponent.OnStanceChangeEvent += OnStanceChangeEvent;
+        }
+    }
+
+    public virtual void OnInputPressed()
+    {
+        
+    }
+
+    public virtual void OnInputReleased()
+    {
+        
     }
 
     public virtual bool IsAbilityComplete()
     {
-        return TimePassed > AbilityData.AbilityDuration;
+        return TimePassed > AbilityData.AbilityDuration || ShouldEarlyOut;
     }
 
     public virtual void TickAbility(float DeltaSeconds)
@@ -51,6 +69,7 @@ public class EHBaseGameplayAbility : ScriptableObject
     public virtual void BeginAbility()
     {
         TimePassed = 0;
+        ShouldEarlyOut = false;
         if (AbilityOwner.Anim != null)
         {
             AbilityOwner.Anim.StartAnimationClip(AbilityData.AbilityAnimationHash);
@@ -63,5 +82,10 @@ public class EHBaseGameplayAbility : ScriptableObject
         {
             AbilityOwner.Anim.ResetAnimatorState();
         }
+    }
+
+    protected virtual void OnStanceChangeEvent(EMovementStance MovementStance)
+    {
+        ShouldEarlyOut = true;
     }
 }

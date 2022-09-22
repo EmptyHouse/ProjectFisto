@@ -21,8 +21,8 @@ public class EHDashAbility : EHBaseGameplayAbility
         if (OwnerPhysicsComponent)
         {
             OwnerPhysicsComponent.SetVelocity(new Vector2(Mathf.Sign(AbilityOwner.GetScale().x) * DashSpeed, 0));
+            OwnerPhysicsComponent.SetUseGravity(false);
         }
-        
     }
 
     public override void TickAbility(float DeltaSeconds)
@@ -39,6 +39,8 @@ public class EHDashAbility : EHBaseGameplayAbility
                 Vector2 Velocity = OwnerPhysicsComponent.Velocity;
                 Velocity.x = MaxVelocity;
                 OwnerPhysicsComponent.SetVelocity(Velocity);
+                OwnerPhysicsComponent.SetUseGravity(true);
+
             }
         }
     }

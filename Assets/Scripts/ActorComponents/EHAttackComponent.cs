@@ -21,6 +21,9 @@ public enum EAttackType
 
 public class EHAttackComponent : EHActorComponent
 {
+    private readonly int Anim_AttackTrigger = Animator.StringToHash("Attack");
+    private const float AttackBufferTime = EHTime.TimePerFrame * 8;
+    
     private EHAnimatorComponent Anim;
     [SerializeField] 
     private FAttackData DefaultAttackData;
@@ -40,12 +43,9 @@ public class EHAttackComponent : EHActorComponent
 
     #endregion monobehaviour methods
 
-    public void ReleaseAttack(EAttackType AttackType)
+    public void AttackPressed()
     {
-        // if (ActiveAbility != null)
-        // {
-        //     ActiveAbility.ActivateAbility();
-        // }
+        Anim.SetTrigger(Anim_AttackTrigger, AttackBufferTime);
     }
 
     public void AttackDamageComponent(EHDamageableComponent OtherDamageComponent)

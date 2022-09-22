@@ -41,12 +41,13 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputAttack()
     {
+        AttackComponent?.AttackPressed();
         // AttackComponent.AttemptAttack(EAttackType.SimpleAttack);
     }
 
     private void InputDash()
     {
-        AbilityComponent?.StartAbility();
+        AbilityComponent?.StartAbility(1);
         // AttackComponent.AttemptAttack(EAttackType.Dash);
     }
     

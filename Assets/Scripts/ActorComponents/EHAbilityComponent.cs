@@ -54,7 +54,7 @@ public class EHAbilityComponent : EHActorComponent
         }
 
         if (CurrentActiveAbility != null) return;
-        CurrentActiveAbility = EquippedAbilities[0];
+        CurrentActiveAbility = EquippedAbilities[AbilityIndex];
         CurrentActiveAbility.BeginAbility();
     }
     #endregion manage abilities
