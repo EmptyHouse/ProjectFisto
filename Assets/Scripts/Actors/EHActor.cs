@@ -83,6 +83,5 @@ public class EHActor : MonoBehaviour
         NewActor.SetOwner(this);
         return NewActor;
     }
-
     #endregion getter/setter methods
 }

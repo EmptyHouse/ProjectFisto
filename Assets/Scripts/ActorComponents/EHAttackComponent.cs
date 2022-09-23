@@ -9,6 +9,12 @@ public struct FAttackData
 {
     // The raw damage applied to the damage component
     public int DamageApplied;
+
+    public float CameraShakeTime;
+
+    public float CameraShakeIntensity;
+
+    public float HitFreezeTime;
     // Force direction that will be applied to the damaged component
     public Vector2 DamageForce;
 }
@@ -56,5 +62,8 @@ public class EHAttackComponent : EHActorComponent
             return;//do not apply damage to owner
         }
         OtherDamageComponent.TakeDamage(DefaultAttackData);
+        EHPlayerController PlayerController = GetGameInstance().PlayerController;
+        PlayerController.AssociatedCamera.StartCameraShake(DefaultAttackData.CameraShakeTime, DefaultAttackData.CameraShakeIntensity);
+        
     }
 }

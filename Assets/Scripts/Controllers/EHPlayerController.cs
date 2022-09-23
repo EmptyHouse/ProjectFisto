@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using static UnityEngine.InputSystem.InputAction;
 
 public enum EButtonEventType
@@ -40,6 +39,7 @@ public class EHPlayerController : MonoBehaviour
     private Dictionary<EAxisInput, UnityAction<float>> AxisActions = new Dictionary<EAxisInput, UnityAction<float>>();
 
     private InputAction MoveAction;
+    public EHCameraFollow AssociatedCamera { get; private set; }
     
     #region monobeahviour methosd
 
@@ -84,6 +84,15 @@ public class EHPlayerController : MonoBehaviour
     }
 
     #endregion monobehaviour methods
+
+    public void SetAssociatedCamera(EHCameraFollow CameraFollow)
+    {
+        if (CameraFollow == null || CameraFollow == AssociatedCamera)
+        {
+            return;
+        }
+        AssociatedCamera = CameraFollow;
+    }
 
     private void InitializeButtons()
     {
@@ -195,4 +204,8 @@ public class EHPlayerController : MonoBehaviour
             return PreviousAxisInput[(int) AxisInput] != CurrentAxisInput[(int) AxisInput];
         }
     }
+    
+    #region player controller events
+    
+    #endregion player controller events
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class EHCameraFollow : MonoBehaviour
 {
     private Camera CameraComponent;
+    private EHCameraShakeComponent CameraShakeComponent;
     private EHActor FollowTarget;
     private Vector3 CameraOffset;
     [SerializeField, Tooltip("The rate at which our camera will lerp toward the player")] 
@@ -42,5 +43,11 @@ public class EHCameraFollow : MonoBehaviour
         Vector3 TargetPosition = FollowTarget.GetPosition();
         Vector3 GoalPosition = CameraOffset + TargetPosition;
         transform.position = Vector3.Lerp(transform.position, GoalPosition, EHTime.DeltaTime * CameraSpeed);
+    }
+
+    // Camera Shake
+    public void StartCameraShake(float TimeForCameraShake, float CameraIntensity)
+    {
+        CameraShakeComponent.BeginCameraShake(TimeForCameraShake, CameraIntensity);
     }
 }

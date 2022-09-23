@@ -31,4 +31,15 @@ public class EHCharacter : EHActor
     {
         
     }
+
+    public void FreezeActorForSeconds(float FreezeTime)
+    {
+    }
+
+    // private IEnumerator FreezeActorCoroutine(float FreezeTime)
+    // {
+    //     
+    //     float TimeThatHasPassed = 0;
+    //         
+    // }
 }

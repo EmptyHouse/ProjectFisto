@@ -31,7 +31,8 @@ public class EHMovementComponent : EHCharacterComponent
     private readonly int Anim_StanceChange = Animator.StringToHash("StanceChange");
     
     #endregion const variables
-    public bool IgnorePlayerInput { get; private set; } = false;
+    [SerializeField]
+    private bool IgnorePlayerInput;
     
     [SerializeField]
     private bool IsRight = true;

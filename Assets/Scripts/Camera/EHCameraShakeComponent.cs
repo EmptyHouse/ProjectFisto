@@ -12,7 +12,6 @@ public class EHCameraShakeComponent : MonoBehaviour
     private float TimeRemainingForCameraShake;
     // The intensity of our camera shake
     private float CameraShakeIntensity;
-    
     // Indicates if our camera shake is currently running
     private bool CameraShakeRunning;
 
