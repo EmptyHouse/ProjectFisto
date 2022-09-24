@@ -48,6 +48,15 @@ AnimationClip:
     path: PlayerSprite
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: -1496849723, guid: 04553deaa3d42ce4da3f707a70048971, type: 3}
+    - time: 0.05
+      value: {fileID: -1036622478, guid: 04553deaa3d42ce4da3f707a70048971, type: 3}
+    attribute: m_Sprite
+    path: LeafSprite
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -69,10 +78,19 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 111982914
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -99639755, guid: 04553deaa3d42ce4da3f707a70048971, type: 3}
     - {fileID: -1415001675, guid: 04553deaa3d42ce4da3f707a70048971, type: 3}
     - {fileID: -1415001675, guid: 04553deaa3d42ce4da3f707a70048971, type: 3}
+    - {fileID: -1496849723, guid: 04553deaa3d42ce4da3f707a70048971, type: 3}
+    - {fileID: -1036622478, guid: 04553deaa3d42ce4da3f707a70048971, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

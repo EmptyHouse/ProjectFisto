@@ -1111,6 +1111,636 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Air_Attack00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3557
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a718045b4ab3094da820786c2570023
+      internalID: 2085093231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Air_Attack01
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 3557
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d96e2c7498c88b04ab6e59cf5389d9e0
+      internalID: 1174596919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Air_Attack02
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 3557
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e09b032c8d2c6408b6b0e06abe76d4
+      internalID: -929396869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Air_Attack03
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 3557
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a6e6407e7227e4ba5d4b4bb8c5dfed
+      internalID: -316515362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Air_Attack04
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 3557
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957834c6978dbb24d8ee7c031b65f42a
+      internalID: -1322868484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Air_Attack05
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 3557
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed7e4390f1b5224e997321d25475817
+      internalID: 1271501033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Air_Attack06
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 3557
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a893db4a1f1f3f41991769fff6d97b3
+      internalID: -63612018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf1_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3431
+        width: 96
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf758891ec38f3642802dbac4a5d0560
+      internalID: 2073305372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf1_01
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3431
+        width: 96
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4868f596ff25e3f42999b23cc9a9c3a9
+      internalID: 1124175141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf1_02
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3431
+        width: 96
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e07ed1d8211b14fba152608d2a1d01
+      internalID: 777546061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf1_03
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 3431
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd54ea6e9d5d2e44a81a7fbb99ac873
+      internalID: 805251363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf1_04
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 3431
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaba6535d4ea03746be58d4feedbdec4
+      internalID: -467617409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf1_05
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3431
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e7f2f50f7828f42aeff15502bb194a
+      internalID: -1313654905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf1_06
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 3431
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58fe1de0ad5c434a8f6942b502bbc92
+      internalID: -1228956155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf2_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3368
+        width: 96
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86bf5922a726f7049b7ff6234894b0b4
+      internalID: -966961517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf2_01
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 3368
+        width: 95
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f1fdc7e9fb749498f9638825c808be
+      internalID: 2102709478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf2_02
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3368
+        width: 96
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e47ae7910d0c5849bde847dc1978596
+      internalID: -1974974248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf2_03
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 3368
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e755d7ca8d0c92448b982bac3f44407
+      internalID: 332837164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf2_04
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 3368
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5119a54177f7b7f49a0b9feb71a3a925
+      internalID: -1835189556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf2_05
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3368
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ee508cd77983542be3f446662690cb
+      internalID: -1496849723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf2_06
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 3368
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3de695eaacdd0a4ea0a665e2b58bb7a
+      internalID: -1036622478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3304
+        width: 96
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d5ad145dd69ba458cf82498e576f4e
+      internalID: 1296204837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_01
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3305
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b5872c55580c742af5ba1dc3d4f3cb
+      internalID: -811787731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_02
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3305
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab11a8ad6496cc40bc0101a11e8d6af
+      internalID: 1920250638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_03
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 3305
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863a8b0cb4782694697db859d5a9a362
+      internalID: 2119262624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_04
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 3305
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a62736d61e652b4baa426964f46f29b
+      internalID: 521896782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_05
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3305
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec2d6bec9b053054b81dbbed024317df
+      internalID: 776923592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_06
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 3305
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ef66bf5e6b65244828256a74b776f0
+      internalID: 1222728788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_07
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 3305
+        width: 95
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25263157, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3eeae1a3a3875428a332f05d6d9bca
+      internalID: -1243773239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leaf3_08
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 3305
+        width: 96
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb4079673751fc4b88a764ee921ad21
+      internalID: 1758971624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1122,53 +1752,83 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Leaf3_05: 776923592
       Attack1_05: 782342041
+      Leaf1_05: -1313654905
+      Air_Attack03: -316515362
+      Leaf3_06: 1222728788
       Attack2_00: -1050671317
       Attack3_03: -1468871221
       Attack1_02: 779973912
+      Leaf1_04: -467617409
       Attack3_02: -1914370872
       Attack2_02: -1943850688
       Run_08: -1280243838
       BowStand_00: 1409183966
+      Air_Attack00: 2085093231
+      Air_Attack06: -63612018
       Attack2_05: -99639755
       Idle_05: 1307425697
+      Leaf3_01: -811787731
       Attack1_06: 700755779
+      Leaf2_03: 332837164
+      Leaf3_08: 1758971624
+      Air_Attack01: 1174596919
       BowStand_01: 1415691312
       Run_05: -969633305
+      Leaf1_00: 2073305372
       Attack1_04: 219053768
       Run_01: 454692269
       Run_00: -752037944
       BowStand_03: -1190176044
       Attack1_01: 400026878
       Attack1_03: -96736853
+      Leaf3_02: 1920250638
       Attack2_04: -1276233959
+      Leaf2_02: -1974974248
       Idle_01: -680722019
       Attack3_06: -610051314
       Run_06: -1883211417
+      Air_Attack02: -929396869
+      Leaf3_03: 2119262624
       BowStand_04: 278670390
       Idle_00: -244795144
       Arrow: -1167563830
       Run_07: -208559316
       Run_04: -1375351867
+      Leaf3_00: 1296204837
       Attack3_04: -79174130
       Attack2_01: 390522709
       Attack3_07: -278773665
       Attack1_00: 194512617
       Attack3_08: -393545336
+      Air_Attack05: 1271501033
       Attack3_00: 1012773171
       Run_09: 1197966410
+      Leaf3_07: -1243773239
       Attack3_09: 354063627
+      Leaf1_06: -1228956155
+      Leaf2_00: -966961517
+      Leaf1_03: 805251363
       Attack3_10: 842840881
+      Leaf2_01: 2102709478
+      Leaf2_06: -1036622478
       BowStand_05: -1764309186
+      Leaf3_04: 521896782
       Attack3_05: 2034132079
       Attack3_01: 155454072
       Run_03: 1445204261
       Run_02: 843824959
       Attack2_06: -1415001675
+      Leaf2_05: -1496849723
       Idle_04: 2027207890
       Idle_02: 124064597
+      Leaf1_01: 1124175141
       Idle_03: 1454503588
+      Leaf1_02: 777546061
+      Air_Attack04: -1322868484
       BowStand_02: 1877558510
+      Leaf2_04: -1835189556
       Attack2_03: 1787924046
   spritePackingTag: 
   pSDRemoveMatte: 0
