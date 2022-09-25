@@ -636,8 +636,8 @@ TextureImporter:
         y: 3171
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -657,8 +657,8 @@ TextureImporter:
         y: 3171
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -678,8 +678,8 @@ TextureImporter:
         y: 3171
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -699,8 +699,8 @@ TextureImporter:
         y: 3171
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -720,8 +720,8 @@ TextureImporter:
         y: 3171
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -741,8 +741,8 @@ TextureImporter:
         y: 3171
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1741,6 +1741,384 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: AirLeaf_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3234
+        width: 96
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e65368ec9d93454ead2ff8372515886
+      internalID: 2009049336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirLeaf_01
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3234
+        width: 96
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f2c61de39f86f469799824c9c6d7d4
+      internalID: 68255177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirLeaf_02
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3234
+        width: 96
+        height: 56
+      alignment: 9
+      pivot: {x: 0.25, y: 0.10714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814850d72d88f0d46ae28543085267d4
+      internalID: 578477044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirLeaf_03
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 3234
+        width: 96
+        height: 56
+      alignment: 9
+      pivot: {x: 0.25, y: 0.10714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61144f11be6775f47946a60842b49915
+      internalID: 32815370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirLeaf_04
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 3234
+        width: 96
+        height: 56
+      alignment: 9
+      pivot: {x: 0.25, y: 0.10714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f2756b47d707b845b91f8115f058c84
+      internalID: 1332872527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirLeaf_05
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3234
+        width: 96
+        height: 56
+      alignment: 9
+      pivot: {x: 0.25, y: 0.10714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f398536245d111d46a278ab9a4b58e1e
+      internalID: 48190771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBow_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3108
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101719cb2323abc45a4f1bb23c389399
+      internalID: 1561516893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBow_01
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 3108
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df59f58b530bac4283a708c872447d4
+      internalID: -1174965231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBow_02
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 3108
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dae4176a954656499648f37dc83fb4f
+      internalID: -1134523881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBow_03
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 3108
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b286576d0579d0649b9a1748a812aeee
+      internalID: -27450424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBow_04
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 3108
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ff359c8a6c2f74a8fe773e5046049d
+      internalID: 180910243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBow_05
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 3108
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c2038565f668646ac602d66a7452d1
+      internalID: -463777264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrouchBow_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3041
+        width: 48
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0c2852e61c8654f9de8d1154799efe
+      internalID: 1962692739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrouchBow_01
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 3041
+        width: 48
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c406d8d4292029e44bc6a65411f68532
+      internalID: 1156892235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrouchBow_02
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 3041
+        width: 48
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832e94607eda7f64eabc07fb337359a9
+      internalID: 2054610634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrouchBow_03
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 3041
+        width: 48
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8ce283481a6a54eae5eef3ab551eae
+      internalID: 1855306383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrouchBow_04
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 3041
+        width: 48
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 854c7dc82de50b0428dc53294f86f648
+      internalID: 1178641748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrouchBow_05
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 3041
+        width: 48
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e39154572f0978b439459ceeb8e2780a
+      internalID: -902110880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1752,83 +2130,101 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Leaf3_05: 776923592
+      CrouchBow_05: -902110880
       Attack1_05: 782342041
-      Leaf1_05: -1313654905
       Air_Attack03: -316515362
-      Leaf3_06: 1222728788
-      Attack2_00: -1050671317
       Attack3_03: -1468871221
       Attack1_02: 779973912
       Leaf1_04: -467617409
-      Attack3_02: -1914370872
-      Attack2_02: -1943850688
-      Run_08: -1280243838
+      CrouchBow_01: 1156892235
+      AirBow_02: -1134523881
       BowStand_00: 1409183966
+      AirBow_00: 1561516893
       Air_Attack00: 2085093231
-      Air_Attack06: -63612018
-      Attack2_05: -99639755
-      Idle_05: 1307425697
       Leaf3_01: -811787731
-      Attack1_06: 700755779
-      Leaf2_03: 332837164
+      Attack2_05: -99639755
       Leaf3_08: 1758971624
-      Air_Attack01: 1174596919
-      BowStand_01: 1415691312
-      Run_05: -969633305
+      AirLeaf_05: 48190771
+      AirBow_04: 180910243
       Leaf1_00: 2073305372
+      Run_05: -969633305
       Attack1_04: 219053768
       Run_01: 454692269
-      Run_00: -752037944
       BowStand_03: -1190176044
+      AirLeaf_01: 68255177
       Attack1_01: 400026878
-      Attack1_03: -96736853
-      Leaf3_02: 1920250638
       Attack2_04: -1276233959
       Leaf2_02: -1974974248
       Idle_01: -680722019
       Attack3_06: -610051314
-      Run_06: -1883211417
       Air_Attack02: -929396869
-      Leaf3_03: 2119262624
-      BowStand_04: 278670390
-      Idle_00: -244795144
-      Arrow: -1167563830
-      Run_07: -208559316
-      Run_04: -1375351867
-      Leaf3_00: 1296204837
+      Run_06: -1883211417
+      AirBow_05: -463777264
       Attack3_04: -79174130
-      Attack2_01: 390522709
       Attack3_07: -278773665
-      Attack1_00: 194512617
-      Attack3_08: -393545336
-      Air_Attack05: 1271501033
-      Attack3_00: 1012773171
-      Run_09: 1197966410
       Leaf3_07: -1243773239
-      Attack3_09: 354063627
-      Leaf1_06: -1228956155
-      Leaf2_00: -966961517
-      Leaf1_03: 805251363
+      Run_09: 1197966410
+      AirLeaf_02: 578477044
       Attack3_10: 842840881
       Leaf2_01: 2102709478
-      Leaf2_06: -1036622478
       BowStand_05: -1764309186
-      Leaf3_04: 521896782
+      AirBow_03: -27450424
+      Leaf2_06: -1036622478
       Attack3_05: 2034132079
       Attack3_01: 155454072
-      Run_03: 1445204261
-      Run_02: 843824959
       Attack2_06: -1415001675
-      Leaf2_05: -1496849723
-      Idle_04: 2027207890
-      Idle_02: 124064597
       Leaf1_01: 1124175141
+      Idle_02: 124064597
       Idle_03: 1454503588
       Leaf1_02: 777546061
       Air_Attack04: -1322868484
       BowStand_02: 1877558510
+      Leaf1_05: -1313654905
+      CrouchBow_02: 2054610634
+      Attack2_00: -1050671317
+      AirBow_01: -1174965231
+      Attack3_02: -1914370872
+      Attack2_02: -1943850688
+      Run_08: -1280243838
+      AirLeaf_04: 1332872527
+      Air_Attack06: -63612018
+      Idle_05: 1307425697
+      Attack1_06: 700755779
+      Leaf2_03: 332837164
+      Air_Attack01: 1174596919
+      BowStand_01: 1415691312
+      Run_00: -752037944
+      AirLeaf_03: 32815370
+      Attack1_03: -96736853
+      Leaf3_02: 1920250638
+      Leaf3_03: 2119262624
+      BowStand_04: 278670390
+      Idle_00: -244795144
+      Arrow: -1167563830
+      Leaf3_00: 1296204837
+      Run_04: -1375351867
+      Run_07: -208559316
+      Leaf3_04: 521896782
+      Attack2_01: 390522709
+      Attack1_00: 194512617
+      Attack3_08: -393545336
+      Air_Attack05: 1271501033
+      Attack3_00: 1012773171
+      AirLeaf_00: 2009049336
+      Attack3_09: 354063627
+      Leaf1_06: -1228956155
+      Leaf2_00: -966961517
+      Leaf1_03: 805251363
+      CrouchBow_04: 1178641748
+      CrouchBow_00: 1962692739
+      Run_02: 843824959
+      Run_03: 1445204261
+      Leaf2_05: -1496849723
+      Idle_04: 2027207890
       Leaf2_04: -1835189556
+      Leaf3_05: 776923592
+      Leaf3_06: 1222728788
+      CrouchBow_03: 1855306383
       Attack2_03: 1787924046
   spritePackingTag: 
   pSDRemoveMatte: 0

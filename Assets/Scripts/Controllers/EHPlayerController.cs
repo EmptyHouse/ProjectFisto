@@ -17,8 +17,9 @@ public enum EButtonInput : byte
 {
     Jump = 0x01,
     Attack = 0x02,
-    Dash = 0x04,
-    Crystal = 0x08,
+    Bow = 0x04,
+    Dash = 0x08,
+    Crystal = 0x10,
 }
 
 public enum EAxisInput : byte
@@ -100,12 +101,12 @@ public class EHPlayerController : MonoBehaviour
         InputAction JumpAction = InGamePlayerInput.actions["Jump"];
         JumpAction.started += OnJumpAction;
         JumpAction.canceled += OnJumpAction;
-        InputAction AttackAction = InGamePlayerInput.actions["Attack1"];
+        InputAction AttackAction = InGamePlayerInput.actions["Attack"];
         AttackAction.started += OnAttackAction;
         AttackAction.canceled += OnAttackAction;
-        InputAction ChargeAttackAction = InGamePlayerInput.actions["ChargeAttack"];
-        ChargeAttackAction.started += OnChargeAttackAction;
-        ChargeAttackAction.canceled += OnChargeAttackAction;
+        InputAction ChargeAttackAction = InGamePlayerInput.actions["BowAttack"];
+        ChargeAttackAction.started += OnBowAction;
+        ChargeAttackAction.canceled += OnBowAction;
         InputAction AbilityAction = InGamePlayerInput.actions["Ability"];
         AbilityAction.started += OnAbilityAction;
         AbilityAction.canceled += OnAbilityAction;
@@ -164,8 +165,11 @@ public class EHPlayerController : MonoBehaviour
     private void OnAttackAction(CallbackContext Context) =>
         UpdateCurrentInput(EButtonInput.Attack, Context.ReadValueAsButton());
 
-    private void OnChargeAttackAction(CallbackContext Context) =>
+    private void OnDashAction(CallbackContext Context) =>
         UpdateCurrentInput(EButtonInput.Dash, Context.ReadValueAsButton());
+
+    private void OnBowAction(CallbackContext Context) =>
+        UpdateCurrentInput(EButtonInput.Bow, Context.ReadValueAsButton());
 
     private void OnAbilityAction(CallbackContext Context) =>
         UpdateCurrentInput(EButtonInput.Crystal, Context.ReadValueAsButton());

@@ -28,6 +28,7 @@ public enum EAttackType
 public class EHAttackComponent : EHActorComponent
 {
     private readonly int Anim_AttackTrigger = Animator.StringToHash("Attack");
+    private readonly int Anim_BowTrigger = Animator.StringToHash("Bow");
     private const float AttackBufferTime = EHTime.TimePerFrame * 8;
     
     private EHAnimatorComponent Anim;
@@ -52,6 +53,11 @@ public class EHAttackComponent : EHActorComponent
     public void AttackPressed()
     {
         Anim.SetTrigger(Anim_AttackTrigger, AttackBufferTime);
+    }
+
+    public void BowPressed()
+    {
+        Anim.SetTrigger(Anim_BowTrigger, AttackBufferTime);
     }
 
     public void AttackDamageComponent(EHDamageableComponent OtherDamageComponent)
