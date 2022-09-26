@@ -61,10 +61,14 @@ public class EHAttackComponent : EHActorComponent
         {
             return;//do not apply damage to owner
         }
+
+        EHPhysics2D OtherPhysics = OtherAssociatedActor.GetComponent<EHPhysics2D>();
         OtherDamageComponent.TakeDamage(DefaultAttackData);
         EHPlayerController PlayerController = GetGameInstance().PlayerController;
         PlayerController.AssociatedCamera.StartCameraShake(DefaultAttackData.CameraShakeTime, DefaultAttackData.CameraShakeIntensity);
-        
+        GetGameMode<EHGameMode>().FreezeTime(DefaultAttackData.HitFreezeTime);
+        float ScaleDirection = Mathf.Sign(GetActorScale().x);
+        OtherPhysics.SetVelocity(new Vector2(ScaleDirection * DefaultAttackData.DamageForce.x, DefaultAttackData.DamageForce.y));
     }
     
     #region events

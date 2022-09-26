@@ -15,6 +15,4 @@ public static class EHTime
     private static float timeScale = 1;
     public static float DeltaTime => deltaTime;
     private static float deltaTime = TimePerFrame;
-
-    
 }

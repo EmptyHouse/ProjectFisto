@@ -194,11 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultAttackData:
-    DamageApplied: 10
-    CameraShakeTime: 0
-    CameraShakeIntensity: 0
-    HitFreezeTime: 0
-    DamageForce: {x: 0, y: 0}
+    DamageApplied: 5
+    CameraShakeTime: 0.2
+    CameraShakeIntensity: 0.1
+    HitFreezeTime: 0.1
+    DamageForce: {x: 10, y: 0}
   ChargeReleaseSpeed: 125
 --- !u!114 &6567806111333800667
 MonoBehaviour:

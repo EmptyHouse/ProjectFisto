@@ -15,10 +15,13 @@ public class EHAnimatorComponent : EHActorComponent
     {
         base.Awake();
         Anim = GetComponent<Animator>();
+        Anim.enabled = false;
     }
 
     protected void Update()
     {
+        Anim.Update(EHTime.DeltaTime);
+
         if (BufferTimeMap.Count == 0) return;
         List<int> RemoveBuffers = new List<int>();
         

@@ -7,6 +7,8 @@ public class EHGameMode : MonoBehaviour
 {
     public EHPhysics2DManager PhysicsManager { get; private set; }
     public EHHitboxManager HitboxManager { get; private set; }
+
+    private float FreezeSecondsRemaining;
     
     #region monobehaviour methods
 
@@ -21,5 +23,26 @@ public class EHGameMode : MonoBehaviour
         PhysicsManager.UpdatePhysicsLoop(EHTime.DeltaTime);
     }
 
-    #endregion 
+    public void FreezeTime(float SecondsToFreeze)
+    {
+        StartCoroutine(FreezeTimeCoroutine(SecondsToFreeze));
+    }
+    #endregion
+
+    private IEnumerator FreezeTimeCoroutine(float SecondsToFreeze)
+    {
+        if (FreezeSecondsRemaining > 0)
+        {
+            FreezeSecondsRemaining = Mathf.Max(SecondsToFreeze, FreezeSecondsRemaining);
+            yield break;
+        }
+        FreezeSecondsRemaining = SecondsToFreeze;
+        EHTime.TimeScale = 0;
+        while (FreezeSecondsRemaining > 0)
+        {
+            FreezeSecondsRemaining -= Time.unscaledDeltaTime;
+            yield return null;
+        }
+        EHTime.TimeScale = 1;
+    }
 }

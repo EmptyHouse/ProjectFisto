@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717f1e9e7ca88bb4e83ea32c4a7d10f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IgnorePlayerInput: 0
   IsRight: 0
   GroundAcceleration: 50
   AirAcceleration: 10
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657780bbc9e2faf4facba4da6aa10878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 15
+  MaxHealth: 30
 --- !u!114 &1970710503446443740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,12 +199,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultAttackData:
-    Owner: {fileID: 0}
     DamageApplied: 0
+    CameraShakeTime: 0
+    CameraShakeIntensity: 0
+    HitFreezeTime: 0
     DamageForce: {x: 0, y: 0}
-  EquippedAbilities: []
   ChargeReleaseSpeed: 10
-  CrystalKnockSpeed: 10
 --- !u!114 &1970710503446443741
 MonoBehaviour:
   m_ObjectHideFlags: 0

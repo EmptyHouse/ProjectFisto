@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 /// <summary>
@@ -14,7 +16,6 @@ public class EHCameraShakeComponent : MonoBehaviour
     private float CameraShakeIntensity;
     // Indicates if our camera shake is currently running
     private bool CameraShakeRunning;
-
 
     /// <summary>
     /// starts a coroutine to begin the camera shake process. Keep in mind that the last Camera shake process will override previous camera shake calls

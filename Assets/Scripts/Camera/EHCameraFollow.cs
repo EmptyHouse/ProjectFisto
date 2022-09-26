@@ -17,6 +17,7 @@ public class EHCameraFollow : MonoBehaviour
     protected void Awake()
     {
         CameraComponent = GetComponent<Camera>();
+        CameraShakeComponent = GetComponent<EHCameraShakeComponent>();
         FollowTarget = transform.parent.GetComponent<EHActor>();
         
         if (FollowTarget == null)
@@ -29,6 +30,11 @@ public class EHCameraFollow : MonoBehaviour
         CameraOffset = transform.position - TargetPosition;
         //Detach from our parent object
         transform.SetParent(null);
+    }
+
+    protected void Start()
+    {
+        EHGameInstance.Instance.PlayerController.SetAssociatedCamera(this);
     }
 
     protected void LateUpdate()
