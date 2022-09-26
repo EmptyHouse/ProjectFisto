@@ -2119,6 +2119,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Crouch_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2789
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a342f3cd297c4468720efdfe94bbb9
+      internalID: 492478832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crouch_01
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2789
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58513102308739649bd339ca00a4f51f
+      internalID: -317602297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crouch_02
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2789
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635f6dfae2c0071449d721c211bf0bd5
+      internalID: 800332517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crouch_03
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2789
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe44ad331d25f445af118833b1b2cb6
+      internalID: 790741806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2173,6 +2257,7 @@ TextureImporter:
       Attack3_05: 2034132079
       Attack3_01: 155454072
       Attack2_06: -1415001675
+      Crouch_00: 492478832
       Leaf1_01: 1124175141
       Idle_02: 124064597
       Idle_03: 1454503588
@@ -2183,6 +2268,7 @@ TextureImporter:
       CrouchBow_02: 2054610634
       Attack2_00: -1050671317
       AirBow_01: -1174965231
+      Crouch_02: 800332517
       Attack3_02: -1914370872
       Attack2_02: -1943850688
       Run_08: -1280243838
@@ -2197,6 +2283,7 @@ TextureImporter:
       AirLeaf_03: 32815370
       Attack1_03: -96736853
       Leaf3_02: 1920250638
+      Crouch_01: -317602297
       Leaf3_03: 2119262624
       BowStand_04: 278670390
       Idle_00: -244795144
@@ -2204,6 +2291,7 @@ TextureImporter:
       Leaf3_00: 1296204837
       Run_04: -1375351867
       Run_07: -208559316
+      Crouch_03: 790741806
       Leaf3_04: 521896782
       Attack2_01: 390522709
       Attack1_00: 194512617

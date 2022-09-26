@@ -19,12 +19,6 @@ public struct FAttackData
     public Vector2 DamageForce;
 }
 
-public enum EAttackType
-{
-    SimpleAttack,
-    Dash,
-}
-
 public class EHAttackComponent : EHActorComponent
 {
     private readonly int Anim_AttackTrigger = Animator.StringToHash("Attack");
@@ -72,4 +66,17 @@ public class EHAttackComponent : EHActorComponent
         PlayerController.AssociatedCamera.StartCameraShake(DefaultAttackData.CameraShakeTime, DefaultAttackData.CameraShakeIntensity);
         
     }
+    
+    #region events
+
+    private void OnAttackStart()
+    {
+        OwnerMovementComponent.ResetDirection();
+    }
+
+    private void OnAttackEnd()
+    {
+        
+    }
+    #endregion events
 }

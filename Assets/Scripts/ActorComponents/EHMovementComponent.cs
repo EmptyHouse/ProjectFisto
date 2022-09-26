@@ -22,6 +22,7 @@ public class EHMovementComponent : EHCharacterComponent
     private const float JoystickWalkThreshold = JoystickDeadzone;
     // Input minimum before we register a run movement
     private const float JoystickRunThreshold = .65f;
+    private const float JoystickCrouchThreshold = -0.6f;
 
     private readonly int Anim_HorizontalInput = Animator.StringToHash("HInput");
     private readonly int Anim_VerticalInput = Animator.StringToHash("VInput");
@@ -115,6 +116,7 @@ public class EHMovementComponent : EHCharacterComponent
         {
             SetMovementStance(EMovementStance.InAir);
         }
+
         UpdateMovementFromInput();
         
         PreviousInput = CurrentInput;
@@ -152,7 +154,7 @@ public class EHMovementComponent : EHCharacterComponent
             Input = 0;
         
         CurrentInput.y = Input;
-        AssociatedActor.Anim.SetFloat(Anim_VerticalInput, Mathf.Abs(Input));
+        AssociatedActor.Anim.SetFloat(Anim_VerticalInput, Input);
     }
 
     private void UpdateMovementFromInput()
@@ -222,9 +224,9 @@ public class EHMovementComponent : EHCharacterComponent
 
     private void SetIsRight(bool IsRight, bool ForceDirection = false)
     {
-        if (IgnorePlayerInput) return;
+        if (IgnorePlayerInput && !ForceDirection) return;
         
-        if (!ForceDirection && (this.IsRight == IsRight)) return;
+        if (this.IsRight == IsRight) return;
         
         this.IsRight = IsRight;
         Vector2 ActorScale = GetActorScale();
@@ -275,5 +277,15 @@ public class EHMovementComponent : EHCharacterComponent
     public bool IsInAir()
     {
         return MovementStance == EMovementStance.InAir;
+    }
+
+    public void ResetDirection()
+    {
+        if (Mathf.Abs(CurrentInput.x) < JoystickDeadzone)
+        {
+            return;
+        }
+        
+        SetIsRight(CurrentInput.x > 0, true);
     }
 }
