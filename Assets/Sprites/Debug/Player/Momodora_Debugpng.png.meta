@@ -2203,6 +2203,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Jump_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2127
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699ff459b82aada4fb36aa6b756d524c
+      internalID: 958230785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_01
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2127
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e332e07f06c2fd14cb77eab3715ec10c
+      internalID: 2131070109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_02
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2127
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b30d73850b940248b60a03a2bec3dd6
+      internalID: 576959582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fall_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2064
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f27ed5c2f1b8a42b9eada5a28a5e40
+      internalID: -1737468153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fall_01
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2064
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41ba5e8d53eb0d44a46f2ad9c614e89
+      internalID: -336584525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fall_02
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2064
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a19fea2b344c95478fb841a8903651d
+      internalID: -1982310458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fall_03
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2064
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5231f9ecd068b0646b54f873b5ebfb58
+      internalID: 702637849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fall_04
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 2064
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cffdbedf26727e4881a843a9deed4e1
+      internalID: -1930160328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2227,9 +2395,11 @@ TextureImporter:
       Air_Attack00: 2085093231
       Leaf3_01: -811787731
       Attack2_05: -99639755
+      Fall_01: -336584525
       Leaf3_08: 1758971624
       AirLeaf_05: 48190771
       AirBow_04: 180910243
+      Fall_00: -1737468153
       Leaf1_00: 2073305372
       Run_05: -969633305
       Attack1_04: 219053768
@@ -2247,6 +2417,7 @@ TextureImporter:
       Attack3_04: -79174130
       Attack3_07: -278773665
       Leaf3_07: -1243773239
+      Fall_04: -1930160328
       Run_09: 1197966410
       AirLeaf_02: 578477044
       Attack3_10: 842840881
@@ -2254,8 +2425,10 @@ TextureImporter:
       BowStand_05: -1764309186
       AirBow_03: -27450424
       Leaf2_06: -1036622478
+      Fall_03: 702637849
       Attack3_05: 2034132079
       Attack3_01: 155454072
+      Jump_01: 2131070109
       Attack2_06: -1415001675
       Crouch_00: 492478832
       Leaf1_01: 1124175141
@@ -2264,6 +2437,7 @@ TextureImporter:
       Leaf1_02: 777546061
       Air_Attack04: -1322868484
       BowStand_02: 1877558510
+      Fall_02: -1982310458
       Leaf1_05: -1313654905
       CrouchBow_02: 2054610634
       Attack2_00: -1050671317
@@ -2289,22 +2463,23 @@ TextureImporter:
       Idle_00: -244795144
       Arrow: -1167563830
       Leaf3_00: 1296204837
-      Run_04: -1375351867
-      Run_07: -208559316
       Crouch_03: 790741806
-      Leaf3_04: 521896782
+      Run_07: -208559316
+      Run_04: -1375351867
       Attack2_01: 390522709
       Attack1_00: 194512617
       Attack3_08: -393545336
       Air_Attack05: 1271501033
       Attack3_00: 1012773171
       AirLeaf_00: 2009049336
-      Attack3_09: 354063627
+      Leaf3_04: 521896782
       Leaf1_06: -1228956155
       Leaf2_00: -966961517
+      Attack3_09: 354063627
       Leaf1_03: 805251363
       CrouchBow_04: 1178641748
       CrouchBow_00: 1962692739
+      Jump_02: 576959582
       Run_02: 843824959
       Run_03: 1445204261
       Leaf2_05: -1496849723
@@ -2312,6 +2487,7 @@ TextureImporter:
       Leaf2_04: -1835189556
       Leaf3_05: 776923592
       Leaf3_06: 1222728788
+      Jump_00: 958230785
       CrouchBow_03: 1855306383
       Attack2_03: 1787924046
   spritePackingTag: 
