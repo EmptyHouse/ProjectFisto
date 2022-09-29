@@ -8,7 +8,6 @@ public class EHCharacter : EHActor
 {
     [SerializeField]
     private string CharacterId;
-    public EHPhysics2D Physics { get; private set; }
     public EHMovementComponent MovementComponent { get; private set; }
     public EHDamageableComponent DamageableComponent { get; private set; }
     public EHAttackComponent AttackComponent { get; private set; }
@@ -19,7 +18,6 @@ public class EHCharacter : EHActor
     protected override void Awake()
     {
         base.Awake();
-        Physics = GetComponent<EHPhysics2D>();
         MovementComponent = GetComponent<EHMovementComponent>();
         DamageableComponent = GetComponent<EHDamageableComponent>();
         AttackComponent = GetComponent<EHAttackComponent>();
