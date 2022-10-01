@@ -134,13 +134,21 @@ PrefabInstance:
       propertyPath: IsRight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4073035475808116148, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
+      propertyPath: PatrolMax.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073035475808116148, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
+      propertyPath: PatrolMin.x
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 5724591223115153940, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
       propertyPath: m_Name
       value: DebugMonkey
       objectReference: {fileID: 0}
     - target: {fileID: 5724591223115153943, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5724591223115153943, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
       propertyPath: m_LocalPosition.x
@@ -476,6 +484,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4073035475808116148, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
+      propertyPath: PatrolMax.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073035475808116148, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
+      propertyPath: PatrolMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5724591223115153940, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
       propertyPath: m_Name
       value: DebugMonkey (1)

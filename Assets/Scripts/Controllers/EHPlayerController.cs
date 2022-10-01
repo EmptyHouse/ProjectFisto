@@ -211,8 +211,4 @@ public class EHPlayerController : MonoBehaviour
             return PreviousAxisInput[(int) AxisInput] != CurrentAxisInput[(int) AxisInput];
         }
     }
-    
-    #region player controller events
-    
-    #endregion player controller events
 }
