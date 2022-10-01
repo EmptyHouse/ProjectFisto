@@ -2392,6 +2392,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Roll_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 285
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e921d52357e9a9c4f899fc1aa67d1849
+      internalID: -1092539502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_01
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 285
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b07fb05801076742b7147d445f6a7cd
+      internalID: -688041421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_02
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 285
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817638a6d16c1824db0e1024b02c5e43
+      internalID: -1950010841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_03
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 285
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb464af4d32ea44fba50006fdc231a4
+      internalID: 45373001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_04
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 285
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2ee5388f53b764393aac91ef605fd0
+      internalID: -1552833959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_05
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 285
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227f186a11acc1e43905394bc7e18a61
+      internalID: -2014061584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_06
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 285
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8fda40f275ed784d8b3eed213641ec4
+      internalID: 842071022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_07
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 285
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5984cf83da62bc64e8f47d6290b2e3cb
+      internalID: 84387091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2413,10 +2581,12 @@ TextureImporter:
       AirBow_02: -1134523881
       BowStand_00: 1409183966
       AirBow_00: 1561516893
+      Roll_06: 842071022
       Air_Attack00: 2085093231
       Leaf3_01: -811787731
       Attack2_05: -99639755
       Fall_01: -336584525
+      Roll_02: -1950010841
       Leaf3_08: 1758971624
       AirLeaf_05: 48190771
       AirBow_04: 180910243
@@ -2447,6 +2617,7 @@ TextureImporter:
       AirBow_03: -27450424
       Leaf2_06: -1036622478
       Fall_03: 702637849
+      Roll_03: 45373001
       Attack3_05: 2034132079
       Attack3_01: 155454072
       Jump_01: 2131070109
@@ -2463,12 +2634,14 @@ TextureImporter:
       CrouchBow_02: 2054610634
       Attack2_00: -1050671317
       AirBow_01: -1174965231
+      Roll_05: -2014061584
       Crouch_02: 800332517
       Attack3_02: -1914370872
       Attack2_02: -1943850688
       Run_08: -1280243838
       AirLeaf_04: 1332872527
       Air_Attack06: -63612018
+      Roll_04: -1552833959
       Idle_05: 1307425697
       Attack1_06: 700755779
       Leaf2_03: 332837164
@@ -2493,12 +2666,15 @@ TextureImporter:
       Air_Attack05: 1271501033
       Attack3_00: 1012773171
       AirLeaf_00: 2009049336
+      Roll_00: -1092539502
       Leaf3_04: 521896782
       Leaf1_06: -1228956155
       Leaf2_00: -966961517
       Attack3_09: 354063627
       Leaf1_03: 805251363
       CrouchBow_04: 1178641748
+      Roll_01: -688041421
+      Roll_07: 84387091
       CrouchBow_00: 1962692739
       Jump_02: 576959582
       Run_02: 843824959

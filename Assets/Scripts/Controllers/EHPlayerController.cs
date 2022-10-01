@@ -104,9 +104,12 @@ public class EHPlayerController : MonoBehaviour
         InputAction AttackAction = InGamePlayerInput.actions["Attack"];
         AttackAction.started += OnAttackAction;
         AttackAction.canceled += OnAttackAction;
-        InputAction ChargeAttackAction = InGamePlayerInput.actions["BowAttack"];
-        ChargeAttackAction.started += OnBowAction;
-        ChargeAttackAction.canceled += OnBowAction;
+        InputAction BowAttackAction = InGamePlayerInput.actions["BowAttack"];
+        BowAttackAction.started += OnBowAction;
+        BowAttackAction.canceled += OnBowAction;
+        InputAction DashAction = InGamePlayerInput.actions["Dash"];
+        DashAction.started += OnDashAction;
+        DashAction.canceled += OnDashAction;
         InputAction AbilityAction = InGamePlayerInput.actions["Ability"];
         AbilityAction.started += OnAbilityAction;
         AbilityAction.canceled += OnAbilityAction;

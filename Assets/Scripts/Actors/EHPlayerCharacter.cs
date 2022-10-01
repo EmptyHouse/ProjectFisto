@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EHPlayerCharacter : EHCharacter
 {
+    private EHDashComponent DashComponent;
+    
+    protected override void Awake()
+    {
+        base.Awake();
+        DashComponent = GetComponent<EHDashComponent>();
+    }
+
     #region override methods
     public override void SetUpControllerInput(EHPlayerController Controller)
     {
@@ -53,7 +61,7 @@ public class EHPlayerCharacter : EHCharacter
 
     private void InputDash()
     {
-        AbilityComponent?.StartAbility(1);
+        DashComponent?.AttemptDash();
         // AttackComponent.AttemptAttack(EAttackType.Dash);
     }
     

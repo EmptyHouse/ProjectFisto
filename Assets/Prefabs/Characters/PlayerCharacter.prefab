@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1e41df4f7664d7d4e9d4372761da0b6c, type: 3}
+  m_Sprite: {fileID: -244795144, guid: 04553deaa3d42ce4da3f707a70048971, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 791239366}
   - component: {fileID: 7735067677301409983}
   - component: {fileID: 2491429274870010708}
+  - component: {fileID: 612062608732227083}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -305,6 +306,20 @@ MonoBehaviour:
   LaunchPivot: {fileID: 990470235095538816}
   Projectile: {fileID: 2101285991741117172, guid: d8c43108b0203fd48bf1a619c229a808, type: 3}
   LaunchSpeed: 35
+--- !u!114 &612062608732227083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532578649705496927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152bc6927b39ce946b0d1cd2f4f7044d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashSpeed: 17
+  DashDuration: 0.4
 --- !u!1 &3001794979115970646
 GameObject:
   m_ObjectHideFlags: 0
