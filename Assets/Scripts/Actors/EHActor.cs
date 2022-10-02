@@ -6,6 +6,10 @@ public class EHActor : MonoBehaviour
     public EHBoxCollider2D ColliderComponent { get; private set; }
     public EHPhysics2D Physics { get; private set; }
     public EHActor Owner { get; private set; }
+    public EHDamageableComponent DamageableComponent { get; private set; }
+    public EHAttackComponent AttackComponent { get; private set; }
+    public EHHitboxComponent HitboxComponent { get; private set; }
+    public EHEffectManagerComponent EffectManagerComponent { get; private set; }
     
     #region monobehaviour methods
 
@@ -14,6 +18,10 @@ public class EHActor : MonoBehaviour
         Anim = GetComponent<EHAnimatorComponent>();
         ColliderComponent = GetComponent<EHBoxCollider2D>();
         Physics = GetComponent<EHPhysics2D>();
+        DamageableComponent = GetComponent<EHDamageableComponent>();
+        AttackComponent = GetComponent<EHAttackComponent>();
+        HitboxComponent = GetComponent<EHHitboxComponent>();
+        EffectManagerComponent = GetComponent<EHEffectManagerComponent>();
     }
 
     #endregion monobehaviour methods

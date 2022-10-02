@@ -201,8 +201,8 @@ MonoBehaviour:
     CameraShakeTime: 0.2
     CameraShakeIntensity: 0.1
     HitFreezeTime: 0.1
+    HitstunTime: 1
     DamageForce: {x: 10, y: 0}
-  ChargeReleaseSpeed: 125
 --- !u!114 &6567806111333800667
 MonoBehaviour:
   m_ObjectHideFlags: 0

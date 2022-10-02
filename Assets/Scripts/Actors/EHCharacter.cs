@@ -9,9 +9,6 @@ public class EHCharacter : EHActor
     [SerializeField]
     private string CharacterId;
     public EHMovementComponent MovementComponent { get; private set; }
-    public EHDamageableComponent DamageableComponent { get; private set; }
-    public EHAttackComponent AttackComponent { get; private set; }
-    public EHHitboxComponent HitboxComponent { get; private set; }
     public EHAbilityComponent AbilityComponent { get; private set; }
     
 
@@ -19,9 +16,6 @@ public class EHCharacter : EHActor
     {
         base.Awake();
         MovementComponent = GetComponent<EHMovementComponent>();
-        DamageableComponent = GetComponent<EHDamageableComponent>();
-        AttackComponent = GetComponent<EHAttackComponent>();
-        HitboxComponent = GetComponent<EHHitboxComponent>();
         AbilityComponent = GetComponent<EHAbilityComponent>();
     }
 
