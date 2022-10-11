@@ -50,6 +50,11 @@ public class EHPlayerController : MonoBehaviour
         Inputs.PreviousAxisInput = new float[(int)EAxisInput.Size];
     }
 
+    private void OnDestroy()
+    {
+        if (AssociatedCamera) Destroy(AssociatedCamera.gameObject);
+    }
+
     private void Update()
     {
         Vector2 MoveAxis = MoveAction.ReadValue<Vector2>();

@@ -7,6 +7,5 @@ public class EHTile : EHActor
     protected override void Awake()
     {
         base.Awake();
-        Anim.enabled = false;
     }
 }

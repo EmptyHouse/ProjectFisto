@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoutesTable: {fileID: 0}
+  ActiveScene: {fileID: 0}
 --- !u!223 &8790492338777206337
 Canvas:
   m_ObjectHideFlags: 0

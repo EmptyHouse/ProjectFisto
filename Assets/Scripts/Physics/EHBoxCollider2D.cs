@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using EmptyHouseGames.Library;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
 
 public enum EColliderType
 {
@@ -22,6 +23,8 @@ public struct FCollisionData
 public class EHBoxCollider2D : EHActorComponent
 {
     public UnityAction<FCollisionData> OnStartCollision;
+    public UnityAction<EHBoxCollider2D> OnOverlapBegin;
+    public UnityAction<EHBoxCollider2D> OnOverlapEnd;
     private HashSet<EHBoxCollider2D> OverlappingCollisions;
     #region const variables
     private readonly Vector2 BufferBounds = Vector2.one * 0.02f;
@@ -53,6 +56,10 @@ public class EHBoxCollider2D : EHActorComponent
         if (ColliderType == EColliderType.Kinematic)
         {
             PhysicsComponent = GetComponent<EHPhysics2D>();
+            OverlappingCollisions = new HashSet<EHBoxCollider2D>();
+        }
+        else if (ColliderType == EColliderType.Trigger)
+        {
             OverlappingCollisions = new HashSet<EHBoxCollider2D>();
         }
     }
@@ -213,7 +220,10 @@ public class EHBoxCollider2D : EHActorComponent
                 Collider = OtherBoxCollider,
                 Direction = Direction,
             };
-            OnStartCollision?.Invoke(CollisionData);
+            if (ColliderType == EColliderType.Trigger)
+                OnOverlapBegin?.Invoke(OtherBoxCollider);
+            else
+                OnStartCollision?.Invoke(CollisionData);
         }
     }
 
@@ -221,7 +231,10 @@ public class EHBoxCollider2D : EHActorComponent
     {
         if (OverlappingCollisions.Contains(OtherBoxCollider))
         {
-            OverlappingCollisions.Remove(OtherBoxCollider);
+            if (OverlappingCollisions.Remove(OtherBoxCollider))
+            {
+                OnOverlapEnd?.Invoke(OtherBoxCollider);
+            }
         }
     }
     #endregion getter functions

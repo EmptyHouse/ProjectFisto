@@ -11,7 +11,7 @@ public struct FWorldSettings
     public EHGameState GameState;
     public EHPlayerController PlayerController;
     public EHPlayerState PlayerState;
-    public EHCharacter PlayerCharacter;
+    public EHPlayerCharacter PlayerCharacter;
     public EHBaseGameHUD GameHUD;
     public SceneField BackgroundWorld;
 }
@@ -41,8 +41,9 @@ public class EHGameInstance : MonoBehaviour
     public EHGameState GameState { get; private set; }
     public EHBaseGameHUD GameHUD { get; private set; }
     public EHPlayerState PlayerState { get; private set; }
-    public EHCharacter PlayerCharacter { get; private set; }
+    public EHPlayerCharacter PlayerCharacter { get; private set; }
     public EHPlayerController PlayerController { get; private set; }
+    public EHWorld World { get; private set; }
     private SceneField CurrentScene;
     
     #region monobehaviour methods
@@ -66,6 +67,7 @@ public class EHGameInstance : MonoBehaviour
         
         //NOTE: may want to remove this in the future
         Application.targetFrameRate = 60;
+        DontDestroyOnLoad(this.gameObject);
     }
     #endregion monobehaviour methods
 
@@ -74,12 +76,12 @@ public class EHGameInstance : MonoBehaviour
         LoadBackgroundScene(WorldSettings.BackgroundWorld);
     }
 
-    public void LoadBackgroundScene(SceneField BackgroundWorld, bool LoadAsync = false)
+    public void LoadBackgroundScene(SceneField BackgroundWorld, int RoomDoorId = 0, bool LoadAsync = false)
     {
-        StartCoroutine(LoadBackgroundSceneCoroutine(BackgroundWorld, LoadAsync));
+        StartCoroutine(LoadBackgroundSceneCoroutine(BackgroundWorld, RoomDoorId, LoadAsync));
     }
 
-    private IEnumerator LoadBackgroundSceneCoroutine(SceneField BackgroundWorld, bool LoadAsync = false)
+    private IEnumerator LoadBackgroundSceneCoroutine(SceneField BackgroundWorld, int RoomDoorId = 0, bool LoadAsync = false)
     {
         yield return null;
         if (CurrentScene != null)
@@ -108,10 +110,22 @@ public class EHGameInstance : MonoBehaviour
         yield return null;
         // Set Player at specific spawn position. This will need to be updated in the future to account for saves
         EHSpawnPoint SpawnPoint = GameObject.FindObjectOfType<EHSpawnPoint>();
-        if (SpawnPoint != null && PlayerCharacter)
+        if (RoomDoorId == 0)
         {
-            PlayerCharacter.SetPositionNoSweep(SpawnPoint.transform.position);
+            if (SpawnPoint != null && PlayerCharacter)
+            {
+                PlayerCharacter.SetPositionNoSweep(SpawnPoint.transform.position);
+            }
         }
+        else
+        {
+            EHRoomDoor Door = World.GetRoomDoorById(RoomDoorId);
+            if (Door != null)
+            {
+                PlayerCharacter.SetPositionNoSweep(Door.GetSpawnPosition());
+            }
+        }
+        
     }
 
     private void InitializeMainSceneObjects()
@@ -158,6 +172,11 @@ public class EHGameInstance : MonoBehaviour
         {
             GameHUD = Instantiate(WorldSettings.GameHUD);
         }
+    }
+
+    public void SetGameWorld(EHWorld World)
+    {
+        this.World = World;
     }
     #region debug functions
 

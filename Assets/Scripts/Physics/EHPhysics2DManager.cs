@@ -135,6 +135,20 @@ public class EHPhysics2DManager
                     PhysicsCollider.RemoveOverlappingCollision(StaticCollider);
                 }
             }
+
+            foreach (EHBoxCollider2D TriggerCollider in ColliderComponentDictionary[EColliderType.Trigger])
+            {
+                if (!Physics2D.GetIgnoreLayerCollision(PhysicsCollider.gameObject.layer,
+                        TriggerCollider.gameObject.layer)
+                    && TriggerCollider.CheckPhysicsColliderOverlapping(PhysicsCollider))
+                {
+                    TriggerCollider.AddOverlappingCollision(PhysicsCollider, Vector2.zero);
+                }
+                else
+                {
+                    TriggerCollider.RemoveOverlappingCollision(PhysicsCollider);
+                }
+            }
         }
     }
 
