@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class EHRoomDoor : EHActor
 {
+    public UnityAction OnDoorEntered;
     [SerializeField]
     private Transform SpawnPosition;
     [SerializeField]

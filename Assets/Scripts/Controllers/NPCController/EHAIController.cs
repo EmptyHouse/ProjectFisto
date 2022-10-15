@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum EAIStatus
 {
@@ -12,88 +11,70 @@ public enum EAIStatus
 
 public class EHAIController : EHActorComponent
 {
-    #region state machine
     [SerializeField]
-    private List<EHAIState> AllStates = new List<EHAIState>();
-    [SerializeField]
-    private EHAIState CurrentAIState;
-    [SerializeField]
-    private EAIStatus AIStatus;
-
-
-    public void SetAIStatus(EAIStatus AIStatus, bool ForceUpdate = false)
-    {
-        if (this.AIStatus == AIStatus && !ForceUpdate)
-        {
-            return;
-        }
-
-        this.AIStatus = AIStatus;
-        // 
-        switch (AIStatus)
-        {
-            case EAIStatus.Sleep:
-                this.enabled = false;
-                break;
-            case EAIStatus.Active:
-                this.enabled = true;
-                break;
-        }
-    }
-
-    public void SetCurrentAIState(EHAIState AIState)
-    {
-        CurrentAIState?.EndState();
-        CurrentAIState = AIState;
-        CurrentAIState.BeginState();
-    }
-    #endregion state machine
+    private EHAIState DefaultAIState;
+    private EAIStatus CurrentAIStatus;
+    private EHAIState CurrentState;
     
-    #region monobehaviour methods
+    #region monobehaivour methods
 
     protected override void Awake()
     {
         base.Awake();
-        SetAIStatus(AIStatus, true);
-        if (AllStates.Count > 0)
+        if (!DefaultAIState)
         {
-            foreach (var State in AllStates)
-            {
-                State.InitializeState();
-            }
-            SetCurrentAIState(AllStates[0]);
+            Debug.LogWarning(this.name + " does not have a DefaultState assigned...");
+            return;
+        }
+        SetNextState(DefaultAIState);
+    }
+
+    private void Update()
+    {
+        TickStateMachine();
+    }
+    #endregion monobehaviour methods
+
+    private void TickStateMachine()
+    {
+        EHAIState NextState = CurrentState?.TickState();
+        if (NextState != null)
+        {
+            SetNextState(NextState);
         }
     }
 
-    protected virtual void Update()
+    private void SetNextState(EHAIState NextState)
     {
-        CurrentAIState?.TickState();
+        if (NextState == CurrentState)
+        {
+            return;
+        }
+        
+        CurrentState?.EndState();
+        CurrentState = NextState;
+        CurrentState?.BeginState();
     }
 
-    #endregion monobehaviour methods
-
+    public void SetCurrentAIState(EAIStatus Status)
+    {
+        if (this.CurrentAIStatus == Status)
+        {
+            return;
+        }
+        this.CurrentAIStatus = Status;
+    }
 }
 
-public class EHAIState : ScriptableObject
+public abstract class EHAIState : MonoBehaviour
 {
-    protected EHPlayerCharacter PlayerReference;
-    
-    public virtual void InitializeState()
-    {
-        PlayerReference = EHGameInstance.Instance.PlayerCharacter;
-    }
-    
-    public virtual void BeginState()
-    {
-    }
-
-    public virtual void EndState()
-    {
-        
-    }
-
-    public virtual void TickState()
-    {
-        
-    }
+    [SerializeField]
+    private string StateId;
+    public virtual void BeginState() {}
+    public virtual void EndState() {}
+    public abstract EHAIState TickState();
 }
+
+
+
+

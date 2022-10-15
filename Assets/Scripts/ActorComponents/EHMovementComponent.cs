@@ -58,8 +58,6 @@ public class EHMovementComponent : EHCharacterComponent
     private float JumpHeightApex = 1.5f;
     [HideInInspector, SerializeField] 
     private float JumpVelocity;
-    [SerializeField] 
-    private float UpperCutJumpScale = 1.2f;
 
     public EMovementStance MovementStance { get; private set; } = EMovementStance.Standing;
     private EHBoxCollider2D ColliderComponent;

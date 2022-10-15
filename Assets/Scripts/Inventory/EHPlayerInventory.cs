@@ -10,8 +10,9 @@ public class EHPlayerInventory : EHActorComponent
     public List<EHInventoryItem> ActiveItems { get; private set; }
     private int CurrentActiveIndex = 0;
 
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         ActiveItems = new List<EHInventoryItem>();
     }
 
