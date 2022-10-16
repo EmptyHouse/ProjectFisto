@@ -248,7 +248,7 @@ public class EHMovementComponent : EHCharacterComponent
                 
                 break;
         }
-        EHAnimatorComponent CharacterAnim = OwningCharacter.Anim;
+        EHAnimatorComponent CharacterAnim = AssociatedCharacter.Anim;
         CharacterAnim.SetTrigger(Anim_StanceChange);
         CharacterAnim.SetInteger(Anim_MovementStance, (int)MovementStance);
         OnStanceChangeEvent?.Invoke(MovementStance);

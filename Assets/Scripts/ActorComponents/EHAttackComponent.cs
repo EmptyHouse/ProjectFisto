@@ -45,7 +45,7 @@ public class EHAttackComponent : EHActorComponent
     protected override void Awake()
     {
         base.Awake();
-        Anim = AssociatedActor.Anim;
+        Anim = AssociatedActor.GetComponent<EHAnimatorComponent>();
         OwnerMovementComponent = AssociatedActor.GetComponent<EHMovementComponent>();
     }
 

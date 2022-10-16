@@ -9,10 +9,12 @@ public enum EAIStatus
     Active,
 }
 
-public class EHAIController : EHActorComponent
+public class EHAIController : EHCharacterComponent
 {
     [SerializeField]
     private EHAIState DefaultAIState;
+
+    public EHPlayerCharacter PlayerCharacter => EHGameInstance.Instance.PlayerCharacter;
     private EAIStatus CurrentAIStatus;
     private EHAIState CurrentState;
     
@@ -26,6 +28,11 @@ public class EHAIController : EHActorComponent
             Debug.LogWarning(this.name + " does not have a DefaultState assigned...");
             return;
         }
+        SetCurrentAIState(EAIStatus.Active);
+    }
+
+    protected void Start()
+    {
         SetNextState(DefaultAIState);
     }
 
@@ -53,7 +60,7 @@ public class EHAIController : EHActorComponent
         
         CurrentState?.EndState();
         CurrentState = NextState;
-        CurrentState?.BeginState();
+        CurrentState?.BeginState(this);
     }
 
     public void SetCurrentAIState(EAIStatus Status)
@@ -68,11 +75,21 @@ public class EHAIController : EHActorComponent
 
 public abstract class EHAIState : MonoBehaviour
 {
-    [SerializeField]
-    private string StateId;
-    public virtual void BeginState() {}
+    protected EHAIController AIController;
+    
+    private void Awake()
+    {
+        AIController = GetComponentInParent<EHAIController>();
+    }
+
+    public virtual void BeginState(EHAIController Controller)
+    {
+    }
+    
     public virtual void EndState() {}
     public abstract EHAIState TickState();
+    public EHCharacter GetAICharacter() => AIController?.AssociatedCharacter;
+    public EHPlayerCharacter GetPlayerCharacter() => AIController?.PlayerCharacter;
 }
 
 

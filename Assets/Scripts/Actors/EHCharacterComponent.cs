@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EHCharacterComponent : EHActorComponent
 {
-    public EHCharacter OwningCharacter { get; private set; }
+    public EHCharacter AssociatedCharacter { get; private set; }
     protected override void InitializeOwningActor()
     {
         base.InitializeOwningActor();
-        OwningCharacter = (EHCharacter) AssociatedActor;
+        AssociatedCharacter = (EHCharacter) AssociatedActor;
     }
 }

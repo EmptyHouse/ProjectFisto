@@ -229,8 +229,8 @@ GameObject:
   - component: {fileID: 7648352253189398569}
   - component: {fileID: 7980969804431582}
   - component: {fileID: 6491890450176780705}
-  - component: {fileID: 4073035475808116148}
   - component: {fileID: 5996997064669141949}
+  - component: {fileID: 58819347544788029}
   m_Layer: 0
   m_Name: DebugMonkey
   m_TagString: Untagged
@@ -252,6 +252,7 @@ Transform:
   m_Children:
   - {fileID: 5724591222978053119}
   - {fileID: 1416774316}
+  - {fileID: 4940772936703101449}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,7 +307,6 @@ MonoBehaviour:
   TimeToReachApex: 1
   JumpHeightApex: 1.5
   JumpVelocity: 3
-  UpperCutJumpScale: 1.2
 --- !u!114 &7980339235876882955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
     CameraShakeTime: 0
     CameraShakeIntensity: 0
     HitFreezeTime: 0
+    HitstunTime: 0
     DamageForce: {x: 0, y: 0}
 --- !u!114 &1405330614964384086
 MonoBehaviour:
@@ -399,20 +400,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4073035475808116148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5724591223115153940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da29d0a665d62bb449cdc39d4eed57f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolMin: {x: -2, y: 0}
-  PatrolMax: {x: -2, y: 0}
 --- !u!114 &5996997064669141949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,3 +412,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c841d58213f4ba488bcf686face3815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &58819347544788029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724591223115153940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40852e78738031e4b9966596615a1206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultAIState: {fileID: 308420240277634490}
+--- !u!1 &6202131848195749365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3136631921538734071}
+  - component: {fileID: 308420240277634490}
+  m_Layer: 0
+  m_Name: PatrolState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3136631921538734071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202131848195749365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4940772936703101449}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &308420240277634490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202131848195749365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7657e5b3f20511438e784d75f7352d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftPosition: {x: -10, y: 0}
+  RightPosition: {x: 10, y: 0}
+  VisionRange: 5
+  ChasePlayerState: {fileID: 2967324014936845869}
+--- !u!1 &8124984635520110673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94809443405801891}
+  - component: {fileID: 2967324014936845869}
+  m_Layer: 0
+  m_Name: ChaseState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94809443405801891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8124984635520110673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4940772936703101449}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2967324014936845869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8124984635520110673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49c6ab721efe1b4c8a5291226d092ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatrolForPlayerState: {fileID: 308420240277634490}
+  VisionRange: 8
+  AttackRange: 3.2
+  AttackCoolDown: 0
+--- !u!1 &8442266559470995055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4940772936703101449}
+  m_Layer: 0
+  m_Name: AIStates
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4940772936703101449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442266559470995055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3136631921538734071}
+  - {fileID: 94809443405801891}
+  m_Father: {fileID: 5724591223115153943}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

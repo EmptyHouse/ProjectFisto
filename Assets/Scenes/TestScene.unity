@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 308420240277634490, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
+      propertyPath: LeftPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 308420240277634490, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
+      propertyPath: RightPosition.x
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3298677443774591593, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
       propertyPath: IsRight
       value: 0
@@ -484,6 +492,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 308420240277634490, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
+      propertyPath: LeftPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308420240277634490, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
+      propertyPath: RightPosition.x
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4073035475808116148, guid: 7a911f444cf1759469a0afbff0c5d981, type: 3}
       propertyPath: PatrolMax.x
       value: 8
