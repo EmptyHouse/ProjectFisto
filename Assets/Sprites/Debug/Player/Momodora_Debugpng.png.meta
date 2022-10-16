@@ -2560,6 +2560,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Rise_00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2726
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82f4c3328b9b53948ad7413570129d7f
+      internalID: 1053522047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rise_01
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2726
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef3ea231ccfa6643bf1cfa0aebb5004
+      internalID: 1729323507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2586,6 +2628,7 @@ TextureImporter:
       Leaf3_01: -811787731
       Attack2_05: -99639755
       Fall_01: -336584525
+      Rise_01: 1729323507
       Roll_02: -1950010841
       Leaf3_08: 1758971624
       AirLeaf_05: 48190771
@@ -2652,6 +2695,7 @@ TextureImporter:
       Attack1_03: -96736853
       Leaf3_02: 1920250638
       Crouch_01: -317602297
+      Rise_00: 1053522047
       Leaf3_03: 2119262624
       BowStand_04: 278670390
       Idle_00: -244795144

@@ -519,7 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PatrolForPlayerState: {fileID: 308420240277634490}
   VisionRange: 8
-  AttackRange: 3.2
+  AttackRange: 2
   AttackCoolDown: 0
 --- !u!1 &8442266559470995055
 GameObject:

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class AIPatrolForPlayer : EHAIState
 {
@@ -60,7 +62,7 @@ public class AIPatrolForPlayer : EHAIState
         if (Character == null) 
             return false;
         float LookingScale = Mathf.Sign(Character.GetScale().x);
-        Vector2 VisionPosition = Character.GetPosition() + (Vector2.right * VisionRange * LookingScale);
+        Vector2 VisionPosition = Character.GetPosition();
         Vector2 PlayerPosition = GetPlayerCharacter().GetPosition();
         Vector2 Offset = PlayerPosition - VisionPosition;
         
@@ -73,5 +75,6 @@ public class AIPatrolForPlayer : EHAIState
         GoalPosition = OriginPosition + (MovingLeft ? LeftPosition : RightPosition);
         EHCharacter Character = GetAICharacter();
         Character.MovementComponent.SetHorizontalInput(IsMovingLeft ? -1 : 1);
+        Character.MovementComponent.ResetDirection();
     }
 }

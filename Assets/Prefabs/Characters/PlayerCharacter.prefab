@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 7735067677301409983}
   - component: {fileID: 2491429274870010708}
   - component: {fileID: 612062608732227083}
+  - component: {fileID: 7537996677894138035}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -183,7 +184,6 @@ MonoBehaviour:
   TimeToReachApex: 0.32
   JumpHeightApex: 4
   JumpVelocity: 25
-  UpperCutJumpScale: 1.2
 --- !u!114 &-6490939941704322546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657780bbc9e2faf4facba4da6aa10878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
+  MaxHealth: 100
 --- !u!114 &791239367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +320,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DashSpeed: 17
   DashDuration: 0.4
+--- !u!114 &7537996677894138035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532578649705496927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c841d58213f4ba488bcf686face3815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3001794979115970646
 GameObject:
   m_ObjectHideFlags: 0
