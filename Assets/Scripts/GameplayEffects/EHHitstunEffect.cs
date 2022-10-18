@@ -17,6 +17,7 @@ public class EHHitstunEffect : EHEffect
     {
         base.OnBeginEffect(EffectComponent);
         EffectComponent.AssociatedActor.Anim.SetTrigger(Anim_Hitstun);
+        EffectComponent.AssociatedActor.Anim.UpdateAnimatorNoTime();
         
         // Remove other hitstun effects from our manager...
         foreach (EHEffect Effect in EffectComponent.GetActiveEffects())

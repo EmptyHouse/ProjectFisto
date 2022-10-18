@@ -333,12 +333,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultAttackData:
-    DamageApplied: 0
-    CameraShakeTime: 0
-    CameraShakeIntensity: 0
-    HitFreezeTime: 0
-    HitstunTime: 0
-    DamageForce: {x: 0, y: 0}
+    DamageApplied: 5
+    CameraShakeTime: 0.1
+    CameraShakeIntensity: 0.1
+    HitFreezeTime: 0.5
+    HitstunTime: 0.3
+    DamageForce: {x: 1, y: 0}
 --- !u!114 &1405330614964384086
 MonoBehaviour:
   m_ObjectHideFlags: 0

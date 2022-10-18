@@ -69,6 +69,11 @@ public class EHAnimatorComponent : EHActorComponent
         BufferTimeMap[ParameterHash] = BufferTime;
     }
 
+    public void UpdateAnimatorNoTime()
+    {
+        Anim.Update(.01f);
+    }
+
     public void ResetTrigger(int ParameterHash)
     {
         Anim.ResetTrigger(ParameterHash);

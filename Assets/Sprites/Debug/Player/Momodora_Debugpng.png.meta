@@ -2602,6 +2602,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Momodora_Debugpng_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1686
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52da6e8fc19d54b42b58df5ce056ac12
+      internalID: -365157407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2686,6 +2707,7 @@ TextureImporter:
       Air_Attack06: -63612018
       Roll_04: -1552833959
       Idle_05: 1307425697
+      Momodora_Debugpng_0: -365157407
       Attack1_06: 700755779
       Leaf2_03: 332837164
       Air_Attack01: 1174596919

@@ -11,6 +11,23 @@ public class EHActor : MonoBehaviour
     public EHHitboxComponent HitboxComponent { get; private set; }
     public EHEffectManagerComponent EffectManagerComponent { get; private set; }
     
+    // Actor Delta Time
+    public float ActorTimeScale
+    {
+        get
+        {
+            return _actorTimeScale;
+        }
+        set
+        {
+            _actorTimeScale = value;
+            ActorDeltaTime = value * EHTime.DeltaTime;//NOTE: this will not work if want to pause the game using delta time
+        }
+    }
+
+    private float _actorTimeScale;
+    public float ActorDeltaTime { get; private set; }
+    
     #region monobehaviour methods
 
     protected virtual void Awake()

@@ -200,9 +200,9 @@ MonoBehaviour:
     DamageApplied: 5
     CameraShakeTime: 0.2
     CameraShakeIntensity: 0.1
-    HitFreezeTime: 0.1
+    HitFreezeTime: 0.2
     HitstunTime: 1
-    DamageForce: {x: 10, y: 0}
+    DamageForce: {x: 5, y: 0}
 --- !u!114 &6567806111333800667
 MonoBehaviour:
   m_ObjectHideFlags: 0
