@@ -1007,7 +1007,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: imp_40
+      name: hear
       rect:
         serializedVersion: 2
         x: 2
@@ -1028,7 +1028,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: imp_41
+      name: bomb
       rect:
         serializedVersion: 2
         x: 12
@@ -1049,7 +1049,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: imp_42
+      name: knife
       rect:
         serializedVersion: 2
         x: 30
@@ -1421,16 +1421,17 @@ TextureImporter:
       shieldThrow_04: -1832832317
       sit_03: 984096711
       sitHappy_04: -166851904
-      throwBomb_01: 1919128892
+      throw_01: -934758384
       shieldWalk_03: -2074564573
       shieldThrow_06: -468085060
       sit_00: 680229454
       fall_02: 965417729
       throwBomb_00: -173201412
+      bomb: 1643079929
       jump_00: 965417729
       shieldThrow_01: 731258615
       shieldThrow_05: 2096751857
-      imp_40: 680229454
+      knife: 951435398
       sitHappy_00: -772243635
       throw_07: -1256176860
       shieldThrow_00: 278064255
@@ -1439,8 +1440,8 @@ TextureImporter:
       shieldWalk_00: -1571950840
       shieldWalk_01: -496475155
       throw_06: -336758780
-      imp_42: 196108716
       throw_03: -1648609690
+      hear: -490199876
       throwBomb_02: -1934459835
       sit_07: 936883157
       fall_03: -68318264
@@ -1451,15 +1452,14 @@ TextureImporter:
       shieldThrow_03: 1364222228
       sit_02: 196108716
       throw_05: 1161139048
-      imp_41: -2024738790
       sitHappy_02: 1603283003
-      throw_00: 649033183
       sitHappy_03: -212850436
+      throw_00: 649033183
       throwBomb_08: 1001035038
       fall_00: 751292795
-      throwBomb_04: 2094234621
-      sitHappy_07: -2129056536
       shieldWalk_02: 622149036
+      sitHappy_07: -2129056536
+      throwBomb_04: 2094234621
       shieldHurt_00: -495739178
       sitHappy_01: 143441206
       throwBomb_05: 1443622519
@@ -1477,7 +1477,7 @@ TextureImporter:
       fall_04: 25784918
       sit_05: 1834158176
       shieldThrow_02: 417831023
-      throw_01: -934758384
+      throwBomb_01: 1919128892
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

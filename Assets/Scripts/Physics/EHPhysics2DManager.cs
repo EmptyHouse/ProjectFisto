@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -13,6 +14,10 @@ public class EHPhysics2DManager
     private Dictionary<EColliderType, HashSet<EHBoxCollider2D>> ColliderComponentDictionary =
         new Dictionary<EColliderType, HashSet<EHBoxCollider2D>>();
     private HashSet<EHBoxCollider2D> TriggerColliderSet = new HashSet<EHBoxCollider2D>();
+
+    private HashSet<EHBoxCollider2D> PendingCollidersToRemove = new HashSet<EHBoxCollider2D>();
+    private HashSet<EHPhysics2D> PendingPhysicsToRemove = new HashSet<EHPhysics2D>();
+    private bool PhysicsLoopActive = false;
 
     public EHPhysics2DManager()
     {
@@ -28,6 +33,11 @@ public class EHPhysics2DManager
 
     public void AddPhysicsComponent(EHPhysics2D PhysicsComponent)
     {
+        if (PhysicsLoopActive && PendingPhysicsToRemove.Contains(PhysicsComponent))
+        {
+            PendingPhysicsToRemove.Remove(PhysicsComponent);
+        }
+        
         if (PhysicsComponent == null)
         {
             Debug.LogWarning("Physics Component was null");
@@ -41,6 +51,11 @@ public class EHPhysics2DManager
 
     public void RemovePhysicsComponent(EHPhysics2D PhysicsComponent)
     {
+        if (PhysicsLoopActive)
+        {
+            PendingPhysicsToRemove.Add(PhysicsComponent);
+        }
+        
         if (PhysicsComponent == null)
         {
             Debug.LogWarning("Physics Component was null");
@@ -54,6 +69,11 @@ public class EHPhysics2DManager
 
     public void AddCollisionComponent(EHBoxCollider2D Collider2D)
     {
+        if (PhysicsLoopActive && PendingCollidersToRemove.Contains(Collider2D))
+        {
+            PendingCollidersToRemove.Remove(Collider2D);
+            return;
+        }
         if (!ColliderComponentDictionary.ContainsKey(Collider2D.GetColliderType()))
         {
             //Debug.LogWarning("Collider Type not found");
@@ -65,6 +85,10 @@ public class EHPhysics2DManager
 
     public void RemoveCollisionComponent(EHBoxCollider2D Collider2D)
     {
+        if (PhysicsLoopActive)
+        {
+            PendingCollidersToRemove.Add(Collider2D);
+        }
         if (!ColliderComponentDictionary.ContainsKey(Collider2D.GetColliderType()))
         {
            // Debug.LogWarning("");
@@ -91,6 +115,7 @@ public class EHPhysics2DManager
 
     public void UpdatePhysicsLoop(float DeltaTime)
     {
+        PhysicsLoopActive = true;
         UpdateHitboxes();
         
         foreach (EHPhysics2D Rigid in PhysicsSet)
@@ -108,6 +133,25 @@ public class EHPhysics2DManager
             PhysicsCollider.UpdateKinematicBoxCollider();
         }
         UpdateKinematicColliders();
+        PhysicsLoopActive = false;
+        if (PendingPhysicsToRemove.Count > 0)
+        {
+            foreach (EHPhysics2D RemovePhysics in PendingPhysicsToRemove)
+            {
+                RemovePhysicsComponent(RemovePhysics);
+            }
+            PendingPhysicsToRemove.Clear();
+        }
+
+        if (PendingCollidersToRemove.Count > 0)
+        {
+            foreach (EHBoxCollider2D RemovedCollider in PendingCollidersToRemove)
+            {
+                RemoveCollisionComponent(RemovedCollider);
+            }
+            PendingCollidersToRemove.Clear();
+        }
+        
     }
 
     private void UpdateKinematicColliders()

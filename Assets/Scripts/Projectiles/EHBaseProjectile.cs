@@ -22,7 +22,7 @@ public class EHBaseProjectile : EHActor
         }
     }
 
-    private void OnProjectileDamageEnemy(EHDamageableComponent OtherDamageComponent)
+    protected virtual void OnProjectileDamageEnemy(EHDamageableComponent OtherDamageComponent)
     {
         Destroy(this.gameObject);
     }
