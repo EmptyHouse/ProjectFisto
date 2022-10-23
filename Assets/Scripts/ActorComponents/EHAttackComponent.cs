@@ -69,11 +69,13 @@ public class EHAttackComponent : EHActorComponent
             return;//do not apply damage to owner
         }
 
-        EHPhysics2D OtherPhysics = OtherAssociatedActor.GetComponent<EHPhysics2D>();
+        EHPhysics2D OtherPhysics = OtherAssociatedActor.Physics;
+        EHMovementComponent OtherMovement = OtherAssociatedActor.GetComponent<EHMovementComponent>();
         
         EHHitstunEffect HitstunEffect = ScriptableObject.CreateInstance<EHHitstunEffect>();
         HitstunEffect.SetHitstunTime(DefaultAttackData.HitstunTime);
         OtherAssociatedActor?.EffectManagerComponent.ApplyEffect(HitstunEffect);
+        OtherMovement?.SetIsRight(OtherAssociatedActor.GetPosition().x - GetActorPosition().x < 0, true);
         
         OtherDamageComponent.TakeDamage(DefaultAttackData);
         EHPlayerController PlayerController = GetGameInstance().PlayerController;

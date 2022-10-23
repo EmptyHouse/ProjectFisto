@@ -220,7 +220,7 @@ public class EHMovementComponent : EHCharacterComponent
     }
     #endregion jumping mechanics
 
-    private void SetIsRight(bool IsRight, bool ForceDirection = false)
+    public void SetIsRight(bool IsRight, bool ForceDirection = false)
     {
         if (IgnorePlayerInput && !ForceDirection) return;
         
